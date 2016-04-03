@@ -1,6 +1,13 @@
 <?php
 class Pages extends CI_Controller {
 
+        public function __construct()
+        {
+                parent::__construct();
+                $this->load->model('news_model');
+                $this->load->helper('url_helper');
+        }
+
 	public function view($page = 'home')
 	{
 	        if ( ! file_exists(APPPATH.'/views/pages/'.$page.'.php'))
@@ -11,8 +18,20 @@ class Pages extends CI_Controller {
 
 	        $data['title'] = ucfirst($page); // Capitalize the first letter
 
-	        $this->load->view('templates/header', $data);
+	       	$this->load->view('templates/header', $data);
 	        $this->load->view('pages/'.$page, $data);
 	        $this->load->view('templates/footer', $data);
+	}
+
+	public function result($page = '/result'){
+		$data['actor'] = $this->Movie_Model->get_actor();
+            if (empty($data['news_item']))
+            {
+                    show_404();            
+            }
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('news/view', $data);
+        $this->load->view('templates/footer');
 	}
 }
