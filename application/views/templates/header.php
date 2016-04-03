@@ -30,7 +30,7 @@
 
 </head>
  
-<body id="page-top" class="index">
+<!-- <body id="page-top" class="index"> -->
 
 
 <div>
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Movie Database</a>
+                <a class="navbar-brand" href= <?php echo base_url() ?> >Movie Database</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -70,3 +70,4 @@
         <!-- /.container-fluid -->
     </nav>
 </div>
+<br>
