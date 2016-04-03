@@ -74,14 +74,23 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
+<<<<<<< HEAD
 	'dsn'	=> 'pgsql:host=localhost;port=5432;dbname=movie ;user=postgres;password=',
 	'hostname' => 'localhost',
 	'username' => 'demorole',
 	'password' => 'password1',
 	'database' => 'movie',
 	'dbdriver' => 'pdo',
+=======
+	'dsn'	   => '',
+	'hostname' => 'localhost',
+	'username' => 'Admin',
+	'password' => 'password',
+	'database' => 'postgres',
+	'dbdriver' => 'postgre',
+>>>>>>> e1a9a14ba777879373636fbbed1cb252fe079bf2
 	'dbprefix' => '',
-	'pconnect' => FALSE,
+	'pconnect' => TRUE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
@@ -95,3 +104,5 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+$db['default']['port'] = 5432; 
+$db['default']['schema'] = 	'public';
