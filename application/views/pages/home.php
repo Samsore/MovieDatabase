@@ -1,7 +1,19 @@
     <!--Load Formhelper library-->
     <?php $this->load->helper('form'); ?>
 <div>
+    <br>
+    <br>
+            <?php echo form_open('home'); ?>
 
+            <label for="title">Search</label>
+            <input type="input" name="search" /><br />
+
+            <label for="text">Text</label>
+            <textarea name="text"></textarea><br />
+
+            <input type="submit" name="submit" value="Search movie:" />
+
+        </form>
 </div>
 
     <!-- Header -->
