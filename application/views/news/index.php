@@ -1,3 +1,4 @@
+<div>
 <br>
 <h2><?php echo $title; ?></h2>
 <br>
@@ -19,3 +20,4 @@
         <p><a href="<?php echo site_url('news/'.$news_item['slug']); ?>">View article</a></p>
         <p>test text 1</p>
 <?php endforeach; ?>
+</div>

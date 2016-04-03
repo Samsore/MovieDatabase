@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="footer-col col-md-4">
                         <h3>Location</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                        <p>University of Ottawa<br>CSI 2132<br>April 2016</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Around the Web</h3>
@@ -28,8 +28,10 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                        <h3>About</h3>
+                        <p>Matthew Tam</p>
+                        <p>Samsore Shams</p>
+                        <p>Tayo Odueke</p>
                     </div>
                 </div>
             </div>
