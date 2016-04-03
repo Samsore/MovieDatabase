@@ -1,5 +1,5 @@
 
-
+ <?php header('Access-Control-Allow-Origin: *');?> 
 <head>
     <link rel="shortcut icon" href="/dep/images/favicon.ico" type="image/x-icon" />
     <meta charset="utf-8">
@@ -17,7 +17,7 @@
     <link href=<?php echo base_url("dep/css/freelancer.css")?> rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href=<?php echo base_url("font-awesome/css/font-awesome.min.css")?> rel="stylesheet" type="text/css">
+    <link href=<?php echo base_url("/dep/font-awesome/css/font-awesome.min.css")?> rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -29,10 +29,11 @@
     <![endif]-->
 
 </head>
-<!-- 
+ 
 <body id="page-top" class="index">
- -->
- <div>
+
+
+<div>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -54,13 +55,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio"><i class="fa fa-sign-in fa-2x"></i></a>
+                        <a href="#portfolio"><i class="fa fa-sign-in fa-2x"></i>    Sign In</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#about"><i class="fa fa-user fa-2x"></i>    Profile</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                        <a href="#contact"><i class="fa fa-envelope fa-2x"></i>    Contact Us</a>
                     </li>
                 </ul>
             </div>
@@ -68,4 +69,4 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
+</div>

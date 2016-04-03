@@ -80,9 +80,11 @@ hr.star-primary:after {
 }
 
 header {
+    /*Jumbotron color scheme*/
     text-align: center;
     color: #fff;
     background: #18bc9c;
+
 }
 
 header .container {

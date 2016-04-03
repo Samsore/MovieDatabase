@@ -1,5 +1,15 @@
+<br>
 <h2><?php echo $title; ?></h2>
+<br>
+<?php foreach ($randNews as $row)
+{
+   echo $row['title'], "\r\n";
+   echo $row['slug'];
+   echo $row['text'];
+   echo 'rand row';
 
+}
+ ?>
 <?php foreach ($news as $news_item): ?>
 
         <h3><?php echo $news_item['title']; ?></h3>
