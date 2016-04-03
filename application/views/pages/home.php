@@ -1,29 +1,36 @@
     <!--Load Formhelper library-->
     <?php $this->load->helper('form'); ?>
-<div>
-    <br>
-    <br>
-            <?php echo form_open('home'); ?>
 
-            <label for="title">Search</label>
-            <input type="input" name="search" /><br />
-
-            <label for="text">Text</label>
-            <textarea name="text"></textarea><br />
-
-            <input type="submit" name="submit" value="Search movie:" />
-
-        </form>
-</div>
 
     <!-- Header -->
     <header>
+    <div  class="container">
+        <div class="row">
+            <div class='col-lg-12' >
+                <?php echo form_open('pages/result'); 
 
-        <div class="container">
+                  $data = array(
+                  'name'        => 'search',
+                  'id'          => 'search_bar',
+                  'value'       => '',
+                  'maxlength'   => '100',
+                  'size'        => '50',
+                  'style'       => 'width:100%; height:40px',
+                  'placeholder' => 'search',
+                );
+                ?>
+                <p style="color:black">
+                <?php echo form_input($data);?>
+            </p>
+                <?php echo form_submit('search_submit', 'Submit'); ?>
+                <?php echo form_close() ?>
+            </div>
+        </div>
+                <hr class="star-light">
             <div class="row">
                 <div class="intro-text">
                     <span class="name">New Releases</span>
-                    <hr class="star-light">
+
                 </div>
                 <div class="col-lg-12">
                     <?php foreach($movie as $movie_item): ?>
@@ -34,19 +41,8 @@
                             <p><?php echo $movie_item['description']?></p>
                         </div>
                     <?php endforeach; ?>
-                    
-
-
-
-
-<!--                     <div class="intro-text">
-                        <span class="name"> Movie Database</span>
-                        <hr class="star-light">
-                        <span class="skills">Best Movie Database NA EU KR SEA BR</span>
-                    </div> -->
                 </div>
             </div>
         </div>
-    </header>
-    <div>
-</div>
+        </header>
+    </div>

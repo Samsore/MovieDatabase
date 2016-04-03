@@ -6,6 +6,7 @@ class Pages extends CI_Controller {
                 parent::__construct();
                 $this->load->model('home_model');
                 $this->load->helper('url_helper');
+                $this->load->helper('form');
         }
 
 	public function view($page = 'home')
@@ -26,8 +27,14 @@ class Pages extends CI_Controller {
 	        $this->load->view('templates/footer', $data);
 	}
 
-
-
+	public function result(){
+		$search_term = $this->input->post('search');
+		$data['results'] = $this->home_model->get_results($search_term);
+        // Pass the results to the view.
+       	$this->load->view('templates/header', $data);
+        $this->load->view('pages/result',$data);
+	    $this->load->view('templates/footer', $data);
+	}
 
 	// public function result($page = '/result'){
 	// 	$data['actor'] = $this->Movie_Model->get_actor();
