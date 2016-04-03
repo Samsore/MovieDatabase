@@ -7,7 +7,7 @@ class Home_model extends CI_Model {
         }
 
         public function rand_movie(){
-                $query = $this->db->query('SELECT * FROM movie ORDER BY RANDOM() LIMIT 3');
+                $query = $this->db->query("SELECT * FROM movie WHERE released > '2016-01-01' ORDER BY RANDOM() LIMIT 3 ");
                 return $query->result_array();
         }
 
