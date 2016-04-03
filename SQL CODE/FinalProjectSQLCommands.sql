@@ -111,7 +111,30 @@ CREATE TABLE Sponsors
 (
 StudioID INTEGER,
 MovieID INTEGER,
-Primary KEY (StudioID, MovieID),
 FOREIGN KEY (StudioID) REFERENCES Studio (StudioID),
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
+
+CREATE TABLE Actor_Movie
+(
+ActorID INTEGER
+MovieID INTEGER
+FOREIGN KEY (ActorID) REFERENCES Actor (ActorID)
+FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
+)
+
+CREATE TABLE Director_Movie
+(
+DirectorID INTEGER
+MovieID INTEGER
+FOREIGN KEY (DirectorID) REFERENCES Director (DirectorID)
+FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
+)
+
+CREATE TABLE User_Movie
+(
+UserID INTEGER
+MovieID INTEGER
+FOREIGN KEY (UserID) REFERENCES UserAccount (UserID)
+FOREIGN KEY (MovieID) REFERENCES MovieID (MovieID)
+)
