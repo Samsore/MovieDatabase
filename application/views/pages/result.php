@@ -1,16 +1,36 @@
 
-<div>
-	<div  class="container">
+<style>
+div.searchbox {
+    background-color:#e7e7e7;
+    color:black;
+    margin:20px;
+    padding:20px;
+} 
+</style>
 	<br>
 	<br>
 	<br>
 	<br>
 	<br>
-	<br>
+	<div class="container">
+	<h1>Search Results</h1>
 
 	<?php foreach ($results as $val): ?>
-		<?php echo $val['name']?>
+
+		<div class="searchbox">
+			<h3><a href =<?php echo base_url().'pages/movie/'.$val['name']?> > <?php echo $val['name']?> </a></h3>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="col-lg-4">
+						<!-- REPLACE WITH ACTUAL PICTURE SLUG WHEN AVAILABLE -->
+                            <img class="img-responsive" src= <?php echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?> alt="">
+					</div>
+					<div class="col-lg-8">
+						<?php echo $val['description']?>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	<?php endforeach; ?>
-	</div>
 </div>

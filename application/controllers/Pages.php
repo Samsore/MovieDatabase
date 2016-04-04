@@ -34,17 +34,16 @@ class Pages extends CI_Controller {
        	$this->load->view('templates/header', $data);
         $this->load->view('pages/result',$data);
 	    $this->load->view('templates/footer', $data);
+	    if (empty($data['results']))
+            {
+                    show_404();            
+            }
 	}
 
-	// public function result($page = '/result'){
-	// 	$data['actor'] = $this->Movie_Model->get_actor();
- //            if (empty($data['news_item']))
- //            {
- //                    show_404();            
- //            }
-
- //        $this->load->view('templates/header', $data);
- //        $this->load->view('news/view', $data);
- //        $this->load->view('templates/footer');
-	// }
+	public function movie($search_term){
+		$data['results'] = $this->home_model->get_results($search_term);	
+       	$this->load->view('templates/header', $data);
+        $this->load->view('pages/movie',$data);
+	    $this->load->view('templates/footer', $data);
+	}
 }
