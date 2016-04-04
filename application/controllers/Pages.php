@@ -33,18 +33,7 @@ class Pages extends CI_Controller {
         // Pass the results to the view.
        	$this->load->view('templates/header', $data);
         $this->load->view('pages/result',$data);
-	    $this->load->view('templates/footer', $data);
+	$this->load->view('templates/footer', $data);
 	}
 
-	// public function result($page = '/result'){
-	// 	$data['actor'] = $this->Movie_Model->get_actor();
- //            if (empty($data['news_item']))
- //            {
- //                    show_404();            
- //            }
-
- //        $this->load->view('templates/header', $data);
- //        $this->load->view('news/view', $data);
- //        $this->load->view('templates/footer');
-	// }
 }
