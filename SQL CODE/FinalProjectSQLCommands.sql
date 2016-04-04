@@ -142,241 +142,398 @@ FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 INSERT INTO Movie (Name, Length, released, description) values ('The Revenant', 156, '1/8/2016', 'A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('DiCaprio', 'Leo', '11/11/1974');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hardy', 'Tom', '9/15/1977');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Gleeson', 'Domhall', '//');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Poulter', 'Will', '//');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Gleeson', 'Domhall', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Poulter', 'Will', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'G. Iñárritu' , 'Alejandro', 'Mexico');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'DiCaprio' AND Movie.name = 'The Revenant';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hardy' AND Movie.name = 'The Revenant';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Gleeson' AND Movie.name = 'The Revenant';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Poulter' AND Movie.name = 'The Revenant';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'G. Iñárritu' AND Movie.name = 'The Revenant';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('Batman Vs. Superman', 151, '3/25/2016', 'Fearing that the actions of Superman are left unchecked, Batman takes on the Man of Steel, while the world wrestles with what kind of a hero it really needs.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Affleck', 'Ben', '8/15/1972');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Cavill', 'Henry', '5/5/1983');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Adams', 'Amy', '8/20/1974');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Eisenberg', 'Jesse', '10/5/1983');
+INSERT INTO Director (lname, fname,country) values ( 'Snyder' , 'Zack', 'United States'); 
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Affleck' AND Movie.name = 'Batman Vs.Superman';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Cavill' AND Movie.name = 'Batman Vs.Superman';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Adams' AND Movie.name = 'Batman Vs.Superman';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Eisenberg' AND Movie.name = 'Batman Vs.Superman';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Snyder' AND Movie.name = 'Batman Vs.Superman';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('Zootopia', 108, '3/4/2016', 'In a city of anthropomorphic animals, a rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Goodwin', 'Ginnifer', '//');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Bateman', 'Jason', '//');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Elba', 'Idris', '//');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Slate', 'Jenny', '//');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Goodwin', 'Ginnifer', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Bateman', 'Jason', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Elba', 'Idris', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Slate', 'Jenny', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Howard' , 'Byron', 'United States'); 
+INSERT INTO Director (lname, fname,country) values ( 'Moore' , 'Rich', 'United States'); 
+INSERT INTO Director (lname, fname,country) values ( 'Bush' , 'Jared', 'United States');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Goodwin' AND Movie.name = 'Zootopia';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Bateman' AND Movie.name = 'Zootopia';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Elba' AND Movie.name = 'Zootopia';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Slate' AND Movie.name = 'Zootopia';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Howard' AND Movie.name = 'Zootopia';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Moore' AND Movie.name = 'Zootopia';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Bush' AND Movie.name = 'Zootopia';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('10 Cloverfield Lane', 103, '3/11/2016', 'After getting in a car accident, a woman is held in a shelter with two men, who claim the outside world is affected by a widespread chemical attack.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Goodman', 'John', '5/20/1952');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Elizabeth-Winstead', 'Mary', '5/20/1952');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Gallagher', 'John', '5/20/1952');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Cooper', 'Bradley', '5/20/1952');
+INSERT INTO Director (lname, fname,country) values ( 'Trachtenberg' , 'Dan', 'United States'); 
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Goodman' AND Movie.name = '10 Cloverfield Lane';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Elizabeth-Winstead' AND Movie.name = '10 Cloverfield Lane';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Gallagher' AND Movie.name = '10 Cloverfield Lane';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Cooper' AND Movie.name = '10 Cloverfield Lane';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Trachtenberg' AND Movie.name = '10 Cloverfield Lane';
 
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Witch', 93, '2/19/2016', 'A family in 1630s New England is torn apart by the forces of witchcraft, black magic and possession.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Taylor-Joy', 'Anya', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Ineson', 'Ralph', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Dickie', 'Kate', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Scrimshaw', 'Harvey', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Taylor-Joy', 'Anya', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Ineson', 'Ralph', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Dickie', 'Kate', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Scrimshaw', 'Harvey', '9999/1/1');
+INSERT INTO Director (lname, fname, country) values ('Eggers', 'Robert', 'United States');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Taylor-Joy' AND Movie.name = 'The Witch';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Ineson' AND Movie.name = 'The Witch';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Dickie' AND Movie.name = 'The Witch';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Scrimshaw' AND Movie.name = 'The Witch';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Eggers' AND Movie.name = 'The Witch';
 
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Brothers Grimsby', 83, '3/11/2016', 'A new assignment forces a top spy to team up with his football hooligan brother.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Baron Coheb', 'Sasha', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Wilson', 'Rebel', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Strong', 'Mark', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Fisher', 'Isla', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Baron Cohen', 'Sasha', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Wilson', 'Rebel', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Strong', 'Mark', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Fisher', 'Isla', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Leterrier' , 'Louis', 'France');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Baron Cohen' AND Movie.name = 'The Brothers Grimsby';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Wilson' AND Movie.name = 'The Brothers Grimsby';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Strong' AND Movie.name = 'The Brothers Grimsby';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Fisher' AND Movie.name = 'The Brothers Grimsby';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Leterrier' AND Movie.name = 'The Brothers Grimsby';
 
-INSERT INTO Movie (Name, Length, released, description) values ('Dirty Gramdpa', 102, '1/22/2016', 'Right before his wedding, an uptight guy is tricked into driving his grandfather, a lecherous former Army Lieutenant-Colonel, to Florida for spring break.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Efron', 'Zac', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Plaza', 'Aubrey', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Deutch', 'Zoey', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('De niro', 'Robert', '8/17/1943');
+
+INSERT INTO Movie (Name, Length, released, description) values ('Dirty Grandpa', 102, '1/22/2016', 'Right before his wedding, an uptight guy is tricked into driving his grandfather, a lecherous former Army Lieutenant-Colonel, to Florida for spring break.');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Efron', 'Zac', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Plaza', 'Aubrey', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Deutch', 'Zoey', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('De Niro', 'Robert', '8/17/1943');
+INSERT INTO Director (lname, fname,country) values ( 'Mazer' , 'Dan', 'United States');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Effron' AND Movie.name = 'Dirty Granpa';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Plaza' AND Movie.name = 'Dirty Granpa';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Deutch' AND Movie.name = 'Dirty Granpa';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'De Niro' AND Movie.name = 'Dirty Granpa';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Mazer' AND Movie.name = 'Dirty Grandpa';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('Ride Along 2', 102, '1/15/2016', 'As his wedding day approaches, Ben heads to Miami with his soon-to-be brother-in-law James to bring down a drug dealer whos supplying the dealers of Atlanta with product.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Jackson', 'O''Shea', '6/15/1969');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Hart', 'Kevin', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Sumpter', 'Tika', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Bratt', 'Benjamin', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Hart', 'Kevin', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Sumpter', 'Tika', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Bratt', 'Benjamin', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Story' , 'Tim', 'United States');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Jackson' AND Movie.name = 'Ride Along 2';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hart' AND Movie.name = 'Ride Along 2';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Sumpter' AND Movie.name = 'Ride Along 2';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Bratt' AND Movie.name = 'Ride Along 2';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Story' AND Movie.name = 'Ride Along 2';
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('Daddy''s is Home', 96, '12/25/2015', 'Stepdad, Brad Whitaker, is a radio host trying to get his stepchildren to love him and call him Dad. But his plans turn upside down when the biological father, Dusty Mayron, returns.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Ferrel', 'Will', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Wahlberg', 'Mark', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Cardellini', 'Linda', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Vaccaro', 'Owen', '///');
+INSERT INTO Movie (Name, Length, released, description) values ('Daddy''s Home', 96, '12/25/2015', 'Stepdad, Brad Whitaker, is a radio host trying to get his stepchildren to love him and call him Dad. But his plans turn upside down when the biological father, Dusty Mayron, returns.');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Ferrel', 'Will', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Wahlberg', 'Mark', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Cardellini', 'Linda', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Vaccaro', 'Owen', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Anders' , 'Sean', 'United States');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Ferrel' AND Movie.name = 'Daddy''s Home';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Wahlberg' AND Movie.name = 'Daddy''s Home';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Cardellini' AND Movie.name = 'Daddy''s Home';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Varccaro' AND Movie.name = 'Daddy''s Home';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Anders' AND Movie.name = 'Daddy''s Home';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Hunger Games: Mockingjay - Part 2', 137, '11/20/2015', 'As the war of Panem escalates to the destruction of other districts, Katniss Everdeen, the reluctant leader of the rebellion, must bring together an army against President Snow, while all she holds dear hangs in the balance.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Lawrence', 'Jennifer', '8/15/1990');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Hutcherson', 'Josh', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Hemsworth', 'Liam', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Harrelson', 'Woody', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Hutcherson', 'Josh', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Hemsworth', 'Liam', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Harrelson', 'Woody', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Lawrence' , 'Francis', 'Austria');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON (Actor.lname = 'Lawrence' AND Actor.fname = 'Jennifer') AND Movie.name = 'The Hunger Games: Mockingjay - Part 2';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hutcherson' AND Movie.name = 'The Hunger Games: Mockingjay - Part 2';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hemsworth' AND Movie.name = 'The Hunger Games: Mockingjay - Part 2';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Harrelson' AND Movie.name = 'The Hunger Games: Mockingjay - Part 2';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Lawrence' AND Movie.name = 'The Hunger Games: Mockingjay - Part 2';
 
 
 INSERT INTO Movie (Name, Length, released, description) values ('Divergent', 139, '3/21/2014', 'In a world divided by factions based on virtues, Tris learns she''s Divergent and won''t fit in. When she discovers a plot to destroy Divergents, Tris and the mysterious Four must find out what makes Divergents dangerous before it''s too late.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Woodley', 'Shailene', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('James', 'Theo', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Judd', 'Ashley', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Courtney', 'Jai', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Woodley', 'Shailene', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('James', 'Theo', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Judd', 'Ashley', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Courtney', 'Jai', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Burger' , 'Neil', 'United States');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Woodley' AND Movie.name = 'Divergent';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'James' AND Movie.name = 'Divergent';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Judd' AND Movie.name = 'Divergent';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Courtney' AND Movie.name = 'Divergent';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Burger' AND Movie.name = 'Divergent';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('Maze Runner: The Scorch Trials', 132, '9/18/2015', 'After having escaped the Maze, the Gladers now face a new set of challenges on the open roads of a desolate landscape filled with unimaginable obstacles.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('O''Brien', 'Dylan', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Hong Lee', 'Ki', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Scoldelario', 'Kaya', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Darden', 'Dexter', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('O''Brien', 'Dylan', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Hong Lee', 'Ki', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Scoldelario', 'Kaya', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Darden', 'Dexter', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Ball' , 'Wes', 'United States');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'O''Brien' AND Movie.name = 'Maze Runner: The Scorch Trials';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hong Lee' AND Movie.name = 'Maze Runner: The Scorch Trials';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Scolderlario' AND Movie.name = 'Maze Runner: The Scorch Trials';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Darden' AND Movie.name = 'Maze Runner: The Scorch Trials';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Ball' AND Movie.name = 'Maze Runner: The Scorch Trials';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('American History X', 119, '11/20/1998', 'A former neo-nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Norton', 'Edward', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Furlong', 'Edward', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Lien', 'Jennifer', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Brooks', 'Edward', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Norton', 'Edward', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Furlong', 'Edward', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Lien', 'Jennifer', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Brooks', 'Edward', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Kaye' , 'Tony', 'United Kingdom');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Norton' AND Movie.name = 'American History X';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Furlong' AND Movie.name = 'American History X';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Lien' AND Movie.name = 'American History X';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Brooks' AND Movie.name = 'American History X';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Kaye' AND Movie.name = 'American History X';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('Fight Club', 139, '08/15/1999', 'An insomniac office worker, looking for a way to change his life, crosses paths with a devil-may-care soap maker, forming an underground fight club that evolves into something much, much more... ');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Bonham Carter', 'Helena', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Loaf', 'Meat', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Bonham Carter', 'Helena', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Loaf', 'Meat', '9999/1/1');
 -- Brad Pitt and Edward Norton Already Added
+INSERT INTO Director (lname, fname,country) values ( 'Fincher' , 'David', 'United States');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Bonham Carter' AND Movie.name = 'Fight Club';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Pitt' AND Movie.name = 'Fight Club';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Norton' AND Movie.name = 'Fight Club';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Loaf' AND Movie.name = 'Fight Club';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Fincher' AND Movie.name = 'Fight Club';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('Pulp Fiction', 154, '10/14/1994', 'The lives of two mob hit men, a boxer, a gangster''s wife, and a pair of diner bandits intertwine in four tales of violence and redemption.  ');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Roth', 'Tim', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('L. Jackson', 'Samuel', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Willis', 'Bruce', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('John', 'Travolta', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Roth', 'Tim', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('L. Jackson', 'Samuel', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Willis', 'Bruce', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Travolta', 'John', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Tarantino' , 'Quentin', 'United States');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Roth' AND Movie.name = 'Pulp Fiction';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'L. Jackson' AND Movie.name = 'Pulp Fiction';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Willis' AND Movie.name = 'Pulp Fiction';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Travolta' AND Movie.name = 'Pulp Fiction';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Tarantino' AND Movie.name = 'Pulp Fiction';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('Django Unchained ', 165, '12/25/2012', 'With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Foxx', 'Jamie', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Waltz', 'Christoph', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Foxx', 'Jamie', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Waltz', 'Christoph', '9999/1/1');
 -- Samuel L. Jackson and Leonardo Dicaprio Already added
+-- Q.T added already
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Foxx' AND Movie.name = 'Django Unchained';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'L.Jackson' AND Movie.name = 'Django Unchained';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Waltz' AND Movie.name = 'Django Unchained';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'DiCaprio' AND Movie.name = 'Django Unchained';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Tarantino' AND Movie.name = 'Django Unchained';
 
-INSERT INTO Movie (Name, Length, released, description) values ('Inglourious Basterds', 153, '08/21/2009', 'In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner''s vengeful plans for the same.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Fassbender', 'Michael', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Roth', 'Eli', '///');
+
+
+INSERT INTO Movie (Name, Length, released, description) values ('Inglourious Bastards', 153, '08/21/2009', 'In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner''s vengeful plans for the same.');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Fassbender', 'Michael', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Roth', 'Eli', '9999/1/1');
 -- Brad Pitt and Cristoph Waltz Already Added
+-- Q.T added already
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Roth' AND Movie.name = 'Inglorious Bastards';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Fassbender' AND Movie.name = 'Inglorious Bastards';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Pitt' AND Movie.name = 'Inglorious Bastards';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Waltz' AND Movie.name = 'Inglorious Bastards';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Tarantino' AND Movie.name = 'Inglorious Bastards';
+
 
 INSERT INTO Movie (Name, Length, released, description) values ('Se7en', 127, '9/22/1995', 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his modus operandi. ');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Pitt', 'Brad', '12/18/1963');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Freeman', 'Morgan', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Spacey', 'Kevin', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Paltrow', 'Gwyneth', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Freeman', 'Morgan', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Spacey', 'Kevin', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Paltrow', 'Gwyneth', '9999/1/1');
+-- David Fincher added already
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Pitt' AND Movie.name = 'Se7en';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Freeman' AND Movie.name = 'Se7en';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Spacey' AND Movie.name = 'Se7en';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Paltrow' AND Movie.name = 'Se7en';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Fincher' AND Movie.name = 'Se7en';
 
 
 INSERT INTO Movie (Name, Length, released, description) values ('Silver Linings Playbook', 122, '12/25/2012', 'After a stint in a mental institution, former teacher Pat Solitano moves back in with his parents and tries to reconcile with his ex-wife. Things get more challenging when Pat meets Tiffany, a mysterious girl with problems of her own.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Tucker', 'Chris', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Tucker', 'Chris', '9999/1/1');
 --Robert Deniro Jennifer Lawrence, Bradley Cooper Already added
+INSERT INTO Director (lname, fname,country) values ( 'O''Russell' , 'David', 'United States');
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Tucker' AND Movie.name = 'Silver Linings Playbook';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Cooper' AND Movie.name = 'Silver Linings Playbook';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'De Niro' AND Movie.name = 'Silver Linings Playbook';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON (Actor.lname = 'Lawrence' AND Actor.fname = 'Jennifer') AND Movie.name = 'Silver Linings Playbook';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'O''Russell' AND Movie.name = INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Fincher' AND Movie.name = 'Se7en';
+';
 
 INSERT INTO Movie (Name, Length, released, description) values ('Life of Pi', 127, '11/21/2012', 'A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery. While cast away, he forms an unexpected connection with another survivor: a fearsome Bengal tiger.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Sharma', 'Suraj', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Khan', 'Irrfan', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Depardieu', 'Gerard', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Saito', 'James', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Sharma', 'Suraj', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Khan', 'Irrfan', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Depardieu', 'Gerard', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Saito', 'James', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Lee' , 'Ang', 'Taiwan');
 
 INSERT INTO Movie (Name, Length, released, description) values ('Argo', 120, '10/12/2012', 'Acting under the cover of a Hollywood producer scouting a location for a science fiction film, a CIA agent launches a dangerous operation to rescue six Americans in Tehran during the U.S. hostage crisis in Iran in 1980.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Cranston', 'Bryan', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Arkin', 'Alan', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Cranston', 'Bryan', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Arkin', 'Alan', '9999/1/1');
 -- Ben Affleck, John Goodman
+INSERT INTO Director (lname, fname,country) values ( 'Affleck' , 'Ben', 'United States');
 
 INSERT INTO Movie (Name, Length, released, description) values ('Gravity', 91, '10/4/2013', 'A medical engineer and an astronaut work together to survive after an accident leaves them adrift in space.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Bullock', 'Sandra', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Clooney', 'George', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Harris', 'Ed', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Sharma', 'Phaldut', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Bullock', 'Sandra', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Clooney', 'George', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Harris', 'Ed', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Sharma', 'Phaldut', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Cuaron' , 'Alfonso', 'Mexico');
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Hurt Locker', 131, '7/31/2008', 'During the Iraq War, a Sergeant recently assigned to an army bomb squad is put at odds with his squad mates due to his maverick way of handling his work.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Renner', 'Jeremey', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Pearce', 'Guy', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Fiennes', 'Ralph', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Morse', 'David', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Renner', 'Jeremey', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Pearce', 'Guy', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Fiennes', 'Ralph', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Morse', 'David', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Bigelow' , 'Kathryn',  'United States');
 
 INSERT INTO Movie (Name, Length, released, description) values ('No Country for Old Men', 122, '11/22/2007', 'Violence and mayhem ensue after a hunter stumbles upon a drug deal gone wrong and more than two million dollars in cash near the Rio Grande.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Lee Jones', 'Tommy', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Bardem', 'Javier', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Brolin', 'Josh', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Harrelson', 'Woody', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Lee Jones', 'Tommy', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Bardem', 'Javier', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Brolin', 'Josh', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Harrelson', 'Woody', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Coen' , 'Joel', 'United States');
+INSERT INTO Director (lname, fname,country) values ( 'Coen' , 'Ethan', 'United States');
 
 INSERT INTO Movie (Name, Length, released, description) values ('There Will Be Blood ', 158, '1/25/2008', 'A story of family, religion, hatred, oil and madness, focusing on a turn-of-the-century prospector in the early days of the business.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Day-Lewis', 'Daniel', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Dano', 'Paul', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Hinds', 'Ciaran', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('', '', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Day-Lewis', 'Daniel', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Dano', 'Paul', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Hinds', 'Ciaran', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Carver', 'Randall', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Thomas Anderson' , 'Paul', 'United States');
 
 INSERT INTO Movie (Name, Length, released, description) values ('Taxi Driver', 113, '2/8/1976', 'A mentally unstable Vietnam War veteran works as a night-time taxi driver in New York City where the perceived decadence and sleaze feeds his urge for violent action, attempting to save a preadolescent prostitute in the process.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Foster', 'Jodie', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Cybill', 'Shepard', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Brooks', 'Albert', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Foster', 'Jodie', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Cybill', 'Shepard', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Brooks', 'Albert', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Scorsese' , 'Martin', 'United States');
+
 -- Robert Deniro Already added
 
 INSERT INTO Movie (Name, Length, released, description) values ('Goodfellas', 146, '9/21/1990', 'Henry Hill and his friends work their way up through the mob hierarchy.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Liotta', 'Ray', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Pesci', 'Joe', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Bracco', 'Lorraine', '///');
--- Robert Denior already added
+INSERT INTO Actor (lname, fname, dateBirth) values ('Liotta', 'Ray', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Pesci', 'Joe', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Bracco', 'Lorraine', '9999/1/1');
+-- Robert De Niro already added
+-- Dir: Martin SCorsese already added
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Godfather: Part II', 202, '12/20/1974', 'The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Pacino', 'Al', '4/25/1940');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Duvall', 'Robert', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Keaton', 'Diane', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Duvall', 'Robert', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Keaton', 'Diane', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Ford Coppola' , 'Francis', 'United States');
 --Robert Deniro Alraedy added
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Godfather', 175, '3/24/1972', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Brando', 'Marlon', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Caan', 'James', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Brando', 'Marlon', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Caan', 'James', '9999/1/1');
 -- Robert De Niro and Alpacino already added
+-- Dir: Francis Ford already added
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Shawshank Redemption', 142, '10/14/1994', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Robbins', 'Tim', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Gunton', 'Rob', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Sadler', 'William', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Robbins', 'Tim', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Gunton', 'Rob', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Sadler', 'William', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Darabont' , 'Frank', 'United States');
+
 -- Morgan Freeman Already added
 
 INSERT INTO Movie (Name, Length, released, description) values ('Forrest Gump', 144, '7/6/1994', 'Forrest Gump, while not intelligent, has accidentally been present at many historic moments, but his true love, Jenny Curran, eludes him.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hanks', 'Tom', '7/9/1956');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Wright', 'Robin', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Sinse', 'Gary', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Field', 'Sally', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Wright', 'Robin', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Sinse', 'Gary', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Field', 'Sally', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Zemeckis' , 'Robert', 'United States');
 
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Matrix', 134, '3/31/1999', 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Reeves', 'Keanu', '9/2/1964');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Fishburne', 'Lawrence', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Weaving', 'Hugo', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Moss', 'Carrie-Anne', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Fishburne', 'Lawrence', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Weaving', 'Hugo', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Moss', 'Carrie-Anne', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Wachowski' , 'Lana', 'United States');
+INSERT INTO Director (lname, fname,country) values ( 'Wachowski' , 'Lilly', 'United States');
 
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Lord of the Rings: The Fellowship of the Ring', 178, '12/19/2001', 'A meek Hobbit and eight companions set out on a journey to destroy the One Ring and the Dark Lord Sauron.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Wood', 'Elijah', '//');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Bean', 'Sean', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Bloom', 'Orlando', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('McKellen', 'Ian', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Wood', 'Elijah', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Bean', 'Sean', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Bloom', 'Orlando', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('McKellen', 'Ian', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Jackson' , 'Peter', 'New Zealand');
 
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Lord of the Rings: The Two Towers', 179, '12/18/2002', 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron''s new ally, Saruman, and his hordes of Isengard.');
---Same as other LOTR
+--Same as other LOTR ^^
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Lord of the Rings: The Return of the King', 201, '12/17/2003', 'Gandalf and Aragorn lead the World of Men against Sauron''s army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.');
---Same as other LOTR
+--Same as other LOTR ^^
 
 INSERT INTO Movie (Name, Length, released, description) values ('Inception', 148, '7/16/2010', 'A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Gordon-Levitt', 'Joseph', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Page', 'Ellen', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Gordon-Levitt', 'Joseph', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Page', 'Ellen', '9999/1/1');
+INSERT INTO Director (lname, fname,country) values ( 'Nolan' , 'Christoper', 'United States');
 -- Hardy and Dicaprio
 
 INSERT INTO Movie (Name, Length, released, description) values ('Interstellar', 169, '11/7/2014', 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity''s survival.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('McConaughey', 'Matthew ', '11/4/1969');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Hathaway', 'Anne', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Castain', 'Jessica', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Foy', 'Mackenzie', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Hathaway', 'Anne', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Castain', 'Jessica', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Foy', 'Mackenzie', '9999/1/1');
+-- Dir: Christoper Nolan
 
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Wolf of Wall Street', 180, '12/25/2013', 'Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Hill', 'Jonah', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Robbie', 'Margot', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Hill', 'Jonah', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Robbie', 'Margot', '9999/1/1');
 --Leo and Matthew McConaughey
+-- Dir Scorsese
 
 INSERT INTO Movie (Name, Length, released, description) values ('Shutter Island', 138, '2/19/2010', 'A U.S Marshal investigates the disappearance of a murderess who escaped from a hospital for the criminally insane.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Ruffalo', 'Mark', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Kingsley', 'Ben', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Mortimer', 'Emily', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Ruffalo', 'Mark', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Kingsley', 'Ben', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Mortimer', 'Emily', '9999/1/1');
 --Leo
+-- Dir Scorsese
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Prestige', 130, '10/20/2006', 'Two stage magicians engage in competitive one-upmanship in an attempt to create the ultimate stage illusion.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Bale', 'Christian', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Jackman', 'Hugh', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Johansson', 'Scarlett', '///');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Hall', 'Rebecca', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Bale', 'Christian', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Jackman', 'Hugh', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Johansson', 'Scarlett', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Hall', 'Rebecca', '9999/1/1');
+-- Dir Nolan
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Departed', 151, '10/6/2006', 'An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Damon', 'Matt', '//');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Nicholson', 'Jack', '///');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Damon', 'Matt', '9999/1/1');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Nicholson', 'Jack', '9999/1/1');
 --Mark Wahlberg and Leo
+-- Dir: Scorsese
 
 
 
