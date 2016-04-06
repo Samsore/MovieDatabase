@@ -753,3 +753,10 @@ INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Mov
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (7, 41, 'English', true, 'United States');
 INSERT INTO Sponsors (StudioID, MovieID) values (1,41);
 
+SELECT Actor.lname, Actor.fname
+FROM Movie
+INNER JOIN Actor_Movie ON Movie.MovieID = Actor_Movie.MovieID INNER JOIN
+	Actor ON Actor_Movie.ActorID = Actor.ActorID
+WHERE Movie.MovieID = (Select MovieID 
+			FROM Movie
+			Where name = 'The Revenant');
