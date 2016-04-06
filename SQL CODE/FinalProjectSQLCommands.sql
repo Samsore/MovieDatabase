@@ -150,7 +150,7 @@ INSERT INTO Studio (name, country) values ('Walt Disney', 'United States');
 INSERT INTO Studio (name, country) values ('New Line Cinema', 'United States');
 
 INSERT INTO Movie (Name, Length, released, description) values ('The Revenant', 156, '1/8/2016', 'A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.');
-INSERT INTO Actor (lname, fname, dateBirth) values ('DiCaprio', 'Leo', '11/11/1974');
+INSERT INTO Actor (lname, fname, dateBirth) values ('DiCaprio', 'Leonardo', '11/11/1974');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hardy', 'Tom', '9/15/1977');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Gleeson', 'Domhall', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Poulter', 'Will', '9999/1/1');
@@ -753,10 +753,23 @@ INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Mov
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (7, 41, 'English', true, 'United States');
 INSERT INTO Sponsors (StudioID, MovieID) values (1,41);
 
-SELECT Actor.lname, Actor.fname
+
+--Find the Actors in a Movie
+SELECT lname, fname
 FROM Movie
 INNER JOIN Actor_Movie ON Movie.MovieID = Actor_Movie.MovieID INNER JOIN
 	Actor ON Actor_Movie.ActorID = Actor.ActorID
 WHERE Movie.MovieID = (Select MovieID 
 			FROM Movie
 			Where name = 'The Revenant');
+
+--Find the Movies an Actor is in
+Select Movie.name, Movie.released
+FROM Actor
+INNER JOIN Actor_Movie ON Actor.ActorID = Actor_Movie.ActorID INNER JOIN
+	Movie ON Actor_Movie.MovieID = Movie.MovieID
+WHERE Actor.ActorID = (Select ActorID
+			FROM Actor
+			WHERE lname = 'DiCaprio' AND fname = 'Leonardo');
+
+
