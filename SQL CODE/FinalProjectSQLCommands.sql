@@ -771,5 +771,14 @@ INNER JOIN Actor_Movie ON Actor.ActorID = Actor_Movie.ActorID INNER JOIN
 WHERE Actor.ActorID = (Select ActorID
 			FROM Actor
 			WHERE lname = 'DiCaprio' AND fname = 'Leonardo');
+			
+--Find the Director of a Movie
+SELECT lname, fname
+FROM Movie
+INNER JOIN Director_Movie ON Movie.MovieID = Director_Movie.MovieID INNER JOIN
+	Director ON Director_Movie.DirectorID = Director.DirectorID
+WHERE Movie.MovieID = (Select MovieID 
+			FROM Movie
+			Where name = 'The Revenant');
 
 
