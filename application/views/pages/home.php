@@ -36,7 +36,12 @@
                     <?php foreach($movie as $movie_item): ?>
                         <div class="col-lg-4">
                             <img class="img-responsive" src= <?php echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?> alt="">
-                            <h3><?php echo $movie_item['name'] ?></h3>
+
+                            <?php $encode_url = urlencode( $movie_item['name']) ?>
+                            <?php $encode_url = str_replace('+', '-', $encode_url);?>
+                            <h3 color="white"><a color="white" href =<?php echo base_url().'pages/movie/'. $encode_url?> > <h3 color="white"><?php echo $movie_item['name']?></h3> </a></h3>
+
+
                             <h6>Release Date: <?php echo $movie_item['released'] ?></h6>
                             <p><?php echo $movie_item['description']?></p>
                         </div>

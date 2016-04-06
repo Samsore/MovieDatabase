@@ -32,15 +32,19 @@ class Pages extends CI_Controller {
 		$data['results'] = $this->home_model->get_results($search_term);
         // Pass the results to the view.
        	$this->load->view('templates/header', $data);
-        $this->load->view('pages/result',$data);
-	    $this->load->view('templates/footer', $data);
-	    if (empty($data['results']))
-            {
-                    show_404();            
-            }
+
+	    if (empty($data['results'])){
+        	$this->load->view('pages/result/no_result',$data);     
+        }
+        else{
+        	$this->load->view('pages/result',$data);
+        }
+        $this->load->view('templates/footer', $data);
 	}
 
 	public function movie($search_term){
+		$search_term = str_replace('-', ' ', $search_term);
+		$search_term = urldecode($search_term);
 		$data['results'] = $this->home_model->get_results($search_term);	
        	$this->load->view('templates/header', $data);
         $this->load->view('pages/movie',$data);

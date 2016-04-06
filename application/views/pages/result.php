@@ -18,7 +18,9 @@ div.searchbox {
 	<?php foreach ($results as $val): ?>
 
 		<div class="searchbox">
-			<h3><a href =<?php echo base_url().'pages/movie/'.$val['name']?> > <?php echo $val['name']?> </a></h3>
+			<?php $encode_url = urlencode( $val['name']) ?>
+			<?php $encode_url = str_replace('+', '-', $encode_url);?>
+			<h3><a href =<?php echo base_url().'pages/movie/'. $encode_url ?> > <?php echo $val['name']?> </a></h3>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="col-lg-4">
