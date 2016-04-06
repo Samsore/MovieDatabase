@@ -90,6 +90,7 @@ $db['default'] = array(
 	'swap_pre' => '',
 	'encrypt' => FALSE,
 	'compress' => FALSE,
+	'port'=> 5432,
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE
