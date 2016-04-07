@@ -1,0 +1,19 @@
+find actors in the most movies
+
+
+SELECT actor m.num, 
+         COUNT(*) AS num_movies
+    FROM MOVIE m
+    JOIN Actor_Movie  AM ON AM.movieid = m.id
+    JOIN ACTOR        a  ON a.id = AM.actorid
+GROUP BY m.num
+ORDER BY num_movies DESC
+
+find movies 2 actors are in
+
+select movie 
+FROM MOVIE m Actor a1 ActorA2
+JOIN Actor_Movie  AM ON AM.movieid = m.id AND AM.actorID='fname' AND
+WHERE A.lname = 'DiCaprio' AND A1.fname = 'Leonardo' AND A.2name ='Hardy' AND A3.fname = 'Tom'
+
+    
