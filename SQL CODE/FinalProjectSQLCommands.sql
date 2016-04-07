@@ -396,11 +396,11 @@ INSERT INTO Actor (lname, fname, dateBirth) values ('Fassbender', 'Michael', '99
 INSERT INTO Actor (lname, fname, dateBirth) values ('Roth', 'Eli', '9999/1/1');
 -- Brad Pitt and Cristoph Waltz Already Added
 -- Q.T added already
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Roth' AND Movie.name = 'Inglorious Basterds';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Fassbender' AND Movie.name = 'Inglorious Basterds';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Pitt' AND Movie.name = 'Inglorious Basterds';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Waltz' AND Movie.name = 'Inglorious Basterds';
-INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Tarantino' AND Movie.name = 'Inglorious Basterds';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Roth' AND Movie.name = 'Inglourious Basterds';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Fassbender' AND Movie.name = 'Inglourious Basterds';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Pitt' AND Movie.name = 'Inglourious Basterds';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Waltz' AND Movie.name = 'Inglourious Basterds';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Tarantino' AND Movie.name = 'Inglourious Basterds';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (13, 17, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (6,17);
 
