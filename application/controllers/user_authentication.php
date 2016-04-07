@@ -1,6 +1,9 @@
 <?php
 
-session_start(); //we need to start session in order to access it through CI
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } //we need to start session in order to access it through CI
 
 Class User_Authentication extends CI_Controller {
 
@@ -64,7 +67,7 @@ $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_cle
 
 if ($this->form_validation->run() == FALSE) {
 if(isset($this->session->userdata['logged_in'])){
-$this->load->view('pages/admin_page');
+$this->load->view('admin_page');
 }else{
 $this->load->view('pages/login_form');
 }
@@ -109,5 +112,4 @@ $this->load->view('pages/login_form', $data);
 }
 
 }
-
 ?>
