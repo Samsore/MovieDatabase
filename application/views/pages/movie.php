@@ -39,8 +39,17 @@
 					<p><?php echo $val['description']?></p>
 					</div>
 					<div class="searchbox">
+						<h3>Directors</h3>
+						<hr/>
+						<?php foreach ($director as $director_val): ?>
+							<h4><?php echo $director_val['fname']?> <?php echo $director_val['lname']?></h4>
+							<br>
+						<?php endforeach; ?>
+					</div>
+
+					<div class="searchbox">
 						<h3>Actors</h3>
-						<br>
+						<hr/>
 						<?php foreach ($actors as $actor_val): ?>
 
 							<h4><?php echo $actor_val['fname']?> <?php echo $actor_val['lname']?></h4>
