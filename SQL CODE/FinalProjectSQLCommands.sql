@@ -298,7 +298,7 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hutcherson' AND Movie.name = 'The Hunger Games: Mockingjay Part 2';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hemsworth' AND Movie.name = 'The Hunger Games: Mockingjay Part 2';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Harrelson' AND Movie.name = 'The Hunger Games: Mockingjay Part 2';
-INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Lawrence' AND Movie.name = 'The Hunger Games: Mockingjay - Part 2';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Lawrence' AND Movie.name = 'The Hunger Games: Mockingjay Part 2';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (6, 10, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (9,10);
 
@@ -781,13 +781,10 @@ WHERE Movie.MovieID = (Select MovieID
 			FROM Movie
 			Where name = 'The Revenant');
 
---Find all movies where 2 actors worked together
-Select Movie.name, Movie.released
-FROM Actor a1, Actor a2
-INNER JOIN Actor_Movie ON a1.ActorID = Actor_Movie.ActorID AND a2.ActorID = Actor_Movie.ActorID INNER JOIN
-	Movie ON Actor_Movie.MovieID = Movie.MovieID
-WHERE a1.ActorID = (Select ActorID
-			FROM Actor
-			WHERE lname = 'DiCaprio' A);
-
-
+--Find the EXTRA info on the movie
+SELECT t.Description, languages, subtitles, country FROM MovieTopics mt, Topics t
+WHERE mt.MovieID = (Select MovieID
+				FROM Movie
+				Where name = 'Ride Along 2')
+	AND (mt.TopicID = t.TopicID); 
+			
