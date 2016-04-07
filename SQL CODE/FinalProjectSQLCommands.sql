@@ -249,10 +249,10 @@ INSERT INTO Actor (lname, fname, dateBirth) values ('Plaza', 'Aubrey', '9999/1/1
 INSERT INTO Actor (lname, fname, dateBirth) values ('Deutch', 'Zoey', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('De Niro', 'Robert', '8/17/1943');
 INSERT INTO Director (lname, fname,country) values ( 'Mazer' , 'Dan', 'United States');
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Effron' AND Movie.name = 'Dirty Granpa';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Plaza' AND Movie.name = 'Dirty Granpa';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Deutch' AND Movie.name = 'Dirty Granpa';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'De Niro' AND Movie.name = 'Dirty Granpa';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Effron' AND Movie.name = 'Dirty Grandpa';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Plaza' AND Movie.name = 'Dirty Grandpa';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Deutch' AND Movie.name = 'Dirty Grandpa';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'De Niro' AND Movie.name = 'Dirty Grandpa';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Mazer' AND Movie.name = 'Dirty Grandpa';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (2, 7, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (2,7);
@@ -780,5 +780,14 @@ INNER JOIN Director_Movie ON Movie.MovieID = Director_Movie.MovieID INNER JOIN
 WHERE Movie.MovieID = (Select MovieID 
 			FROM Movie
 			Where name = 'The Revenant');
+
+--Find all movies where 2 actors worked together
+Select Movie.name, Movie.released
+FROM Actor a1, Actor a2
+INNER JOIN Actor_Movie ON a1.ActorID = Actor_Movie.ActorID AND a2.ActorID = Actor_Movie.ActorID INNER JOIN
+	Movie ON Actor_Movie.MovieID = Movie.MovieID
+WHERE a1.ActorID = (Select ActorID
+			FROM Actor
+			WHERE lname = 'DiCaprio' A);
 
 
