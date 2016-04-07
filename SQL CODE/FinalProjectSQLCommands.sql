@@ -789,7 +789,7 @@ INNER JOIN Actor_Movie ON a1.ActorID = Actor_Movie.ActorID AND a2.ActorID = Acto
 WHERE a1.ActorID = (Select ActorID
 			FROM Actor
 			WHERE lname = 'DiCaprio' A);
---actors ordered by the numbe of movies they are in
+--actors ordered by the number of movies they are in
 SELECT lname,fname,
          COUNT(*) AS num_movies
     FROM MOVIE m
@@ -797,3 +797,10 @@ SELECT lname,fname,
     JOIN ACTOR        a  ON a.ActorID = AM.actorid
 GROUP BY lname, fname
 ORDER BY num_movies DESC, lname, fname  
+
+-- find movies 2 different actors are both in
+SELECT name 
+	FROM MOVIE m
+	JOIN Actor_Movie  AM1 ON AM1.movieid = m.MovieID JOIN Actor A1 ON AM1.actorID=a1.actorID
+	JOIN Actor_Movie  AM2 ON AM2.movieid = m.MovieID JOIN Actor A2 ON AM2.actorID=a2.actorID
+WHERE A1.lname = 'DiCaprio' AND A1.fname = 'Leonardo' AND A2.lname ='Hardy' AND A2.fname = 'Tom'
