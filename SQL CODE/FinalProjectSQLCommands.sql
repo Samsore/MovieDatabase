@@ -763,7 +763,7 @@ WHERE Movie.MovieID = (Select MovieID
 			FROM Movie
 			Where name = 'The Revenant');
 
---Find the Movies an Actor is in
+--Find the Movies a given Actor is in
 Select Movie.name, Movie.released
 FROM Actor
 INNER JOIN Actor_Movie ON Actor.ActorID = Actor_Movie.ActorID INNER JOIN
@@ -772,7 +772,7 @@ WHERE Actor.ActorID = (Select ActorID
 			FROM Actor
 			WHERE lname = 'DiCaprio' AND fname = 'Leonardo');
 			
---Find the Director of a Movie
+--Find the Director of a given Movie
 SELECT lname, fname
 FROM Movie
 INNER JOIN Director_Movie ON Movie.MovieID = Director_Movie.MovieID INNER JOIN
@@ -782,7 +782,6 @@ WHERE Movie.MovieID = (Select MovieID
 			Where name = 'The Revenant');
 
 
-			
 --Find all movies where 2 actors worked together
 Select Movie.name, Movie.released
 FROM Actor a1, Actor a2
@@ -798,14 +797,14 @@ SELECT lname,fname,
     JOIN Actor_Movie  AM ON AM.movieid = m.MovieID
     JOIN ACTOR        a  ON a.ActorID = AM.actorid
 GROUP BY lname, fname
-ORDER BY num_movies DESC, lname, fname  
+ORDER BY num_movies DESC, lname, fname;  
 
 -- find movies 2 different actors are both in
 SELECT name 
 	FROM MOVIE m
 	JOIN Actor_Movie  AM1 ON AM1.movieid = m.MovieID JOIN Actor A1 ON AM1.actorID=a1.actorID
 	JOIN Actor_Movie  AM2 ON AM2.movieid = m.MovieID JOIN Actor A2 ON AM2.actorID=a2.actorID
-WHERE A1.lname = 'DiCaprio' AND A1.fname = 'Leonardo' AND A2.lname ='Hardy' AND A2.fname = 'Tom'
+WHERE A1.lname = 'DiCaprio' AND A1.fname = 'Leonardo' AND A2.lname ='Hardy' AND A2.fname = 'Tom';
 
 -- find movies with a certain actor director pair
 SELECT name 
@@ -814,7 +813,7 @@ SELECT name
     JOIN ACTOR        a  ON a.ActorID = AM.actorid
     JOIN Director_Movie  DM ON DM.movieid = m.MovieID
     JOIN Director       d  ON d.DirectorID = DM.Directorid
-WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='G. Iñárritu' AND d.fname = 'Alejandro' 
+WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='G. Iñárritu' AND d.fname = 'Alejandro';
 
 
 --Find the EXTRA info on the movie
