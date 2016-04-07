@@ -1,10 +1,10 @@
-	<body background=<?php echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?>>
+	<body background=<?php echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?> bgproperties="fixed">
 	<style>
 	div.searchbox {
-	    background-color:#e7e7e7;
-	    color:black;
+	    color:white;
 	    margin:20px;
 	    padding:20px;
+	    background: rgba(0,0,0,0.5);
 	} 
 	</style>
 	<br>
@@ -15,9 +15,43 @@
 <div>
 
 	<?php foreach ($results as $val): ?>
-	<div class="searchbox">
-		<h1><?php echo $val['name']?></h1>
+
+	<div class="container"></div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="searchbox">
+					<h1 color= "white"> <?php echo $val['name']?></h1>
 		<!-- <img class="img-responsive" src= <?php// echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?> alt=""> -->
+				</div>
+
+				<div class="col-lg-8">
+					<div class="searchbox">
+						<h3>Description</h3>
+					<p><?php echo $val['description']?></p>
+					</div>
+					<div class="searchbox">
+						<h3>Actors</h3>
+						<?php foreach ($actors as $actor_val): ?>
+
+							<h4><?php echo $actor_val['fname']?> <?php echo $actor_val['lname']?></h4>
+							<br>
+						<?php endforeach; ?>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="searchbox">
+                        <img class="img-responsive" src= <?php echo base_url('dep/img/Movie/Batman_vs_Superman/Poster.jpg') ?> alt="">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="searchbox">
+					<h3> Comments</h3>
+				</div>
+			</div>
+		</div>
+	</div>	
+
 	<?php endforeach; ?>
 
 </div>

@@ -1,6 +1,14 @@
     <!--Load Formhelper library-->
     <?php $this->load->helper('form'); ?>
-
+    <style>
+    a,
+    a:hover,
+    a:focus,
+    a:active,
+    a.active {
+        outline: 0;
+        color: #ffffff;
+    }</style>
 
     <!-- Header -->
     <header>
@@ -34,12 +42,12 @@
                 </div>
                 <div class="col-lg-12">
                     <?php foreach($movie as $movie_item): ?>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4" style ='link=#ffffff'>
                             <img class="img-responsive" src= <?php echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?> alt="">
 
                             <?php $encode_url = urlencode( $movie_item['name']) ?>
                             <?php $encode_url = str_replace('+', '-', $encode_url);?>
-                            <h3 color="white"><a color="white" href =<?php echo base_url().'pages/movie/'. $encode_url?> > <h3 color="white"><?php echo $movie_item['name']?></h3> </a></h3>
+                            <h3><a href =<?php echo base_url().'pages/movie/'. $encode_url?> > <?php echo $movie_item['name']?> </a></h3>
 
 
                             <h6>Release Date: <?php echo $movie_item['released'] ?></h6>
