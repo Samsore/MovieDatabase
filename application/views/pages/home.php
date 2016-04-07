@@ -43,7 +43,9 @@
                 <div class="col-lg-12">
                     <?php foreach($movie as $movie_item): ?>
                         <div class="col-lg-4" style ='link=#ffffff'>
-                            <img class="img-responsive" src= <?php echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?> alt="">
+                            <?php $encode_url = urlencode( $movie_item['name']) ?>
+                            <?php $encode_url = str_replace('+', '_', $encode_url);?>
+                            <img class="img-responsive" src= <?php echo base_url().'dep/img/Movie/' . $encode_url.'/back.jpg' ?> alt="">
 
                             <?php $encode_url = urlencode( $movie_item['name']) ?>
                             <?php $encode_url = str_replace('+', '-', $encode_url);?>
