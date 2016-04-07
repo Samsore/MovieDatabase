@@ -789,5 +789,11 @@ INNER JOIN Actor_Movie ON a1.ActorID = Actor_Movie.ActorID AND a2.ActorID = Acto
 WHERE a1.ActorID = (Select ActorID
 			FROM Actor
 			WHERE lname = 'DiCaprio' A);
-
-
+--actors ordered by the numbe of movies they are in
+SELECT lname,fname,
+         COUNT(*) AS num_movies
+    FROM MOVIE m
+    JOIN Actor_Movie  AM ON AM.movieid = m.MovieID
+    JOIN ACTOR        a  ON a.ActorID = AM.actorid
+GROUP BY lname, fname
+ORDER BY num_movies DESC, lname, fname  
