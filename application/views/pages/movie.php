@@ -1,7 +1,7 @@
 	<?php foreach ($results as $val): ?>
 	<?php $encode_url = urlencode( $val['name']) ?>
 	<?php $encode_url = str_replace('+', '_', $encode_url);?>
-		<body background=<?php echo base_url().'dep/img/Movie' . $encode_url.'/back.jpg' ?> bgproperties="fixed">
+		<body background=<?php echo base_url().'dep/img/Movie/' . $encode_url.'/back.jpg' ?>>
 	<?php endforeach; ?>
 	<style>
 	div.searchbox {
@@ -10,6 +10,11 @@
 	    padding:20px;
 	    background: rgba(0,0,0,0.5);
 	} 
+	body {
+	    background-repeat: no-repeat;
+	    background-position: right top;
+	    background-attachment: fixed;
+	}
 	</style>
 	<br>
 	<br>
@@ -35,6 +40,7 @@
 					</div>
 					<div class="searchbox">
 						<h3>Actors</h3>
+						<br>
 						<?php foreach ($actors as $actor_val): ?>
 
 							<h4><?php echo $actor_val['fname']?> <?php echo $actor_val['lname']?></h4>
