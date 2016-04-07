@@ -41,4 +41,24 @@ class Home_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+     public function get_director($search_term='default'){
+
+        $this->db->select('movieid');
+        $this->db->from('movie');
+        $this->db->Where('name', $search_term);
+        // Execute the query.
+        $query = $this->db->get();
+        foreach ($query->result_array() as $actor_val){
+            $movie_id_val = $actor_val['movieid'];
+        }
+
+        $this->db->select('lname, fname');
+        $this->db->from('movie');
+        $this->db->join('director_movie', 'movie.movieid = director_movie.movieid','inner');
+        $this->db->join('director', 'director_movie.directorid = director.directorid', 'inner');
+        $this->db->Where('movie.movieid', $movie_id_val);
+        // Execute the query.
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
