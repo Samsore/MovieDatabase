@@ -815,3 +815,11 @@ SELECT name
     JOIN Director_Movie  DM ON DM.movieid = m.MovieID
     JOIN Director       d  ON d.DirectorID = DM.Directorid
 WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='G. Iñárritu' AND d.fname = 'Alejandro' 
+
+
+--Find the EXTRA info on the movie
+SELECT t.Description, languages, subtitles, country FROM MovieTopics mt, Topics t
+WHERE mt.MovieID = (Select MovieID
+				FROM Movie
+				Where name = 'Ride Along 2')
+	AND (mt.TopicID = t.TopicID); 
