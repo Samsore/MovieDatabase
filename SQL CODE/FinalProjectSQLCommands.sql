@@ -509,7 +509,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (5,24);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('There Will Be Blood ', 158, '1/25/2008', 'A story of family, religion, hatred, oil and madness, focusing on a turn-of-the-century prospector in the early days of the business.');
+INSERT INTO Movie (Name, Length, released, description) values ('There Will Be Blood', 158, '1/25/2008', 'A story of family, religion, hatred, oil and madness, focusing on a turn-of-the-century prospector in the early days of the business.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Day-Lewis', 'Daniel', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Dano', 'Paul', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hinds', 'Ciaran', '9999/1/1');
