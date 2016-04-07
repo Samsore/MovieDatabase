@@ -781,10 +781,37 @@ WHERE Movie.MovieID = (Select MovieID
 			FROM Movie
 			Where name = 'The Revenant');
 
---Find the EXTRA info on the movie
-SELECT t.Description, languages, subtitles, country FROM MovieTopics mt, Topics t
-WHERE mt.MovieID = (Select MovieID
-				FROM Movie
-				Where name = 'Ride Along 2')
-	AND (mt.TopicID = t.TopicID); 
+
 			
+--Find all movies where 2 actors worked together
+Select Movie.name, Movie.released
+FROM Actor a1, Actor a2
+INNER JOIN Actor_Movie ON a1.ActorID = Actor_Movie.ActorID AND a2.ActorID = Actor_Movie.ActorID INNER JOIN
+	Movie ON Actor_Movie.MovieID = Movie.MovieID
+WHERE a1.ActorID = (Select ActorID
+			FROM Actor
+			WHERE lname = 'DiCaprio' A);
+--actors ordered by the number of movies they are in
+SELECT lname,fname,
+         COUNT(*) AS num_movies
+    FROM MOVIE m
+    JOIN Actor_Movie  AM ON AM.movieid = m.MovieID
+    JOIN ACTOR        a  ON a.ActorID = AM.actorid
+GROUP BY lname, fname
+ORDER BY num_movies DESC, lname, fname  
+
+-- find movies 2 different actors are both in
+SELECT name 
+	FROM MOVIE m
+	JOIN Actor_Movie  AM1 ON AM1.movieid = m.MovieID JOIN Actor A1 ON AM1.actorID=a1.actorID
+	JOIN Actor_Movie  AM2 ON AM2.movieid = m.MovieID JOIN Actor A2 ON AM2.actorID=a2.actorID
+WHERE A1.lname = 'DiCaprio' AND A1.fname = 'Leonardo' AND A2.lname ='Hardy' AND A2.fname = 'Tom'
+
+-- find movies with a certain actor director pair
+SELECT name 
+	FROM MOVIE m
+	 JOIN Actor_Movie  AM ON AM.movieid = m.MovieID
+    JOIN ACTOR        a  ON a.ActorID = AM.actorid
+    JOIN Director_Movie  DM ON DM.movieid = m.MovieID
+    JOIN Director       d  ON d.DirectorID = DM.Directorid
+WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='G. Iñárritu' AND d.fname = 'Alejandro' 
