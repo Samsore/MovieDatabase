@@ -377,7 +377,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (1,15);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('Django Unchained ', 165, '12/25/2012', 'With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.');
+INSERT INTO Movie (Name, Length, released, description) values ('Django Unchained', 165, '12/25/2012', 'With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Foxx', 'Jamie', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Waltz', 'Christoph', '9999/1/1');
 -- Samuel L. Jackson and Leonardo DiCaprio Already added
@@ -391,16 +391,16 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (2,16);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('Inglourious Bastards', 153, '08/21/2009', 'In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner''s vengeful plans for the same.');
+INSERT INTO Movie (Name, Length, released, description) values ('Inglourious Basterds', 153, '08/21/2009', 'In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner''s vengeful plans for the same.');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Fassbender', 'Michael', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Roth', 'Eli', '9999/1/1');
 -- Brad Pitt and Cristoph Waltz Already Added
 -- Q.T added already
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Roth' AND Movie.name = 'Inglorious Bastards';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Fassbender' AND Movie.name = 'Inglorious Bastards';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Pitt' AND Movie.name = 'Inglorious Bastards';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Waltz' AND Movie.name = 'Inglorious Bastards';
-INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Tarantino' AND Movie.name = 'Inglorious Bastards';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Roth' AND Movie.name = 'Inglorious Basterds';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Fassbender' AND Movie.name = 'Inglorious Basterds';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Pitt' AND Movie.name = 'Inglorious Basterds';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Waltz' AND Movie.name = 'Inglorious Basterds';
+INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Tarantino' AND Movie.name = 'Inglorious Basterds';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (13, 17, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (6,17);
 
