@@ -1,4 +1,8 @@
-	<body background=<?php echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?> bgproperties="fixed">
+	<?php foreach ($results as $val): ?>
+	<?php $encode_url = urlencode( $val['name']) ?>
+	<?php $encode_url = str_replace('+', '_', $encode_url);?>
+		<body background=<?php echo base_url().'dep/img/Movie' . $encode_url.'/back.jpg' ?> bgproperties="fixed">
+	<?php endforeach; ?>
 	<style>
 	div.searchbox {
 	    color:white;
