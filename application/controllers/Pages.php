@@ -45,8 +45,11 @@ class Pages extends CI_Controller {
 	public function movie($search_term){
 		$search_term = str_replace('-', ' ', $search_term);
 		$search_term = urldecode($search_term);
+
 		$data['results'] = $this->home_model->get_results($search_term);
 		$data['actors']	 = $this->home_model->get_actor($search_term);
+		$data['director']= $this->home_model->get_director($search_term);
+		
        	$this->load->view('templates/header', $data);
         $this->load->view('pages/movie',$data);
 	    $this->load->view('templates/footer', $data);

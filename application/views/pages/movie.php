@@ -1,4 +1,10 @@
-	<body background=<?php echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?> bgproperties="fixed">
+	<?php foreach ($results as $val): ?>
+	<?php $encode_url = str_replace(':', '', $val['name']);?>
+	<?php $encode_url = urlencode( $encode_url) ?>
+	<?php $encode_url = str_replace('+', '_', $encode_url);?>
+
+		<body background=<?php echo base_url().'dep/img/Movie/' . $encode_url.'/back.jpg' ?>>
+	<?php endforeach; ?>
 	<style>
 	div.searchbox {
 	    color:white;
@@ -6,6 +12,11 @@
 	    padding:20px;
 	    background: rgba(0,0,0,0.5);
 	} 
+	body {
+	    background-repeat: no-repeat;
+	    background-position: right top;
+	    background-attachment: fixed;
+	}
 	</style>
 	<br>
 	<br>
@@ -30,7 +41,17 @@
 					<p><?php echo $val['description']?></p>
 					</div>
 					<div class="searchbox">
+						<h3>Directors</h3>
+						<hr/>
+						<?php foreach ($director as $director_val): ?>
+							<h4><?php echo $director_val['fname']?> <?php echo $director_val['lname']?></h4>
+							<br>
+						<?php endforeach; ?>
+					</div>
+
+					<div class="searchbox">
 						<h3>Actors</h3>
+						<hr/>
 						<?php foreach ($actors as $actor_val): ?>
 
 							<h4><?php echo $actor_val['fname']?> <?php echo $actor_val['lname']?></h4>
