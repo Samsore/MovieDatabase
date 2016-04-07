@@ -1,6 +1,8 @@
 	<?php foreach ($results as $val): ?>
-	<?php $encode_url = urlencode( $val['name']) ?>
+	<?php $encode_url = str_replace(':', '', $val['name']);?>
+	<?php $encode_url = urlencode( $encode_url) ?>
 	<?php $encode_url = str_replace('+', '_', $encode_url);?>
+
 		<body background=<?php echo base_url().'dep/img/Movie/' . $encode_url.'/back.jpg' ?>>
 	<?php endforeach; ?>
 	<style>
