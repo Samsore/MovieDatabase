@@ -47,10 +47,10 @@
                             <?php $encode_url = str_replace('+', '_', $encode_url);?>
                             <img class="img-responsive" src= <?php echo base_url().'dep/img/Movie/' . $encode_url.'/back.jpg' ?> alt="">
 
-                            <?php $encode_url = str_replace(':', '', $movie_item['name']);?>
-                            <?php $encode_url = urlencode( $encode_url) ?>
-                            <?php $encode_url = str_replace('+', '_', $encode_url);?>
-                            <h3><a href =<?php echo base_url().'pages/movie/'. $encode_url?> > <?php echo $movie_item['name']?> </a></h3>
+                            <?php $encode_url2 = str_replace(':', '', $movie_item['name']);?>
+                            <?php $encode_url2 = urlencode( $encode_url) ?>
+                            <?php $encode_url2 = str_replace('+', '_', $encode_url2);?>
+                            <h3><a href =<?php echo base_url().'pages/movie/'. $encode_url2 ?> > <?php echo $movie_item['name']?> </a></h3>
 
 
                             <h6>Release Date: <?php echo $movie_item['released'] ?></h6>
