@@ -997,5 +997,12 @@ Select m.name, m.released, t.description
 FROM Movie m, MovieTopics mt, Topics t
 WHERE m.MovieID = mt.MovieID AND mt.TopicID = t.TopicID AND t.description = 'Comedy';
 
-SELECT count(r.MovieID)
-FROM Role r
+-- Find the Role of an Actor in a Specific Movie
+Select r.RoleName
+From  Movie m, Actor a, Role r
+WHERE r.ActorID = a.ActorID AND r.MovieID = m.MovieID AND m.name = 'Shutter Island' AND a.lname = 'DiCaprio';
+
+-- Find All the roles of an Actor
+Select r.RoleName
+From  Actor a, Role r
+WHERE r.ActorID = a.ActorID AND a.lname = 'DiCaprio';
