@@ -138,6 +138,16 @@ INSERT INTO Topics (description) values ('Sci-Fi');
 INSERT INTO Topics (description) values ('Family');
 INSERT INTO Topics (description) values ('Romance');
 INSERT INTO Topics (description) values ('War');
+INSERT INTO Topics (description) values ('Biography');
+INSERT INTO Topics (description) values ('Mystery');
+INSERT INTO Topics (description) values ('Documentary');
+INSERT INTO Topics (description) values ('Sport');
+INSERT INTO Topics (description) values ('Western');
+INSERT INTO Topics (description) values ('History');
+INSERT INTO Topics (description) values ('Film Noir');
+
+
+
 
 INSERT INTO Studio (name, country) values ('Regency Enterprises', 'United States');
 INSERT INTO Studio (name, country) values ('Warner Bros', 'United States');
@@ -159,6 +169,11 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hardy' AND Movie.name = 'The Revenant';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Gleeson' AND Movie.name = 'The Revenant';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Poulter' AND Movie.name = 'The Revenant';
+INSERT INTO Role (roleName, ActorID) SELECT 'Hugh Glass', ActorID FROM Actor WHERE lname = 'DiCaprio';
+INSERT INTO Role (roleName, ActorID) SELECT 'John Fitzgerald', ActorID FROM Actor WHERE lname = 'Hardy'; 
+INSERT INTO Role (roleName, ActorID) SELECT 'Captain Andrew Henry', ActorID FROM Actor WHERE lname = 'Gleeson'; 
+INSERT INTO Role (roleName, ActorID) SELECT 'Bridger', ActorID FROM Actor WHERE lname = 'Poulter'; 
+
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'G. Iñárritu' AND Movie.name = 'The Revenant';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (3, 1, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (1,1);
@@ -806,7 +821,7 @@ SELECT name
     JOIN ACTOR        a  ON a.ActorID = AM.actorid
     JOIN Director_Movie  DM ON DM.movieid = m.MovieID
     JOIN Director       d  ON d.DirectorID = DM.Directorid
-WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='G. Iñárritu' AND d.fname = 'Alejandro';
+WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='Scorsese' AND d.fname = 'Martin';
 
 
 --Find the EXTRA info on the movie
@@ -815,3 +830,8 @@ WHERE mt.MovieID = (Select MovieID
 				FROM Movie
 				Where name = 'Ride Along 2')
 	AND (mt.TopicID = t.TopicID); 
+
+-- Find all movies of a specific Genre
+Select m.name, m.released, t.description
+FROM Movie m, MovieTopics mt, Topics t
+WHERE m.MovieID = mt.MovieID AND mt.TopicID = t.TopicID AND t.description = 'Comedy';
