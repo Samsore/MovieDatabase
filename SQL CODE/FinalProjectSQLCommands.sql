@@ -782,14 +782,7 @@ WHERE Movie.MovieID = (Select MovieID
 			Where name = 'The Revenant');
 
 
---Find all movies where 2 actors worked together
-Select Movie.name, Movie.released
-FROM Actor a1, Actor a2
-INNER JOIN Actor_Movie ON a1.ActorID = Actor_Movie.ActorID AND a2.ActorID = Actor_Movie.ActorID INNER JOIN
-	Movie ON Actor_Movie.MovieID = Movie.MovieID
-WHERE a1.ActorID = (Select ActorID
-			FROM Actor
-			WHERE lname = 'DiCaprio' A);
+
 --actors ordered by the number of movies they are in
 SELECT lname,fname,
          COUNT(*) AS num_movies
