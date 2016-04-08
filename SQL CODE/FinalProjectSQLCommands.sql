@@ -75,7 +75,9 @@ CREATE TABLE Role
 RoleID SERIAL PRIMARY KEY,
 roleName VARCHAR(50) NOT NULL,
 ActorID INTEGER,
+MovieID INTEGER,
 FOREIGN KEY (ActorID) REFERENCES Actor (ActorID)
+FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
 
 CREATE TABLE Director
@@ -169,11 +171,10 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hardy' AND Movie.name = 'The Revenant';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Gleeson' AND Movie.name = 'The Revenant';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Poulter' AND Movie.name = 'The Revenant';
-INSERT INTO Role (roleName, ActorID) SELECT 'Hugh Glass', ActorID FROM Actor WHERE lname = 'DiCaprio';
-INSERT INTO Role (roleName, ActorID) SELECT 'John Fitzgerald', ActorID FROM Actor WHERE lname = 'Hardy'; 
-INSERT INTO Role (roleName, ActorID) SELECT 'Captain Andrew Henry', ActorID FROM Actor WHERE lname = 'Gleeson'; 
-INSERT INTO Role (roleName, ActorID) SELECT 'Bridger', ActorID FROM Actor WHERE lname = 'Poulter'; 
-
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Hugh Glass', ActorID, 1 FROM Actor WHERE lname = 'DiCaprio';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'John Fitzgerald', ActorID, 1 FROM Actor WHERE lname = 'Hardy'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Captain Andrew Henry', ActorID, 1 FROM Actor WHERE lname = 'Gleeson'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Bridger', ActorID, 1 FROM Actor WHERE lname = 'Poulter'; 
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'G. Iñárritu' AND Movie.name = 'The Revenant';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (3, 1, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (1,1);
@@ -189,6 +190,10 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Cavill' AND Movie.name = 'Batman Vs Superman';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Adams' AND Movie.name = 'Batman Vs Superman';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Eisenberg' AND Movie.name = 'Batman Vs Superman';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Batman', ActorID, 2 FROM Actor WHERE lname = 'Affleck';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Superman', ActorID, 2 FROM Actor WHERE lname = 'Cavill'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Louis Lane', ActorID, 2 FROM Actor WHERE lname = 'Adams'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Lex Luther', ActorID, 2 FROM Actor WHERE lname = 'Eisenberg'; 
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Snyder' AND Movie.name = 'Batman Vs Superman';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (4, 2, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (2,2);
@@ -206,6 +211,10 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Bateman' AND Movie.name = 'Zootopia';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Elba' AND Movie.name = 'Zootopia';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Slate' AND Movie.name = 'Zootopia';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Batman', ActorID, 3 FROM Actor WHERE lname = 'Goodwin';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Superman', ActorID, 3 FROM Actor WHERE lname = 'Bateman'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Louis Lane', ActorID, 3 FROM Actor WHERE lname = 'Elba'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Lex Luther', ActorID, 3 FROM Actor WHERE lname = 'Slate'; 
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Howard' AND Movie.name = 'Zootopia';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Moore' AND Movie.name = 'Zootopia';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Bush' AND Movie.name = 'Zootopia';
