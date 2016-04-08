@@ -973,7 +973,7 @@ SELECT name
 	FROM MOVIE m
 	JOIN Actor_Movie  AM1 ON AM1.movieid = m.MovieID JOIN Actor A1 ON AM1.actorID=a1.actorID
 	JOIN Actor_Movie  AM2 ON AM2.movieid = m.MovieID JOIN Actor A2 ON AM2.actorID=a2.actorID
-WHERE A1.lname = 'DiCaprio' AND A1.fname = 'Leonardo' AND A2.lname ='Hardy' AND A2.fname = 'Tom';
+WHERE A1.lname = 'Bloom' AND A2.lname ='Wood';
 
 -- find movies with a certain actor director pair
 SELECT name 
@@ -1000,7 +1000,7 @@ WHERE m.MovieID = mt.MovieID AND mt.TopicID = t.TopicID AND t.description = 'Com
 -- Find the Role of an Actor in a Specific Movie
 Select r.RoleName
 From  Movie m, Actor a, Role r
-WHERE r.ActorID = a.ActorID AND r.MovieID = m.MovieID AND m.name = 'Shutter Island' AND a.lname = 'DiCaprio';
+WHERE r.ActorID = a.ActorID AND r.MovieID = m.MovieID AND m.name = 'The Revenant' AND a.lname = 'DiCaprio';
 
 -- Find All the roles of an Actor
 Select r.RoleName
