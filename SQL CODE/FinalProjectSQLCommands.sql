@@ -755,11 +755,18 @@ INSERT INTO Actor (lname, fname, dateBirth) values ('Jackman', 'Hugh', '9999/1/1
 INSERT INTO Actor (lname, fname, dateBirth) values ('Johansson', 'Scarlett', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hall', 'Rebecca', '9999/1/1');
 -- Dir Nolan
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JO
+	
+The Departed -- Two men from opposite sides of the law are undercover within the Massachusetts State Police and the Irish mafia, but violence and bloodshed boil when discoveries are made, and the moles are dispatched to find out their enemy's identities.
+
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Bale' AND Movie.name = 'The Prestige';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Jackman' AND Movie.name = 'The Prestige';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Johansson' AND Movie.name = 'The Prestige';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hall' AND Movie.name = 'The Prestige';
-INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Nolan' AND Movie.name = 'The Prestige';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Billy', ActorID, 41 FROM Actor WHERE lname = 'DiCaprio';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Colin Sullivan', ActorID, 41 FROM Actor WHERE lname = 'Damon'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Frank Costello', ActorID, 41 FROM Actor WHERE lname = 'Nicholson'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Dignam', ActorID, 41 FROM Actor WHERE lname = 'Eisenberg'; INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Nolan' AND Movie.name = 'The Prestige';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (3, 40, 'English', true, 'United States');
 INSERT INTO Sponsors (StudioID, MovieID) values (3,40);
 
@@ -773,6 +780,10 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Damon' AND Movie.name = 'The Departed';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Nicholson' AND Movie.name = 'The Departed';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Wahlberg' AND Movie.name = 'The Departed';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Billy', ActorID, 41 FROM Actor WHERE lname = 'DiCaprio';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Colin Sullivan', ActorID, 41 FROM Actor WHERE lname = 'Damon'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Frank Costello', ActorID, 41 FROM Actor WHERE lname = 'Nicholson'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Dignam', ActorID, 41 FROM Actor WHERE lname = 'Eisenberg'; 
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Scorsese' AND Movie.name = 'The Departed';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (7, 41, 'English', true, 'United States');
 INSERT INTO Sponsors (StudioID, MovieID) values (1,41);
