@@ -233,7 +233,7 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Gallagher' AND Movie.name = '10 Cloverfield Lane';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Cooper' AND Movie.name = '10 Cloverfield Lane';
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Howard', ActorID, 4 FROM Actor WHERE lname = 'Goodman';
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Michelle', ActorID, 4 FROM Actor WHERE lname = 'Elizabth-Winstead'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Michelle', ActorID, 4 FROM Actor WHERE lname = 'Elizabeth-Winstead'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Emmett', ActorID, 4 FROM Actor WHERE lname = 'Gallagher'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Ben', ActorID, 4 FROM Actor WHERE lname = 'Cooper';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Trachtenberg' AND Movie.name = '10 Cloverfield Lane';
@@ -285,11 +285,11 @@ INSERT INTO Actor (lname, fname, dateBirth) values ('Plaza', 'Aubrey', '9999/1/1
 INSERT INTO Actor (lname, fname, dateBirth) values ('Deutch', 'Zoey', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('De Niro', 'Robert', '8/17/1943');
 INSERT INTO Director (lname, fname,country) values ( 'Mazer' , 'Dan', 'United States');
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Effron' AND Movie.name = 'Dirty Grandpa';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Efron' AND Movie.name = 'Dirty Grandpa';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Plaza' AND Movie.name = 'Dirty Grandpa';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Deutch' AND Movie.name = 'Dirty Grandpa';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'De Niro' AND Movie.name = 'Dirty Grandpa';
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Ben', ActorID, 7 FROM Actor WHERE lname = 'Effron';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Ben', ActorID, 7 FROM Actor WHERE lname = 'Efron';
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Shadia', ActorID, 7 FROM Actor WHERE lname = 'Plaza'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Meridth', ActorID, 7 FROM Actor WHERE lname = 'Deutch'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Dick', ActorID, 7 FROM Actor WHERE lname = 'De Niro';
@@ -326,11 +326,11 @@ INSERT INTO Director (lname, fname,country) values ( 'Anders' , 'Sean', 'United 
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Ferrel' AND Movie.name = 'Daddy''s Home';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Wahlberg' AND Movie.name = 'Daddy''s Home';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Cardellini' AND Movie.name = 'Daddy''s Home';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Varccaro' AND Movie.name = 'Daddy''s Home';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Vaccaro' AND Movie.name = 'Daddy''s Home';
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Good Dad', ActorID, 9 FROM Actor WHERE lname = 'Ferrel';
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Bad Dad', ActorID, 9 FROM Actor WHERE lname = 'Wahlberg'; 
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Mom', ActorID, 9 FROM Actor WHERE lname = 'Cardelllini'; 
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Child', ActorID, 9 FROM Actor WHERE lname = 'Vaccaro';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Mom', ActorID, 9 FROM Actor WHERE lname = 'Cardellini'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Child', ActorID, 9 FROM Actor WHERE lname = 'Varccaro';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Anders' AND Movie.name = 'Daddy''s Home';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (2, 9, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (3,9);
@@ -385,7 +385,7 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Scolderlario' AND Movie.name = 'Maze Runner: The Scorch Trials';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Darden' AND Movie.name = 'Maze Runner: The Scorch Trials';
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Thomas', ActorID, 12 FROM Actor WHERE lname = 'O''Brien';
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Minho', ActorID, 12 FROM Actor WHERE lname = 'Lee'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Minho', ActorID, 12 FROM Actor WHERE lname = 'Hong Lee'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Teresa', ActorID, 12 FROM Actor WHERE lname = 'Scoldelario'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Newt', ActorID, 12 FROM Actor WHERE lname = 'Darden';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Ball' AND Movie.name = 'Maze Runner: The Scorch Trials';
@@ -865,10 +865,10 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Robbie' AND Movie.name = 'The Wolf of Wall Street';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'DiCaprio' AND Movie.name = 'The Wolf of Wall Street';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'McConaughey' AND Movie.name = 'The Wolf of Wall Street';
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Banker', ActorID, 37 FROM Actor WHERE lname = 'Hill';
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Rich Female', ActorID, 37 FROM Actor WHERE lname = 'Robbie'; 
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Tyler', ActorID, 37 FROM Actor WHERE lname = 'DiCaprio'; 
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Banker Friend', ActorID, 37 FROM Actor WHERE lname = 'McConaughey';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Banker', ActorID, 38 FROM Actor WHERE lname = 'Hill';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Rich Female', ActorID, 38 FROM Actor WHERE lname = 'Robbie'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Tyler', ActorID, 38 FROM Actor WHERE lname = 'DiCaprio'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Banker Friend', ActorID, 38 FROM Actor WHERE lname = 'McConaughey';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Scorsese' AND Movie.name = 'The Wolf of Wall Street';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (2, 38, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (9,38);
@@ -884,10 +884,10 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Kingsley' AND Movie.name = 'Shutter Island';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Mortimer' AND Movie.name = 'Shutter Island';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'DiCaprio' AND Movie.name = 'Shutter Island';
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Nurse', ActorID, 37 FROM Actor WHERE lname = 'Ruffalo';
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Patient 1', ActorID, 37 FROM Actor WHERE lname = 'Kingsley'; 
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Patient 2', ActorID, 37 FROM Actor WHERE lname = 'Mortimer'; 
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Jack', ActorID, 37 FROM Actor WHERE lname = 'DiCaprio';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Nurse', ActorID, 39 FROM Actor WHERE lname = 'Ruffalo';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Patient 1', ActorID, 39 FROM Actor WHERE lname = 'Kingsley'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Patient 2', ActorID, 39 FROM Actor WHERE lname = 'Mortimer'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Jack', ActorID, 39 FROM Actor WHERE lname = 'DiCaprio';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Scorsese' AND Movie.name = 'Shutter Island';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (1, 39, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (3,39);
@@ -903,10 +903,10 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Jackman' AND Movie.name = 'The Prestige';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Johansson' AND Movie.name = 'The Prestige';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hall' AND Movie.name = 'The Prestige';
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Magician 1', ActorID, 41 FROM Actor WHERE lname = 'Bale';
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Tom', ActorID, 41 FROM Actor WHERE lname = 'Jackman'; 
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Steve Bateman', ActorID, 41 FROM Actor WHERE lname = 'Johansson'; 
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'James', ActorID, 41 FROM Actor WHERE lname = 'Hall'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Magician 1', ActorID, 40 FROM Actor WHERE lname = 'Bale';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Tom', ActorID, 40 FROM Actor WHERE lname = 'Jackman'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Steve Bateman', ActorID, 40 FROM Actor WHERE lname = 'Johansson'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'James', ActorID, 40 FROM Actor WHERE lname = 'Hall'; 
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Nolan' AND Movie.name = 'The Prestige';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (3, 40, 'English', true, 'United States');
 INSERT INTO Sponsors (StudioID, MovieID) values (3,40);
@@ -996,3 +996,6 @@ WHERE mt.MovieID = (Select MovieID
 Select m.name, m.released, t.description
 FROM Movie m, MovieTopics mt, Topics t
 WHERE m.MovieID = mt.MovieID AND mt.TopicID = t.TopicID AND t.description = 'Comedy';
+
+SELECT count(r.MovieID)
+FROM Role r
