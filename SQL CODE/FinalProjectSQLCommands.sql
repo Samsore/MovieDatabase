@@ -1109,9 +1109,9 @@ From  Movie m, Actor a, Role r
 WHERE r.ActorID = a.ActorID AND r.MovieID = m.MovieID AND m.name = 'The Revenant' AND a.lname = 'DiCaprio';
 
 -- Find All the roles of an Actor
-Select r.RoleName
-From  Actor a, Role r
-WHERE r.ActorID = a.ActorID AND a.lname = 'DiCaprio';
+Select r.RoleName, m.name
+From  Actor a, Role r, Movie m
+WHERE r.ActorID = a.ActorID AND a.lname = 'DiCaprio' AND r.MovieID = m.MovieID
 
 -- find movies with a certain actor director pair
 SELECT name 
@@ -1144,7 +1144,7 @@ FROM Watches w, Movie m
 WHERE m.name = 'Gravity' AND w.MovieID = m.MovieID;
 
 -- Highest Rated Movie
-Select MAX(avg_rating.round) AS BestMovie
+Select MAX(avg_rating.round)
 FROM (SELECT Movie.name, ROUND(AVG(rating),1) 
 	FROM Watches, Movie
 	WHERE Movie.movieID = Watches.MovieID
