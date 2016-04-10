@@ -1,0 +1,36 @@
+	
+--select best genre based on average ratings of its movies
+SELECT topics.description, ROUND(AVG(rating),1) 
+	FROM Watches, 
+	topics natural right join movietopics 
+	WHERE movietopics.movieID = Watches.MovieID 
+	GROUP BY topics.description
+	ORDER BY ROUND(AVG(rating),1) DESC
+	LIMIT 1;
+-- select genre and ratings based on genre name	
+SELECT topics.description, ROUND(AVG(rating),1) 
+	FROM Watches, 
+	topics natural right join movietopics 
+	WHERE movietopics.movieID = Watches.MovieID
+    AND topics.description='Comedy'	
+	GROUP BY topics.description;
+-- Best actor based on average ratings of movies they are in 
+SELECT actor.lname, ROUND(AVG(rating),1) 
+	FROM Watches,  
+	actor natural right join actor_movie 
+	WHERE actor_movie.movieID = Watches.MovieID 
+	GROUP BY actor.lname
+	ORDER BY ROUND(AVG(rating),1) DESC
+	LIMIT 1;
+
+	-- name and ratings of a given actor
+
+SELECT actor.lname, ROUND(AVG(rating),1) 
+	FROM Watches,  
+	actor natural right join actor_movie 
+	WHERE actor_movie.movieID = Watches.MovieID 
+	AND actor.lname='DiCaprio'
+	GROUP BY actor.lname;
+	
+
+	
