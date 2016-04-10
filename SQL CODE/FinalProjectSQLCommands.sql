@@ -1050,6 +1050,8 @@ INSERT INTO Watches (MovieID, UserID, time, Repeats, rating)
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Se7en' and u.username = 'kiwikid';
 
 
+
+---------------------------------------------------- Given Movie Queries -----------------------------------------
 --Find the Actors in a Movie
 SELECT lname, fname
 FROM Movie
@@ -1059,15 +1061,13 @@ WHERE Movie.MovieID = (Select MovieID
 			FROM Movie
 			Where name = 'The Revenant');
 
---Find the Movies a given Actor is in
-Select Movie.name, Movie.released
-FROM Actor
-INNER JOIN Actor_Movie ON Actor.ActorID = Actor_Movie.ActorID INNER JOIN
-	Movie ON Actor_Movie.MovieID = Movie.MovieID
-WHERE Actor.ActorID = (Select ActorID
-			FROM Actor
-			WHERE lname = 'DiCaprio' AND fname = 'Leonardo');
-			
+--Find the EXTRA info on the movie
+SELECT t.Description, languages, subtitles, country FROM MovieTopics mt, Topics t
+WHERE mt.MovieID = (Select MovieID
+				FROM Movie
+				Where name = 'Ride Along 2')
+	AND (mt.TopicID = t.TopicID); 
+
 --Find the Director of a given Movie
 SELECT lname, fname
 FROM Movie
@@ -1077,7 +1077,22 @@ WHERE Movie.MovieID = (Select MovieID
 			FROM Movie
 			Where name = 'The Revenant');
 
+----------------------------------------------------- Given Actor Queries -----------------------------------------
+--Find the Movies a given Actor is in
+Select Movie.name, Movie.released
+FROM Actor
+INNER JOIN Actor_Movie ON Actor.ActorID = Actor_Movie.ActorID INNER JOIN
+	Movie ON Actor_Movie.MovieID = Movie.MovieID
+WHERE Actor.ActorID = (Select ActorID
+			FROM Actor
+			WHERE lname = 'DiCaprio' AND fname = 'Leonardo');
 
+--Find the movies 2 different actors are both in
+SELECT name 
+	FROM MOVIE m
+	JOIN Actor_Movie  AM1 ON AM1.movieid = m.MovieID JOIN Actor A1 ON AM1.actorID=a1.actorID
+	JOIN Actor_Movie  AM2 ON AM2.movieid = m.MovieID JOIN Actor A2 ON AM2.actorID=a2.actorID
+WHERE A1.lname = 'Bloom' AND A2.lname ='Wood';
 
 --actors ordered by the number of movies they are in
 SELECT lname,fname,
@@ -1087,35 +1102,6 @@ SELECT lname,fname,
     JOIN ACTOR        a  ON a.ActorID = AM.actorid
 GROUP BY lname, fname
 ORDER BY num_movies DESC, lname, fname;  
-
--- find movies 2 different actors are both in
-SELECT name 
-	FROM MOVIE m
-	JOIN Actor_Movie  AM1 ON AM1.movieid = m.MovieID JOIN Actor A1 ON AM1.actorID=a1.actorID
-	JOIN Actor_Movie  AM2 ON AM2.movieid = m.MovieID JOIN Actor A2 ON AM2.actorID=a2.actorID
-WHERE A1.lname = 'Bloom' AND A2.lname ='Wood';
-
--- find movies with a certain actor director pair
-SELECT name 
-	FROM MOVIE m
-	 JOIN Actor_Movie  AM ON AM.movieid = m.MovieID
-    JOIN ACTOR        a  ON a.ActorID = AM.actorid
-    JOIN Director_Movie  DM ON DM.movieid = m.MovieID
-    JOIN Director       d  ON d.DirectorID = DM.Directorid
-WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='Scorsese' AND d.fname = 'Martin';
-
-
---Find the EXTRA info on the movie
-SELECT t.Description, languages, subtitles, country FROM MovieTopics mt, Topics t
-WHERE mt.MovieID = (Select MovieID
-				FROM Movie
-				Where name = 'Ride Along 2')
-	AND (mt.TopicID = t.TopicID); 
-
--- Find all movies of a specific Genre
-Select m.name, m.released, t.description
-FROM Movie m, MovieTopics mt, Topics t
-WHERE m.MovieID = mt.MovieID AND mt.TopicID = t.TopicID AND t.description = 'Comedy';
 
 -- Find the Role of an Actor in a Specific Movie
 Select r.RoleName
@@ -1127,10 +1113,35 @@ Select r.RoleName
 From  Actor a, Role r
 WHERE r.ActorID = a.ActorID AND a.lname = 'DiCaprio';
 
+-- find movies with a certain actor director pair
+SELECT name 
+	FROM MOVIE m
+	 JOIN Actor_Movie  AM ON AM.movieid = m.MovieID
+    JOIN ACTOR        a  ON a.ActorID = AM.actorid
+    JOIN Director_Movie  DM ON DM.movieid = m.MovieID
+    JOIN Director       d  ON d.DirectorID = DM.Directorid
+WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='Scorsese' AND d.fname = 'Martin';
+
+
+------------------------------------------------------- Given Genre Queries -----------------------------------------------
+-- Find all movies of a specific Genre
+Select m.name, m.released, t.description
+FROM Movie m, MovieTopics mt, Topics t
+WHERE m.MovieID = mt.MovieID AND mt.TopicID = t.TopicID AND t.description = 'Comedy';
+
+
+------------------------------------------------------- Rating Queries-----------------------------------------------------
+
+-- Number of ratings for a given moviwe
+SELECT m.name, Count(w.rating)
+FROM Watches w, Movie m
+WHERE w.MovieID = m.MovieID AND m.name = 'The Revenant'
+GROUP BY m.name;
+
 -- Find the Average Rating of a Movie
 Select Round(AVG(w.rating), 1)
 FROM Watches w, Movie m
-WHERE m.name = 'The Godfather' AND w.MovieID = m.MovieID;
+WHERE m.name = 'Gravity' AND w.MovieID = m.MovieID;
 
 -- Highest Rated Movie
 Select MAX(avg_rating.round) AS BestMovie
