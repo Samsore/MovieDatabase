@@ -65,4 +65,19 @@ class Pages extends CI_Controller {
         $this->load->view('pages/actor',$data);
 	    $this->load->view('templates/footer', $data);
 	}
+	public function comment_success($comment){
+		// $search_term = $this->input->post('comment');
+
+
+  //           $data = array(
+  //               'title' => $this->input->post('title'),
+  //               'text' => $this->input->post('text')
+  //           );
+
+  //           return $this->db->insert('news', $data);
+
+       	$this->load->view('templates/header', $data);
+        $this->load->view('pages/actor',$data);
+	    $this->load->view('templates/footer', $data);
+	}
 }

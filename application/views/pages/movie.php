@@ -77,10 +77,34 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-12">
+			<div class="col-md-8">
+				<?php if (isset($this->session->userdata['logged_in'])): ?>
 				<div class="searchbox">
 					<h3>Comments</h3>
+					<?php echo form_open('pages/comment_success'); 
+
+	                  $data = array(
+	                  'name'        => 'Comment',
+	                  'id'          => 'comment_bar',
+	                  'value'       => '',
+	                  'maxlength'   => '100',
+	                  'size'        => '50',
+	                  'style'       => 'width:100%; height:400px',
+	                  'placeholder' => 'comment',
+	                );
+	                ?>
+	                <p style="color:black">
+	                <?php echo form_input($data);?>
+	            </p>
+	                <?php echo form_submit('search_submit', 'Submit'); ?>
+	                <?php echo form_close() ?>
+
 				</div>
+				<?php else:?>
+				<div class="searchbox">
+					<h3>You must Log In to Write a Comment</h3>
+				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>	

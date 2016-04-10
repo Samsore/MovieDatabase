@@ -28,7 +28,7 @@
 			<div class ="col-md-8">
 				<div>
 					<?php foreach($birthday as $role_val): ?>
-						<h4><?php echo $role_val['datebirth']?></h4>
+						<h4>Birthdate: <?php echo $role_val['datebirth']?></h4>
 					<?php endforeach;?>
 				</div>
 				<div class ="col-md-8">
