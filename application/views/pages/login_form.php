@@ -51,7 +51,7 @@ header("location: http://localhost/login/index.php/user_authentication/user_logi
 							<input type="password" name="password" id="password" placeholder="**********"/><br/><br />
 							<input type="submit" value=" Login " name="submit"/><br />
 							<hr/>
-							<a href="<?php echo base_url() ?>index.php/user_authentication/user_registration_show">To Sign Up, Click Here.</a>
+							<a href="<?php echo base_url() ?>user_authentication/user_registration_show">To Sign Up, Click Here.</a>
 							<?php echo form_close(); ?>
 						</div>
 					</div>

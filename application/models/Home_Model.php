@@ -18,6 +18,19 @@ class Home_model extends CI_Model {
         // Execute the query.
         $query = $this->db->get();
 
+        // $searchable = array('actor','director','profile');
+        // foreach ($searchable as $person){
+        //     $this->db->select('*');
+        //     $this->db->from($person);
+                
+        //     $this->db->like('fname', $search_term);
+        //     $this->db->or_like('lname', $search_term);
+        //     // $this->db->or_like($person.'ID', $search_term);
+        //     // $this->db->or_like('dateBirth', $search_term);
+        //     // Execute the query.
+        //     $query = $this->db->get();  
+        // }
+
         // Return the results.
         return $query->result_array();
     }
@@ -28,15 +41,16 @@ class Home_model extends CI_Model {
         $this->db->Where('name', $search_term);
         // Execute the query.
         $query = $this->db->get();
-        foreach ($query->result_array() as $actor_val){
-            $movie_id_val = $actor_val['movieid'];
+        $arrayQuery = $query->result_array();
+        foreach ($arrayQuery as $actor_val){
+            $movieid = $actor_val['movieid'];
         }
 
         $this->db->select('lname, fname');
         $this->db->from('movie');
         $this->db->join('actor_movie', 'movie.movieid = actor_movie.movieid','inner');
         $this->db->join('actor', 'actor_movie.actorid = actor.actorid', 'inner');
-        $this->db->Where('movie.movieid', $movie_id_val);
+        $this->db->Where('movie.movieid', $movieid);
         // Execute the query.
         $query = $this->db->get();
         return $query->result_array();
@@ -49,14 +63,14 @@ class Home_model extends CI_Model {
         // Execute the query.
         $query = $this->db->get();
         foreach ($query->result_array() as $actor_val){
-            $movie_id_val = $actor_val['movieid'];
+            $search_term = $actor_val['movieid'];
         }
 
         $this->db->select('lname, fname');
         $this->db->from('movie');
         $this->db->join('director_movie', 'movie.movieid = director_movie.movieid','inner');
         $this->db->join('director', 'director_movie.directorid = director.directorid', 'inner');
-        $this->db->Where('movie.movieid', $movie_id_val);
+        $this->db->Where('movie.movieid', $search_term);
         // Execute the query.
         $query = $this->db->get();
         return $query->result_array();

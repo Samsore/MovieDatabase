@@ -1,6 +1,7 @@
+
 <?php
 if (isset($this->session->userdata['logged_in'])) {
-header("location: http://localhost/login/index.php/user_authentication/user_login_process");
+header("location: http://localhost/login/user_authentication/user_login_process");
 }
 ?>
 <head>
@@ -11,6 +12,11 @@ header("location: http://localhost/login/index.php/user_authentication/user_logi
 
 <div id="main">
 	<div id="login">
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 		<h2>Registration Form</h2>
 		<hr/>
 		<?php
@@ -24,7 +30,7 @@ header("location: http://localhost/login/index.php/user_authentication/user_logi
 		echo form_input('username');
 		echo "<div class='error_msg'>";
 		if (isset($message_display)) {
-		echo $message_display;
+			echo $message_display;
 		}
 		echo "</div>";
 		echo"<br/>";
@@ -45,6 +51,6 @@ header("location: http://localhost/login/index.php/user_authentication/user_logi
 		echo form_submit('submit', 'Sign Up');
 		echo form_close();
 		?>
-		<a href="<?php echo base_url() ?> ">For Login Click Here</a>
+		<a href=<?php echo base_url().'/login_form' ?> >For Login Click Here</a>
 	</div>
 </div>

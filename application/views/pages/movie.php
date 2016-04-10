@@ -63,6 +63,9 @@
 					<div class="searchbox">
                         <img class="img-responsive" src= <?php echo base_url('dep/img/Movie/Batman_vs_Superman/Poster.jpg') ?> alt="">
 					</div>
+					<div class="searchbox">
+						<!-- PHP RATINGS -->
+					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
