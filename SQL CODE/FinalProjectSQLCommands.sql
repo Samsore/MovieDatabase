@@ -35,7 +35,8 @@ MovieID SERIAL PRIMARY KEY,
 Name VARCHAR(250) NOT NULL,
 Length INTEGER,	
 released Date NOT NULL,
-description VARCHAR(1200) NOT NULL
+description VARCHAR(1200) NOT NULL,
+trailerLink VARCHAR(11) NOT NULL
 );
 
 CREATE TABLE Watches
@@ -149,7 +150,7 @@ INSERT INTO Studio (name, country) values ('Lionsgate', 'United States');
 INSERT INTO Studio (name, country) values ('Walt Disney', 'United States');
 INSERT INTO Studio (name, country) values ('New Line Cinema', 'United States');
 
-INSERT INTO Movie (Name, Length, released, description) values ('The Revenant', 156, '1/8/2016', 'A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.');
+INSERT INTO Movie (Name, Length, released, description) values ('The Revenant', 156, '1/8/2016', 'A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.', 'QRfj1VCg16Y');
 INSERT INTO Actor (lname, fname, dateBirth) values ('DiCaprio', 'Leonardo', '11/11/1974');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hardy', 'Tom', '9/15/1977');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Gleeson', 'Domhall', '9999/1/1');
@@ -164,7 +165,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (1,1);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('Batman Vs Superman', 151, '3/25/2016', 'Fearing that the actions of Superman are left unchecked, Batman takes on the Man of Steel, while the world wrestles with what kind of a hero it really needs.');
+INSERT INTO Movie (Name, Length, released, description) values ('Batman Vs Superman', 151, '3/25/2016', 'Fearing that the actions of Superman are left unchecked, Batman takes on the Man of Steel, while the world wrestles with what kind of a hero it really needs.','PWcimiuIGxM');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Affleck', 'Ben', '8/15/1972');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Cavill', 'Henry', '5/5/1983');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Adams', 'Amy', '8/20/1974');
@@ -179,7 +180,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (2,2);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('Zootopia', 108, '3/4/2016', 'In a city of anthropomorphic animals, a rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy.');
+INSERT INTO Movie (Name, Length, released, description) values ('Zootopia', 108, '3/4/2016', 'In a city of anthropomorphic animals, a rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy.','CzvH6_e2a-U');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Goodwin', 'Ginnifer', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Bateman', 'Jason', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Elba', 'Idris', '9999/1/1');
@@ -198,7 +199,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (8,3);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('10 Cloverfield Lane', 103, '3/11/2016', 'After getting in a car accident, a woman is held in a shelter with two men, who claim the outside world is affected by a widespread chemical attack.');
+INSERT INTO Movie (Name, Length, released, description) values ('10 Cloverfield Lane', 103, '3/11/2016', 'After getting in a car accident, a woman is held in a shelter with two men, who claim the outside world is affected by a widespread chemical attack.','yQy-ANhnUpE');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Goodman', 'John', '5/20/1952');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Elizabeth-Winstead', 'Mary', '5/20/1952');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Gallagher', 'John', '5/20/1952');
@@ -213,7 +214,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (5,4);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('The Witch', 93, '2/19/2016', 'A family in 1630s New England is torn apart by the forces of witchcraft, black magic and possession.');
+INSERT INTO Movie (Name, Length, released, description) values ('The Witch', 93, '2/19/2016', 'A family in 1630s New England is torn apart by the forces of witchcraft, black magic and possession.','iQXmlf3Sefg');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Taylor-Joy', 'Anya', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Ineson', 'Ralph', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Dickie', 'Kate', '9999/1/1');
@@ -228,7 +229,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (7,5);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('The Brothers Grimsby', 83, '3/11/2016', 'A new assignment forces a top spy to team up with his football hooligan brother.');
+INSERT INTO Movie (Name, Length, released, description) values ('The Brothers Grimsby', 83, '3/11/2016', 'A new assignment forces a top spy to team up with his football hooligan brother.','Mi5SiMLFj2c');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Baron Cohen', 'Sasha', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Wilson', 'Rebel', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Strong', 'Mark', '9999/1/1');
@@ -243,7 +244,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (1,6);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('Dirty Grandpa', 102, '1/22/2016', 'Right before his wedding, an uptight guy is tricked into driving his grandfather, a lecherous former Army Lieutenant-Colonel, to Florida for spring break.');
+INSERT INTO Movie (Name, Length, released, description) values ('Dirty Grandpa', 102, '1/22/2016', 'Right before his wedding, an uptight guy is tricked into driving his grandfather, a lecherous former Army Lieutenant-Colonel, to Florida for spring break.','aZSzMIFZT7Q');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Efron', 'Zac', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Plaza', 'Aubrey', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Deutch', 'Zoey', '9999/1/1');
@@ -265,7 +266,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (2,7);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('Ride Along 2', 102, '1/15/2016', 'As his wedding day approaches, Ben heads to Miami with his soon-to-be brother-in-law James to bring down a drug dealer whos supplying the dealers of Atlanta with product.');
+INSERT INTO Movie (Name, Length, released, description) values ('Ride Along 2', 102, '1/15/2016', 'As his wedding day approaches, Ben heads to Miami with his soon-to-be brother-in-law James to bring down a drug dealer whos supplying the dealers of Atlanta with product.','iWfmmwdCHTg');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Jackson', 'O''Shea', '6/15/1969');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hart', 'Kevin', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Sumpter', 'Tika', '9999/1/1');
@@ -280,7 +281,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (1,8);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('Daddy''s Home', 96, '12/25/2015', 'Stepdad, Brad Whitaker, is a radio host trying to get his stepchildren to love him and call him Dad. But his plans turn upside down when the biological father, Dusty Mayron, returns.');
+INSERT INTO Movie (Name, Length, released, description) values ('Daddy''s Home', 96, '12/25/2015', 'Stepdad, Brad Whitaker, is a radio host trying to get his stepchildren to love him and call him Dad. But his plans turn upside down when the biological father, Dusty Mayron, returns.', 'arhMMJx7tCU');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Ferrel', 'Will', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Wahlberg', 'Mark', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Cardellini', 'Linda', '9999/1/1');
@@ -295,7 +296,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (3,9);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('The Hunger Games: Mockingjay Part 2', 137, '11/20/2015', 'As the war of Panem escalates to the destruction of other districts, Katniss Everdeen, the reluctant leader of the rebellion, must bring together an army against President Snow, while all she holds dear hangs in the balance.');
+INSERT INTO Movie (Name, Length, released, description) values ('The Hunger Games: Mockingjay Part 2', 137, '11/20/2015', 'As the war of Panem escalates to the destruction of other districts, Katniss Everdeen, the reluctant leader of the rebellion, must bring together an army against President Snow, while all she holds dear hangs in the balance.','n-7K_OjsDCQ');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Lawrence', 'Jennifer', '8/15/1990');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hutcherson', 'Josh', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hemsworth', 'Liam', '9999/1/1');
@@ -314,7 +315,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (9,10);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('Divergent', 139, '3/21/2014', 'In a world divided by factions based on virtues, Tris learns she''s Divergent and won''t fit in. When she discovers a plot to destroy Divergents, Tris and the mysterious Four must find out what makes Divergents dangerous before it''s too late.');
+INSERT INTO Movie (Name, Length, released, description) values ('Divergent', 139, '3/21/2014', 'In a world divided by factions based on virtues, Tris learns she''s Divergent and won''t fit in. When she discovers a plot to destroy Divergents, Tris and the mysterious Four must find out what makes Divergents dangerous before it''s too late.','sutgWjz10sM');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Woodley', 'Shailene', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('James', 'Theo', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Judd', 'Ashley', '9999/1/1');
@@ -329,7 +330,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (4,11);
 
 
-INSERT INTO Movie (Name, Length, released, description) values ('Maze Runner: The Scorch Trials', 132, '9/18/2015', 'After having escaped the Maze, the Gladers now face a new set of challenges on the open roads of a desolate landscape filled with unimaginable obstacles.');
+INSERT INTO Movie (Name, Length, released, description) values ('Maze Runner: The Scorch Trials', 132, '9/18/2015', 'After having escaped the Maze, the Gladers now face a new set of challenges on the open roads of a desolate landscape filled with unimaginable obstacles.','iSYVmMVY');
 INSERT INTO Actor (lname, fname, dateBirth) values ('O''Brien', 'Dylan', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hong Lee', 'Ki', '9999/1/1');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Scoldelario', 'Kaya', '9999/1/1');
