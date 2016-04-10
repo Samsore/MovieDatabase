@@ -12,6 +12,12 @@
 	    padding:20px;
 	    background: rgba(0,0,0,0.5);
 	} 
+	div.commentbox {
+	    color:white;
+	    margin:20px;
+	    padding:20px;
+	    background: rgba(255,255,255,0.5);
+	} 
 	body {
 	    background-repeat: no-repeat;
 	    background-position: right top;
@@ -79,9 +85,10 @@
 				<?php if (isset($this->session->userdata['logged_in'])): ?>
 				<div class="searchbox">
 					<h3>Comments</h3>
-					<div>
+					<div class ="commentbox">
 						<?php foreach ($comments as $comment_val): ?>
-							<?php echo $comment_val['comment'] ?>
+							<p><?php echo $comment_val['comment'] ?></p>
+							<h5>-<?php echo $comment_val['username'] ?></h5>
 						<?php endforeach; ?>
 					</div>
 					<div>
@@ -93,7 +100,7 @@
 		                  'value'       => '',
 		                  'maxlength'   => '100',
 		                  'size'        => '50',
-		                  'style'       => 'width:100%; height:400px',
+		                  'style'       => 'width:100%; height:300px',
 		                  'placeholder' => 'comment',
 		                );
 		                ?>

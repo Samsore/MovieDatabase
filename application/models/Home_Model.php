@@ -141,10 +141,12 @@ class Home_model extends CI_Model {
         return $query->result_array();
     }
     public function get_comments($search_term='default'){
-        $this->db->select('a.comment');
-        $this->db->from('user_movie a, movie m');
+        $this->db->select('a.comment, u.username');
+        $this->db->from('user_movie a, movie m, useraccount u');
         $this->db->Where('a.movieid = m.movieid');
+        $this->db->Where('a.userid = u.userid');
         $this->db->Where('m.name', $search_term);
+
         // Execute the query.
         $query = $this->db->get();
         return $query->result_array();
