@@ -99,6 +99,23 @@ class Home_model extends CI_Model {
         return $query->result_array(); 
     }
 
+    public function get_actor_birthdate($firstname='default',$lastname='default'){
+        $this->db->select('datebirth');
+        $this->db->from('actor');
+        $this->db->Where('fname',$firstname);
+        $this->db->Where('lname',$lastname);
 
-
+        // Execute the query.
+        $query = $this->db->get();
+        return $query->result_array(); 
+    }
+    public function get_actor_roles($lastname='default'){
+        $this->db->select('r.rolename');
+        $this->db->from('actor a, role r');
+        $this->db->Where('r.actorid = a.actorid');
+        $this->db->Where('a.lname',$lastname);
+        // Execute the query.
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }

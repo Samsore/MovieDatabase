@@ -22,8 +22,23 @@
 		<div class="row">
 			<div class ="col-md-12">
 				<?php foreach($actors as $actor_val): ?>
-				<h1><?php echo $actor_val['fname']?> <?php echo $actor_val['lname'] ?></h1>
-			<?php endforeach;?>
+					<h1><?php echo $actor_val['fname']?> <?php echo $actor_val['lname'] ?></h1>
+				<?php endforeach;?>
+			</div>
+			<div class ="col-md-8">
+				<div>
+					<?php foreach($birthday as $role_val): ?>
+						<h4><?php echo $role_val['datebirth']?></h4>
+					<?php endforeach;?>
+				</div>
+				<div class ="col-md-8">
+					<div>
+						<h3>Roles played</h3>
+						<?php foreach($roles as $birthday_val): ?>
+							<h4><?php echo $birthday_val['rolename']?></h4>
+						<?php endforeach;?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

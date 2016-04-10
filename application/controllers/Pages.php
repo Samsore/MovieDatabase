@@ -57,7 +57,9 @@ class Pages extends CI_Controller {
 	}
 
 	public function actor($firstname, $lastname){
-		$data['actors']	 = $this->home_model->get_actor_name($firstname,$lastname);
+		$data['actors']	  = $this->home_model->get_actor_name($firstname,$lastname);
+		$data['birthday'] = $this->home_model->get_actor_birthdate($firstname,$lastname);
+		$data['roles'] = $this->home_model->get_actor_roles($lastname);
 
        	$this->load->view('templates/header', $data);
         $this->load->view('pages/actor',$data);
