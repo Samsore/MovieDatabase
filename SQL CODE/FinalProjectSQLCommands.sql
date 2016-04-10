@@ -534,9 +534,9 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Depardieu' AND Movie.name = 'Life of Pi';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Saito' AND Movie.name = 'Life of Pi';
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Pi', ActorID, 20 FROM Actor WHERE lname = 'Sharma' AND fname = 'Suraj';
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Reported', ActorID, 20 FROM Actor WHERE lname = 'Khan'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Reporter', ActorID, 20 FROM Actor WHERE lname = 'Khan'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Boat Owner', ActorID, 20 FROM Actor WHERE lname = 'Depardieu'; 
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Fisherman', ActorID, 20 FROM Actor WHERE lname = 'Bratt';
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Fisherman', ActorID, 20 FROM Actor WHERE lname = 'Saito';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Lee' AND Movie.name = 'Life of Pi';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (9, 20, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (9,20);
@@ -926,7 +926,7 @@ INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID F
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Billy', ActorID, 41 FROM Actor WHERE lname = 'DiCaprio';
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Colin Sullivan', ActorID, 41 FROM Actor WHERE lname = 'Damon'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Frank Costello', ActorID, 41 FROM Actor WHERE lname = 'Nicholson'; 
-INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Dignam', ActorID, 41 FROM Actor WHERE lname = 'Eisenberg'; 
+INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Dignam', ActorID, 41 FROM Actor WHERE lname = 'Wahlberg'; 
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Scorsese' AND Movie.name = 'The Departed';
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (7, 41, 'English', true, 'United States');
 INSERT INTO Sponsors (StudioID, MovieID) values (1,41);
@@ -965,7 +965,15 @@ SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 6 FROM Movie m, UserAccount u WHERE m.name = 'The Prestige' and u.username = 'steve123';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'The Departed' and u.username = 'steve123';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Batman Vs Superman' and u.username = 'steve123';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 4 FROM Movie m, UserAccount u WHERE m.name = 'Inception' and u.username = 'steve123';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'The Hunger Games: Mockingjay Part 2' and u.username = 'steve123';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'The Matrix' and u.username = 'steve123';
 
 INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
 values ('xpeke', 'pass3', 'Kovid', 'Adam', 'ak47@gmail.com','Ottawa', 'ON', 'Canada');
@@ -1067,7 +1075,7 @@ INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 13, 'Wow what a gre
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 14, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 15, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 16, 'BAD MOVIE');
-INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 17, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 17, 'This Movie was 2 scary 4 me');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 18, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 19, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 20, 'Wow what a great movie!!');
@@ -1148,8 +1156,8 @@ SELECT name
 WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='Scorsese' AND d.fname = 'Martin';
 
 
-------------------------------------------------------- Given Genre Queries -----------------------------------------------
--- Find all movies of a specific Genre
+------------------------------------------------------- Given Topics Queries -----------------------------------------------
+-- Find all movies of a specific Topics
 Select m.name, m.released, t.description
 FROM Movie m, MovieTopics mt, Topics t
 WHERE m.MovieID = mt.MovieID AND mt.TopicID = t.TopicID AND t.description = 'Comedy';
@@ -1182,3 +1190,9 @@ SELECT Movie.name, ROUND(AVG(rating),1)
 	WHERE Movie.movieID = Watches.MovieID
 	GROUP BY Movie.name
 	ORDER BY ROUND(AVG(rating),1) DESC;	
+
+
+Select * From User_Movie;
+
+DELETE FROM userAccount
+WHERE username = 'bruce555';
