@@ -1040,17 +1040,13 @@ SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 3 FROM Movie m, UserAccount u WHERE m.name = 'The Hurt Locker' and u.username = 'kiwikid';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Argo' and u.username = 'kiwikid'
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Argo' and u.username = 'kiwikid';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Life of Pi' and u.username = 'kiwikid'
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Life of Pi' and u.username = 'kiwikid';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Silver Linings Playbook' and u.username = 'kiwikid'
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Silver Linings Playbook' and u.username = 'kiwikid';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Se7en' and u.username = 'kiwikid';
-
-
-
-
 
 
 --Find the Actors in a Movie
@@ -1133,4 +1129,18 @@ WHERE r.ActorID = a.ActorID AND a.lname = 'DiCaprio';
 -- Find the Average Rating of a Movie
 Select Round(AVG(w.rating), 1)
 FROM Watches w, Movie m
-WHERE m.name = 'The Revenant' AND w.MovieID = m.MovieID;
+WHERE m.name = 'The Godfather' AND w.MovieID = m.MovieID;
+
+-- Highest Rated Movie
+FROM (SELECT Movie.name, ROUND(AVG(rating),1) 
+	FROM Watches, Movie
+	WHERE Movie.movieID = Watches.MovieID
+	GROUP BY Movie.name) AS avg_rating;
+
+
+-- All Movies Ranked from Best to Worst
+SELECT Movie.name, ROUND(AVG(rating),1) 
+	FROM Watches, Movie
+	WHERE Movie.movieID = Watches.MovieID
+	GROUP BY Movie.name
+	ORDER BY ROUND(AVG(rating),1) DESC;
