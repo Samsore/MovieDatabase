@@ -126,10 +126,10 @@ CREATE TABLE User_Movie
 (
 UserID INTEGER,
 MovieID INTEGER,
+comment VARCHAR(2000),
 FOREIGN KEY (UserID) REFERENCES UserAccount (UserID),
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
-
 
 INSERT INTO Topics (description) values ('Horror');
 INSERT INTO Topics (description) values ('Comedy');
@@ -1050,6 +1050,30 @@ INSERT INTO Watches (MovieID, UserID, time, Repeats, rating)
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Se7en' and u.username = 'kiwikid';
 
 
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 1, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (2, 2, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 3, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 4, 'BEST MOVIE I HAVE EVER SEEN');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 5, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 6, 'BEST MOVIE I HAVE EVER SEEN');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 7, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 8, 'BEST MOVIE I HAVE EVER SEEN');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 9, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 10, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 11, 'BEST MOVIE I HAVE EVER SEEN');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 12, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 13, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 14, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 15, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 16, 'BAD MOVIE');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 17, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 18, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 19, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 20, 'Wow what a great movie!!');
+
+
+
+
 
 ---------------------------------------------------- Given Movie Queries -----------------------------------------
 --Find the Actors in a Movie
@@ -1111,7 +1135,7 @@ WHERE r.ActorID = a.ActorID AND r.MovieID = m.MovieID AND m.name = 'The Revenant
 -- Find All the roles of an Actor
 Select r.RoleName, m.name
 From  Actor a, Role r, Movie m
-WHERE r.ActorID = a.ActorID AND a.lname = 'DiCaprio' AND r.MovieID = m.MovieID
+WHERE r.ActorID = a.ActorID AND a.lname = 'DiCaprio' AND r.MovieID = m.MovieID;
 
 -- find movies with a certain actor director pair
 SELECT name 
@@ -1157,3 +1181,4 @@ SELECT Movie.name, ROUND(AVG(rating),1)
 	WHERE Movie.movieID = Watches.MovieID
 	GROUP BY Movie.name
 	ORDER BY ROUND(AVG(rating),1) DESC;
+
