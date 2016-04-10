@@ -2,25 +2,52 @@
 
 CREATE TABLE UserAccount
 (
-UserID Integer,
+UserID SERIAL PRIMARY KEY,
+username VARCHAR(20) NOT NULL,
 Pass VARCHAR(16) NOT NULL,
-FName VARCHAR(20) NOT NULL,
-LName VARCHAR(20) NOT NULL,
-Email VARCHAR(30) NOT NULL,
-City VARCHAR(20),
-Province VARCHAR(20),
-Country VARCHAR(20) NOT NULL,
-Primary Key (UserID)
+lname VARCHAR(20), 
+fname VARCHAR(20), 
+email VARCHAR(30) NOT NULL,
+city VARCHAR(20),
+province VARCHAR(20),
+country VARCHAR(20)
 );
+INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
+values ('bruce555', 'pass1', 'Greene', 'Bruce', 'gb1996@gmail.com', 'ON', 'Canada');
+INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
+SELECT UserID, 'pg-13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'bruce555';
+
+INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
+values ('steve123', 'pass2', 'Smith', 'Steve', 'ss007@gmail.com', 'TX', 'United States');
+INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
+SELECT UserID, 'pg-13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'seteve123';
+
+INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
+values ('xpeke', 'pass3', 'Kovid', 'Adam', 'ak47@gmail.com', 'ON', 'Canada');
+INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
+SELECT UserID, 'pg-13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'xpeke';
+
+INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
+values ('doublelift', 'pass4', 'Shams', 'Sam', 'ss123@gmail.com', 'ON', 'Canada');
+INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
+SELECT UserID, 'pg-13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'doublelift';
+
+INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
+values ('kiwikid', 'pass5', 'Burns', 'Micheal', 'bm14752@gmail.com', 'QC', 'Canada');
+INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
+SELECT UserID, 'pg-13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'kiwikid';
+
 
 CREATE TABLE Profile
 (
+UserID Integer,
 ageRange VARCHAR(4) NOT NULL, 
 yearBorn numeric(4,0) NOT NULL,
 gender CHAR(1) NOT NULL,
 occupation VARCHAR,
 device VARCHAR,
-CONSTRAINT chk_gender CHECK (gender = 'm' OR gender = 'f' OR gender = 'o')
+CONSTRAINT chk_gender CHECK (gender = 'm' OR gender = 'f' OR gender = 'o'),
+FOREIGN KEY(UserID) REFERENCES UserAccount (UserID)
 );
 
 CREATE TABLE Topics
@@ -126,6 +153,8 @@ MovieID INTEGER,
 FOREIGN KEY (UserID) REFERENCES UserAccount (UserID),
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
+
+
 
 INSERT INTO Topics (description) values ('Horror');
 INSERT INTO Topics (description) values ('Comedy');
