@@ -1,4 +1,4 @@
-﻿set search_path = "FinalProject";
+﻿set search_path = "public";
 
 CREATE TABLE UserAccount
 (
