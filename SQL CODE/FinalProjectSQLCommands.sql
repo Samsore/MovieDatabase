@@ -936,24 +936,34 @@ SELECT UserID, 'pg13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE userna
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
 SELECT m.MovieID, u.UserID, '1/1/2016', 1, 7 FROM Movie m, UserAccount u WHERE m.name = 'The Revenant' and u.username = 'bruce555';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '1/1/2016', 1, 7 FROM Movie m, UserAccount u WHERE m.name = 'Ride Along 2' and u.username = 'bruce555';
+SELECT m.MovieID, u.UserID, '1/1/2016', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'Ride Along 2' and u.username = 'bruce555';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '1/1/2016', 1, 7 FROM Movie m, UserAccount u WHERE m.name = 'The Witch' and u.username = 'bruce555';
+SELECT m.MovieID, u.UserID, '1/1/2016', 1, 9 FROM Movie m, UserAccount u WHERE m.name = 'The Witch' and u.username = 'bruce555';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '1/1/2016', 1, 7 FROM Movie m, UserAccount u WHERE m.name = 'There Will Be Blood' and u.username = 'bruce555';
+SELECT m.MovieID, u.UserID, '1/1/2016', 1, 4 FROM Movie m, UserAccount u WHERE m.name = 'Shutter Island' and u.username = 'bruce555';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '1/1/2016', 1, 1 FROM Movie m, UserAccount u WHERE m.name = 'The Wolf of Wall Street' and u.username = 'bruce555';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '1/1/2016', 1, 7 FROM Movie m, UserAccount u WHERE m.name = 'Interstellar' and u.username = 'bruce555';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '1/1/2016', 1, 4 FROM Movie m, UserAccount u WHERE m.name = 'Forrest Gump' and u.username = 'bruce555';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '1/1/2016', 1, 6 FROM Movie m, UserAccount u WHERE m.name = 'The Shawshank Redemption' and u.username = 'bruce555';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '1/1/2016', 1, 9 FROM Movie m, UserAccount u WHERE m.name = 'The Godfather' and u.username = 'bruce555';
 
 INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
 values ('steve123', 'pass2', 'Smith', 'Steve', 'ss007@gmail.com','Austin', 'TX', 'United States');
 INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
 SELECT UserID, 'pg13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'seteve123';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 10 FROM Movie m, UserAccount u WHERE m.name = 'The Revenant' and u.username = 'steve123';
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 7 FROM Movie m, UserAccount u WHERE m.name = 'The Revenant' and u.username = 'steve123';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 10 FROM Movie m, UserAccount u WHERE m.name = 'The Witch' and u.username = 'steve123';
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'The Witch' and u.username = 'steve123';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 10 FROM Movie m, UserAccount u WHERE m.name = 'The Prestige' and u.username = 'steve123';
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 6 FROM Movie m, UserAccount u WHERE m.name = 'The Prestige' and u.username = 'steve123';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 10 FROM Movie m, UserAccount u WHERE m.name = 'Batman Vs Superman' and u.username = 'steve123';
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Batman Vs Superman' and u.username = 'steve123';
 
 INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
 values ('xpeke', 'pass3', 'Kovid', 'Adam', 'ak47@gmail.com','Ottawa', 'ON', 'Canada');
@@ -966,7 +976,15 @@ SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m.name = 'The Wolf of Wall Street' and u.username = 'xpeke';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m.name = 'The Revenant' and u.username = 'xpeke';
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m.name = 'Goodfellas' and u.username = 'xpeke';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m.name = 'Taxi Driver' and u.username = 'xpeke';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m.name = 'There Will Be Blood' and u.username = 'xpeke';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m.name = 'No Country for Old Men' and u.username = 'xpeke';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m.name = 'Gravity' and u.username = 'xpeke';
 
 INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
 values ('doublelift', 'pass4', 'Shams', 'Sam', 'ss123@gmail.com','Ottawa', 'ON', 'Canada');
@@ -979,7 +997,29 @@ SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'The Witch' and u.username = 'doublelift';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'The Departed' and u.username = 'doublelift';
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'The Lord of the Rings: The Fellowship of the Ring' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'The Lord of the Rings: The Two Towers' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'Interstellar' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 3 FROM Movie m, UserAccount u WHERE m.name = 'The Lord of the Rings: The Return of the King' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'Inglourious Basterds' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'Fight Club' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'American History X' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m.name = 'Maze Runner: The Scorch Trials' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'Divergent' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 6 FROM Movie m, UserAccount u WHERE m.name = 'Dirty Grandpa' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'Ride Along 2' and u.username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'The Brothers Grimsby' and u.username = 'doublelift';
 
 INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
 values ('kiwikid', 'pass5', 'Burns', 'Micheal', 'bm14752@gmail.com', 'Montreal', 'QC', 'Canada');
@@ -992,7 +1032,23 @@ SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'The Brothers Grimsby' and u.username = 'kiwikid';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Django Unchained' and u.username = 'kiwikid';
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 4 FROM Movie m, UserAccount u WHERE m.name = 'Django Unchained' and u.username = 'kiwikid';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'The Godfather: Part II' and u.username = 'kiwikid';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'No Country for Old Men' and u.username = 'kiwikid';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 3 FROM Movie m, UserAccount u WHERE m.name = 'The Hurt Locker' and u.username = 'kiwikid';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Argo' and u.username = 'kiwikid'
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Life of Pi' and u.username = 'kiwikid'
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Silver Linings Playbook' and u.username = 'kiwikid'
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Se7en' and u.username = 'kiwikid';
+
+
 
 
 
@@ -1075,6 +1131,6 @@ From  Actor a, Role r
 WHERE r.ActorID = a.ActorID AND a.lname = 'DiCaprio';
 
 -- Find the Average Rating of a Movie
-Select Round(AVG(w. rating), 1)
+Select Round(AVG(w.rating), 1)
 FROM Watches w, Movie m
 WHERE m.name = 'The Revenant' AND w.MovieID = m.MovieID;
