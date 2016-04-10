@@ -3,7 +3,7 @@
 	<?php $encode_url = urlencode( $encode_url) ?>
 	<?php $encode_url = str_replace('+', '_', $encode_url);?>
 
-		<body background=<?php echo base_url().'dep/img/Movie/' . $encode_url.'/back.jpg' ?>>
+	    
 	<?php endforeach; ?>
 	<style>
 	div.searchbox {
@@ -32,29 +32,26 @@
 			<div class="col-lg-12">
 				<div class="searchbox">
 					<h1 color= "white"> <?php echo $val['name']?></h1>
-		<!-- <img class="img-responsive" src= <?php// echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?> alt=""> -->
+		<!-- <img class="img-responsive" src= <?php// echo base_url('profile pic') ?> alt=""> -->
 				</div>
 
 				<div class="col-lg-8">
 					<div class="searchbox">
-						<h3>Description</h3>
-					<p><?php echo $val['description']?></p>
+						<h3>Gender</h3>
+					<p><?php echo $val['gender']?></p>
 					</div>
 					<div class="searchbox">
-						<h3>Directors</h3>
-						<hr/>
-						<?php foreach ($director as $director_val): ?>
-							<h4><?php echo $director_val['fname']?> <?php echo $director_val['lname']?></h4>
-							<br>
-						<?php endforeach; ?>
+						<h3>Agerange</h3>
+					
+					<p>	<?php echo $val['agerange']?></p>
 					</div>
 
 					<div class="searchbox">
-						<h3>Actors</h3>
+						<h3>Ratings</h3>
 						<hr/>
-						<?php foreach ($actors as $actor_val): ?>
+						<?php foreach ($watches as $rating): ?>
 
-							<h4><a href=<?php echo base_url().'pages/actor/'. $actor_val['fname'] .'/'. $actor_val['lname'] ?> ><?php echo $actor_val['fname']?> <?php echo $actor_val['lname']?></a></h4>
+							<h4><?php echo $rating['fname']?> <?php echo $rating_val['lname']?></h4>
 							<br>
 						<?php endforeach; ?>
 					</div>
@@ -62,11 +59,6 @@
 				<div class="col-lg-4">
 					<div class="searchbox">
                         <img class="img-responsive" src= <?php echo base_url('dep/img/Movie/Batman_vs_Superman/Poster.jpg') ?> alt="">
-					</div>
-					<div class="searchbox">
-						<?php foreach ($rating as $rating_val): ?>
-							<h2>Rating: <?php echo $rating_val['round']?> /10</h2>
-						<?php endforeach; ?>
 					</div>
 				</div>
 			</div>

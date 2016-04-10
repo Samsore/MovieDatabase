@@ -34,6 +34,7 @@ class Home_model extends CI_Model {
         // Return the results.
         return $query->result_array();
     }
+    // MOVIE DETAIL PAGE SPECIFIC :::::A:::::
     public function get_actor($search_term='default'){
 
         $this->db->select('movieid');
@@ -75,4 +76,29 @@ class Home_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function get_rating($search_term='default'){
+        $this->db->select('Round(AVG(w. rating), 1)');
+        $this->db->from('watches w, movie m');
+        $this->db->Where('m.name',$search_term);
+        $this->db->Where('w.movieid = m.movieid');
+        
+        // Execute the query.
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    // MOVIE DETAIL PAGE SPECIFIC :::::A:::::
+
+    public function get_actor_name($firstname='default',$lastname='default'){
+        $this->db->select('lname, fname');
+        $this->db->from('actor');
+        $this->db->Where('fname',$firstname);
+        $this->db->Where('lname',$lastname);
+
+        // Execute the query.
+        $query = $this->db->get();
+        return $query->result_array(); 
+    }
+
+
+
 }
