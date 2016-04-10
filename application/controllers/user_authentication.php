@@ -46,6 +46,7 @@ public function new_user_registration() {
 $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
 $this->form_validation->set_rules('email_value', 'Email', 'trim|required|xss_clean');
 $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+
 if ($this->form_validation->run() == FALSE) {
 	$this->load->view('templates/header');
 	$this->load->view('pages/registration_form');
@@ -61,7 +62,9 @@ $result = $this->login_database->registration_insert($data);
 
 if ($result == TRUE) {
 	$data['message_display'] = 'Registration Successfully !';
+	$this->load->view('templates/header');
 	$this->load->view('pages/login_form');
+	$this->load->view('templates/footer');
 } else {
 	$data['message_display'] = 'Username already exist!';
 	$this->load->view('templates/header');

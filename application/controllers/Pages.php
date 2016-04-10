@@ -49,9 +49,18 @@ class Pages extends CI_Controller {
 		$data['results'] = $this->home_model->get_results($search_term);
 		$data['actors']	 = $this->home_model->get_actor($search_term);
 		$data['director']= $this->home_model->get_director($search_term);
-		
+		$data['rating']  = $this->home_model->get_rating($search_term);
+
        	$this->load->view('templates/header', $data);
         $this->load->view('pages/movie',$data);
+	    $this->load->view('templates/footer', $data);
+	}
+
+	public function actor($firstname, $lastname){
+		$data['actors']	 = $this->home_model->get_actor_name($firstname,$lastname);
+
+       	$this->load->view('templates/header', $data);
+        $this->load->view('pages/actor',$data);
 	    $this->load->view('templates/footer', $data);
 	}
 }

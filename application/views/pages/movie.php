@@ -54,7 +54,7 @@
 						<hr/>
 						<?php foreach ($actors as $actor_val): ?>
 
-							<h4><?php echo $actor_val['fname']?> <?php echo $actor_val['lname']?></h4>
+							<h4><a href=<?php echo base_url().'pages/actor/'. $actor_val['fname'] .'/'. $actor_val['lname'] ?> ><?php echo $actor_val['fname']?> <?php echo $actor_val['lname']?></a></h4>
 							<br>
 						<?php endforeach; ?>
 					</div>
@@ -64,7 +64,9 @@
                         <img class="img-responsive" src= <?php echo base_url('dep/img/Movie/Batman_vs_Superman/Poster.jpg') ?> alt="">
 					</div>
 					<div class="searchbox">
-						<!-- PHP RATINGS -->
+						<?php foreach ($rating as $rating_val): ?>
+							<h2>Rating: <?php echo $rating_val['round']?> /10</h2>
+						<?php endforeach; ?>
 					</div>
 				</div>
 			</div>

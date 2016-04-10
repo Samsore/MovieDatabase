@@ -1,5 +1,4 @@
-
- <?php header('Access-Control-Allow-Origin: *');?> 
+<?php header('Access-Control-Allow-Origin: *');?> 
 <head>
     <link rel="shortcut icon" href="/dep/images/favicon.ico" type="image/x-icon" />
     <meta charset="utf-8">
@@ -31,7 +30,9 @@
 </head>
  
 <!-- <body id="page-top" class="index"> -->
-
+<?php if (isset($this->session->userdata['logged_in'])): ?>
+<?php $username = ($this->session->userdata['logged_in']['username']); ?>
+<?php $email = ($this->session->userdata['logged_in']['email']); ?>
 
 <div>
     <!-- Navigation -->
@@ -55,13 +56,47 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio"><i class="fa fa-sign-in fa-2x"></i>    Sign In</a>
+                        <a href=<?php echo base_url().'user_authentication/logout'?> ><i class="fa fa-sign-out fa-2x"></i>    Sign Out</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about"><i class="fa fa-user fa-2x"></i>    Profile</a>
+                        <a href="#about"><i class="fa fa-user fa-2x"></i>    <?php echo $username?></a>
                     </li>
-                    <li class="page-scroll">
+<!--                     <li class="page-scroll">
                         <a href="#contact"><i class="fa fa-envelope fa-2x"></i>    Contact Us</a>
+                    </li>
+                </ul> -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <br>
+</div>
+
+<?php else: ?>
+<div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href= <?php echo base_url() ?> >Movie Database</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href=<?php echo base_url().'login_form'?>><i class="fa fa-sign-in fa-2x"></i>    Sign In</a>
                     </li>
                 </ul>
             </div>
@@ -71,3 +106,7 @@
     </nav>
     <br>
 </div>
+<?php endif; ?>
+
+
+

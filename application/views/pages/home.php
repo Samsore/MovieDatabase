@@ -1,5 +1,7 @@
     <!--Load Formhelper library-->
     <?php $this->load->helper('form'); ?>
+
+
     <style>
     a,
     a:hover,
@@ -43,13 +45,14 @@
                 <div class="col-lg-12">
                     <?php foreach($movie as $movie_item): ?>
                         <div class="col-lg-4" style ='link=#ffffff'>
-                            <?php $encode_url = urlencode( $movie_item['name']) ?>
+                            <?php $encode_url = str_replace(':', '', $movie_item['name']);?>
+                            <?php $encode_url = urlencode( $encode_url) ?>
                             <?php $encode_url = str_replace('+', '_', $encode_url);?>
                             <img class="img-responsive" src= <?php echo base_url().'dep/img/Movie/' . $encode_url.'/back.jpg' ?> alt="">
 
-                            <?php $encode_url2 = str_replace(':', '', $movie_item['name']);?>
-                            <?php $encode_url2 = urlencode( $encode_url) ?>
-                            <?php $encode_url2 = str_replace('+', '_', $encode_url2);?>
+
+                            <?php $encode_url2 = urlencode( $movie_item['name']) ?>
+                            <?php $encode_url2 = str_replace('+', '-', $encode_url2);?>
                             <h3><a href =<?php echo base_url().'pages/movie/'. $encode_url2 ?> > <?php echo $movie_item['name']?> </a></h3>
 
 
