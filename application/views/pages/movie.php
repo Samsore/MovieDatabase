@@ -18,9 +18,7 @@
 	    background-attachment: fixed;
 	}
 </style>
-	<header>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	</header>
+
 	<br>
 	<br>
 	<br>
@@ -81,24 +79,39 @@
 				<?php if (isset($this->session->userdata['logged_in'])): ?>
 				<div class="searchbox">
 					<h3>Comments</h3>
-					<?php echo form_open('pages/comment_success'); 
+					<div>
+						<?php foreach ($comments as $comment_val): ?>
+							<?php echo $comment_val['comment'] ?>
+						<?php endforeach; ?>
+					</div>
+					<div>
+						<?php echo form_open('pages/comment_success'); 
 
-	                  $data = array(
-	                  'name'        => 'Comment',
-	                  'id'          => 'comment_bar',
-	                  'value'       => '',
-	                  'maxlength'   => '100',
-	                  'size'        => '50',
-	                  'style'       => 'width:100%; height:400px',
-	                  'placeholder' => 'comment',
-	                );
-	                ?>
-	                <p style="color:black">
-	                <?php echo form_input($data);?>
-	            </p>
-	                <?php echo form_submit('search_submit', 'Submit'); ?>
-	                <?php echo form_close() ?>
+		                  $data = array(
+		                  'name'        => 'Comment',
+		                  'id'          => 'comment_bar',
+		                  'value'       => '',
+		                  'maxlength'   => '100',
+		                  'size'        => '50',
+		                  'style'       => 'width:100%; height:400px',
+		                  'placeholder' => 'comment',
+		                );
+		                ?>
+		                <p style="color:black">
+		                <?php echo form_input($data);?>
+		            	</p>
 
+						<?php foreach ($movieid as $movieid_val): ?>
+		            		<?php form_hidden('userid',$movieid_val['movieid']);?>
+						<?php endforeach; ?>
+
+						<?php foreach ($userid as $userid_val): ?>
+		            		<?php form_hidden('movieid',$userid_val['userid']);  ?>          	
+						<?php endforeach; ?>
+
+		                <?php echo form_submit('search_submit', 'Submit'); ?>
+		                <?php echo form_close() ?>
+		            </div>
 				</div>
 				<?php else:?>
 				<div class="searchbox">

@@ -43,6 +43,9 @@ class Pages extends CI_Controller {
 	}
 
 	public function movie($search_term){
+		if (isset($this->session->userdata['logged_in'])){
+			$username = ($this->session->userdata['logged_in']['username']);
+		}
 		$search_term = str_replace('-', ' ', $search_term);
 		$search_term = urldecode($search_term);
 
@@ -50,6 +53,9 @@ class Pages extends CI_Controller {
 		$data['actors']	 = $this->home_model->get_actor($search_term);
 		$data['director']= $this->home_model->get_director($search_term);
 		$data['rating']  = $this->home_model->get_rating($search_term);
+		$data['movieid']  = $this->home_model->get_movie_id($search_term);
+		$data['userid']  = $this->home_model->get_user_id($username);
+		$data['comments'] = $this->home_model->get_comments($search_term);
 
        	$this->load->view('templates/header', $data);
         $this->load->view('pages/movie',$data);
@@ -66,18 +72,19 @@ class Pages extends CI_Controller {
 	    $this->load->view('templates/footer', $data);
 	}
 	public function comment_success($comment){
-		// $search_term = $this->input->post('comment');
+		$search_term = $this->input->post('comment');
 
 
-  //           $data = array(
-  //               'title' => $this->input->post('title'),
-  //               'text' => $this->input->post('text')
-  //           );
+            $data = array(
+                'movieid' => $this->input->post('movieid'),
+                'userid'  => $this->input->post('userid'),
+                'comment' => $this->input->post('comment')
+            );
 
-  //           return $this->db->insert('news', $data);
+            return $this->db->insert('user_movie', $data);
 
        	$this->load->view('templates/header', $data);
-        $this->load->view('pages/actor',$data);
+        $this->load->view('pages/movie',$data);
 	    $this->load->view('templates/footer', $data);
 	}
 }
