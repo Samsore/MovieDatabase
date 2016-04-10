@@ -110,10 +110,11 @@ class Home_model extends CI_Model {
         return $query->result_array(); 
     }
     public function get_actor_roles($lastname='default'){
-        $this->db->select('r.rolename');
-        $this->db->from('actor a, role r');
+        $this->db->select('r.rolename, m.name');
+        $this->db->from('actor a, role r, movie m');
         $this->db->Where('r.actorid = a.actorid');
         $this->db->Where('a.lname',$lastname);
+        $this->db->Where('r.movieid = m.movieid');
         // Execute the query.
         $query = $this->db->get();
         return $query->result_array();

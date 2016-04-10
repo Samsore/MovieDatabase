@@ -27,15 +27,22 @@
 			</div>
 			<div class ="col-md-8">
 				<div>
-					<?php foreach($birthday as $role_val): ?>
-						<h4>Birthdate: <?php echo $role_val['datebirth']?></h4>
+					<?php foreach($birthday as $birthday_val): ?>
+						<h4>Birthdate: <?php echo $birthday_val['datebirth']?></h4>
 					<?php endforeach;?>
 				</div>
 				<div class ="col-md-8">
 					<div>
 						<h3>Roles played</h3>
-						<?php foreach($roles as $birthday_val): ?>
-							<h4><?php echo $birthday_val['rolename']?></h4>
+						<?php foreach($roles as $role_val): ?>
+							<ul list-style-type:none>
+								<ul list-style-type:none>
+									<li><h4><?php echo $role_val['name']?></h4></li>
+								</ul>
+								<ul list-style-type:none>
+									<li> - <?php echo $role_val['rolename']?></li>
+								</ul>
+							</ul>
 						<?php endforeach;?>
 					</div>
 				</div>
