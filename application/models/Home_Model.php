@@ -18,6 +18,19 @@ class Home_model extends CI_Model {
         // Execute the query.
         $query = $this->db->get();
 
+        // $searchable = array('actor','director','profile');
+        // foreach ($searchable as $person){
+        //     $this->db->select('*');
+        //     $this->db->from($person);
+                
+        //     $this->db->like('fname', $search_term);
+        //     $this->db->or_like('lname', $search_term);
+        //     // $this->db->or_like($person.'ID', $search_term);
+        //     // $this->db->or_like('dateBirth', $search_term);
+        //     // Execute the query.
+        //     $query = $this->db->get();  
+        // }
+
         // Return the results.
         return $query->result_array();
     }
