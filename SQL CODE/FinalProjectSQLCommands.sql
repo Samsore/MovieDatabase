@@ -12,31 +12,6 @@ city VARCHAR(20),
 province VARCHAR(20),
 country VARCHAR(20)
 );
-INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
-values ('bruce555', 'pass1', 'Greene', 'Bruce', 'gb1996@gmail.com', 'ON', 'Canada');
-INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
-SELECT UserID, 'pg-13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'bruce555';
-
-INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
-values ('steve123', 'pass2', 'Smith', 'Steve', 'ss007@gmail.com', 'TX', 'United States');
-INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
-SELECT UserID, 'pg-13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'seteve123';
-
-INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
-values ('xpeke', 'pass3', 'Kovid', 'Adam', 'ak47@gmail.com', 'ON', 'Canada');
-INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
-SELECT UserID, 'pg-13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'xpeke';
-
-INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
-values ('doublelift', 'pass4', 'Shams', 'Sam', 'ss123@gmail.com', 'ON', 'Canada');
-INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
-SELECT UserID, 'pg-13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'doublelift';
-
-INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
-values ('kiwikid', 'pass5', 'Burns', 'Micheal', 'bm14752@gmail.com', 'QC', 'Canada');
-INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
-SELECT UserID, 'pg-13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'kiwikid';
-
 
 CREATE TABLE Profile
 (
@@ -155,7 +130,6 @@ FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
 
 
-
 INSERT INTO Topics (description) values ('Horror');
 INSERT INTO Topics (description) values ('Comedy');
 INSERT INTO Topics (description) values ('Thriller');
@@ -176,9 +150,6 @@ INSERT INTO Topics (description) values ('Sport');
 INSERT INTO Topics (description) values ('Western');
 INSERT INTO Topics (description) values ('History');
 INSERT INTO Topics (description) values ('Film Noir');
-
-
-
 
 INSERT INTO Studio (name, country) values ('Regency Enterprises', 'United States');
 INSERT INTO Studio (name, country) values ('Warner Bros', 'United States');
@@ -958,6 +929,41 @@ INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Mov
 INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (7, 41, 'English', true, 'United States');
 INSERT INTO Sponsors (StudioID, MovieID) values (1,41);
 
+INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
+values ('bruce555', 'pass1', 'Greene', 'Bruce', 'gb1996@gmail.com', 'Toronto', 'ON', 'Canada');
+INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
+SELECT UserID, 'pg13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'bruce555';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '1/1/2016', 1, 7 FROM Movie m, UserAccount u WHERE m.name = 'The Revenant' and u.username = 'bruce555';
+
+INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
+values ('steve123', 'pass2', 'Smith', 'Steve', 'ss007@gmail.com','Austin', 'TX', 'United States');
+INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
+SELECT UserID, 'pg13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'seteve123';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 10 FROM Movie m, UserAccount u WHERE m.name = 'The Revenant' and u.username = 'steve123';
+
+INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
+values ('xpeke', 'pass3', 'Kovid', 'Adam', 'ak47@gmail.com','Ottawa', 'ON', 'Canada');
+INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
+SELECT UserID, 'pg13', 1996, 'm','doctor', 'computer' FROM UserAccount WHERE username = 'xpeke';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m.name = 'The Revenant' and u.username = 'xpeke';
+
+INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
+values ('doublelift', 'pass4', 'Shams', 'Sam', 'ss123@gmail.com','Ottawa', 'ON', 'Canada');
+INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
+SELECT UserID, 'pg13', 1996, 'm','doctor', 'computer' FROM UserAccount WHERE username = 'doublelift';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'The Revenant' and u.username = 'doublelift';
+
+INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
+values ('kiwikid', 'pass5', 'Burns', 'Micheal', 'bm14752@gmail.com', 'Montreal', 'QC', 'Canada');
+INSERT INTO Profile (UserID, ageRange, yearBorn, gender, occupation, device)
+SELECT UserID, 'pg13', 1996, 'm','doctor', 'phone' FROM UserAccount WHERE username = 'kiwikid';
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'The Revenant' and u.username = 'kiwikid';
+
 
 --Find the Actors in a Movie
 SELECT lname, fname
@@ -1035,3 +1041,8 @@ WHERE r.ActorID = a.ActorID AND r.MovieID = m.MovieID AND m.name = 'The Revenant
 Select r.RoleName
 From  Actor a, Role r
 WHERE r.ActorID = a.ActorID AND a.lname = 'DiCaprio';
+
+
+Select Round(AVG(w. rating), 1)
+FROM Watches w, Movie m
+WHERE m.name = 'The Revenant' AND w.MovieID = m.MovieID;
