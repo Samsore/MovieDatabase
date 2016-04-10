@@ -1132,6 +1132,7 @@ FROM Watches w, Movie m
 WHERE m.name = 'The Godfather' AND w.MovieID = m.MovieID;
 
 -- Highest Rated Movie
+Select MAX(avg_rating.round) AS BestMovie
 FROM (SELECT Movie.name, ROUND(AVG(rating),1) 
 	FROM Watches, Movie
 	WHERE Movie.movieID = Watches.MovieID
