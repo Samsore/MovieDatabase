@@ -44,25 +44,22 @@ class Pages extends CI_Controller {
 
 	public function movie($search_term){
 		if (isset($this->session->userdata['logged_in'])){
-			$username          =($this->session->userdata['logged_in']['username']);
-			$data['userid']    = $this->home_model->get_user_id($username);
-			$data['watched']   = $this->home_model->check_watched($username,$search_term);
-
+			$username = ($this->session->userdata['logged_in']['username']);
+			$data['userid']  = $this->home_model->get_user_id($username);
 		}
-
 		$search_term = str_replace('-', ' ', $search_term);
 		$search_term = urldecode($search_term);
 
-		$data['results']   = $this->home_model->get_results($search_term);
-		$data['actors']	   = $this->home_model->get_actor($search_term);
-		$data['director']  = $this->home_model->get_director($search_term);
-		$data['rating']    = $this->home_model->get_rating($search_term);
-		$data['movieid']   = $this->home_model->get_movie_id($search_term);
-		$data['comments']  = $this->home_model->get_comments($search_term);
-		$data['info']      = $this->home_model->get_extra_info($search_term);
+		$data['results'] = $this->home_model->get_results($search_term);
+		$data['actors']	 = $this->home_model->get_actor($search_term);
+		$data['director']= $this->home_model->get_director($search_term);
+		$data['rating']  = $this->home_model->get_rating($search_term);
+		$data['movieid']  = $this->home_model->get_movie_id($search_term);
+		$data['comments'] = $this->home_model->get_comments($search_term);
+		$data['info'] = $this->home_model->get_extra_info($search_term);
 		$data['role_name'] = $this->home_model->get_roles_and_names($search_term);
-		$data['trailer']   = $this->home_model->get_trailer($search_term);
-
+		$data['trailer'] = $this->home_model->get_trailer($search_term);
+		
 
        	$this->load->view('templates/header', $data);
         $this->load->view('pages/movie',$data);
@@ -91,18 +88,6 @@ class Pages extends CI_Controller {
 	    $this->load->view('templates/footer');
 	}
 
-	public function rating_success(){
-		$movieid = $this->input->post('movieid');
-        $userid  = $this->input->post('userid');
-        $rating  = $this->input->post('rating');
-        
-		$this->home_model->set_rating($userid, $movieid, $rating);
-
-		$this->load->view('templates/header');
-        $this->load->view('pages/success');
-	    $this->load->view('templates/footer');
-	}
-
 	public function profile(){
 		if (isset($this->session->userdata['logged_in'])){
 			$username = ($this->session->userdata['logged_in']['username']);
@@ -111,8 +96,8 @@ class Pages extends CI_Controller {
         	$this->load->view('pages/profile', $data);
 	    	$this->load->view('templates/footer', $data);
 		}	
-
 	}
+
 	public function delete(){
 		if (isset($this->session->userdata['logged_in'])){
 			$username = ($this->session->userdata['logged_in']['username']);
@@ -123,4 +108,5 @@ class Pages extends CI_Controller {
         $this->load->view('pages/delete', $data);
 	   	$this->load->view('templates/footer', $data);
 	}
+
 }

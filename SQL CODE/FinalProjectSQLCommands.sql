@@ -132,7 +132,7 @@ FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
 
-CREATE TABLE ratings
+/*CREATE TABLE ratings
 (
 UserID INTEGER,
 MovieID INTEGER,
@@ -141,6 +141,7 @@ PRIMARY KEY(UserID, MovieID)
 FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 )
+*/
 
 INSERT INTO Topics (description) values ('Horror');
 INSERT INTO Topics (description) values ('Comedy');
@@ -1069,7 +1070,7 @@ INSERT INTO Watches (MovieID, UserID, time, Repeats, rating)
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Se7en' and u.username = 'kiwikid';
 
 
-INSERT INTO User_Movie (UserID, MovieID, comment) values (5, 1, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (5, 1, 'LEO is a great ACTOR!!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (2, 2, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 3, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 4, 'BEST MOVIE I HAVE EVER SEEN');
@@ -1290,15 +1291,34 @@ SELECT * FROM Watches
 WHERE UserID = 4;
 
 -- Delete an Account
--- DELETE FROM useraccount where username = 'doublelift';
+DELETE FROM useraccount where username = 'kiwikid';
+SELECT * FROM useraccount;
 
--- Find a Users favourite movie genre
+-- Find a users highest rated genre
 SELECT topics.description, ROUND(AVG(rating),1) 
 	FROM Watches, useraccount u,
 	topics natural right join movietopics 
-	WHERE movietopics.movieID = Watches.MovieID AND watches.userid= u.userid AND u.username = 'doublelift'
+	WHERE movietopics.movieID = Watches.MovieID AND watches.userid= u.userid AND u.username = 'bruce555'
 	GROUP BY topics.description
 	ORDER BY ROUND(AVG(rating),1) DESC;
+	
+-- Find a users most watched genre	
+SELECT t.description, sum(w.repeats)
+	FROM Watches w, useraccount u,
+	topics t natural right join movietopics mt
+	WHERE mt.movieID = w.MovieID AND w.userid= u.userid AND u.username = 'doublelift'
+	GROUP BY t.description
+	ORDER BY sum(w.repeats) DESC;
+	
+-- Find the best movie of a genre
+SELECT m.name, ROUND(AVG(rating),1)
+	FROM Movie m, Watches w, Topics t, MovieTopics mt
+	WHERE m.MovieId = mt.MovieId AND m.movieid = w.movieid AND mt.topicid = t.topicid AND t.description = 'Thriller'
+	GROUP BY m.name
+	ORDER BY ROUND(AVG(rating),1) DESC;
+
+select * from watches;
+	
 	
 /*SELECT CASE WHEN (SELECT w.UserID FROM watches w, useraccount u, movie m  WHERE u.username = 'doublelift' AND u.UserID = w.UserID AND m.name = 'Inception' 
 									 AND m.MovieID = w.MovieID) is NULL THEN
