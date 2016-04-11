@@ -58,6 +58,8 @@ class Pages extends CI_Controller {
 		$data['comments'] = $this->home_model->get_comments($search_term);
 		$data['info'] = $this->home_model->get_extra_info($search_term);
 		$data['role_name'] = $this->home_model->get_roles_and_names($search_term);
+		$data['trailer'] = $this->home_model->get_trailer($search_term);
+		
 
        	$this->load->view('templates/header', $data);
         $this->load->view('pages/movie',$data);
@@ -95,5 +97,6 @@ class Pages extends CI_Controller {
 	    	$this->load->view('templates/footer', $data);
 		}	
 	}
+
 
 }

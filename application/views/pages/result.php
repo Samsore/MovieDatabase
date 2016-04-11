@@ -30,7 +30,7 @@ div.searchbox {
 						<img class="img-responsive" src= <?php echo base_url().'dep/img/Movie/' . $encode_url.'/back.jpg' ?> alt="">
 					</div>
 					<div class="col-lg-8">
-						<?php echo $val['description']?>
+						<p size='2'><?php echo $val['description']?></p>
 					</div>
 				</div>
 			</div>

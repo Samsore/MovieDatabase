@@ -11,6 +11,7 @@
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href= <?php echo base_url("dep/css/bootstrap.min.css") ?> rel="stylesheet">
+    <link href= <?php echo base_url("dep/css/star.css") ?> rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Custom CSS -->
     <link href=<?php echo base_url("dep/css/freelancer.css")?> rel="stylesheet">
