@@ -1025,7 +1025,7 @@ SELECT m.MovieID, u.UserID, '2016/1/1', 1, 5 FROM Movie m, UserAccount u WHERE m
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'Divergent' and u.username = 'doublelift';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-SELECT m.MovieID, u.UserID, '2016/1/1', 1, 6 FROM Movie m, UserAccount u WHERE m.name = 'Dirty Grandpa' and u.username = 'doublelift';
+SELECT m.MovieID, u.UserID, '2016/1/1', 1, 10 FROM Movie m, UserAccount u WHERE m.name = 'Dirty Grandpa' and u.username = 'doublelift';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 2 FROM Movie m, UserAccount u WHERE m.name = 'Ride Along 2' and u.username = 'doublelift';
 INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
@@ -1269,7 +1269,14 @@ WHERE UserID = (SELECT Useraccount.UserID
 			   WHERE Movie.name = 'The Revenant');
 
 -- Delete an Account
-DELETE FROM useraccount
-where username = 'doublelift';
+-- DELETE FROM useraccount where username = 'doublelift';
 
-SELECT * FROM useraccount
+-- Find a Users favourite movie genre
+SELECT topics.description, ROUND(AVG(rating),1) 
+	FROM Watches, useraccount u,
+	topics natural right join movietopics 
+	WHERE movietopics.movieID = Watches.MovieID AND watches.userid= u.userid AND u.username = 'doublelift'
+	GROUP BY topics.description
+	ORDER BY ROUND(AVG(rating),1) DESC;
+
+SELECT * FROM useraccount;
