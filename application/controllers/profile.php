@@ -1,78 +1,60 @@
-	<?php foreach ($results as $val): ?>
-	<?php $encode_url = str_replace(':', '', $val['name']);?>
-	<?php $encode_url = urlencode( $encode_url) ?>
-	<?php $encode_url = str_replace('+', '_', $encode_url);?>
+<?php
+class Profile extends CI_Controller {
 
-		<body background=<?php echo base_url().'dep/img/Movie/' . $encode_url.'/back.jpg' ?>>
-	<?php endforeach; ?>
-	<style>
-	div.searchbox {
-	    color:white;
-	    margin:20px;
-	    padding:20px;
-	    background: rgba(0,0,0,0.5);
-	} 
-	body {
-	    background-repeat: no-repeat;
-	    background-position: right top;
-	    background-attachment: fixed;
-	}
-	</style>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-<div>
+        public function __construct()
+        {
+                parent::__construct();
+                $this->load->model('profile_model');
+                $this->load->helper('url_helper');
+        }
 
-	<?php foreach ($results as $val): ?>
+        public function index()
+        {
+                $data['profile'] = $this->profile_model->get_profile();
+                $data['title'] = 'profile archive';
+                $data['randProfile'] = $this->profile_model->rand_profile();
 
-	<div class="container"></div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="searchbox">
-					<h1 color= "white"> <?php echo $val['name']?></h1>
-		<!-- <img class="img-responsive" src= <?php// echo base_url('dep/img/Movie/Batman_vs_Superman/Batman_vs_Superman.jpg') ?> alt=""> -->
-				</div>
+                $this->load->view('templates/header', $data);
+                $this->load->view('profile/index', $data);
+                $this->load->view('templates/footer');
+        }
 
-				<div class="col-lg-8">
-					<div class="searchbox">
-						<h3>Description</h3>
-					<p><?php echo $val['description']?></p>
-					</div>
-					<div class="searchbox">
-						<h3>Directors</h3>
-						<hr/>
-						<?php foreach ($director as $director_val): ?>
-							<h4><?php echo $director_val['fname']?> <?php echo $director_val['lname']?></h4>
-							<br>
-						<?php endforeach; ?>
-					</div>
+        public function view()
+        {
+                $data['profile_item'] = $this->profile_model->get_profile();
+                if (empty($data['profile_item']))
+                {
+                        show_404();
+                }
 
-					<div class="searchbox">
-						<h3>Actors</h3>
-						<hr/>
-						<?php foreach ($actors as $actor_val): ?>
+                $data['title'] = $data['profile_item']['title'];
 
-							<h4><?php echo $actor_val['fname']?> <?php echo $actor_val['lname']?></h4>
-							<br>
-						<?php endforeach; ?>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="searchbox">
-                        <img class="img-responsive" src= <?php echo base_url('dep/img/Movie/Batman_vs_Superman/Poster.jpg') ?> alt="">
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="searchbox">
-					<h3> Comments</h3>
-				</div>
-			</div>
-		</div>
-	</div>	
+                $this->load->view('templates/header', $data);
+                $this->load->view('profile/view', $data);
+                $this->load->view('templates/footer');
+        }
 
-	<?php endforeach; ?>
+        public function create()
+        {
+                $this->load->helper('form');
+                $this->load->library('form_validation');
 
-</div>
+        $data['title'] = 'Create a profile item';
+
+        $this->form_validation->set_rules('title', 'Title', 'required');
+        $this->form_validation->set_rules('text', 'Text', 'required');
+
+        if ($this->form_validation->run() === FALSE)
+        {
+                $this->load->view('templates/header', $data);
+                $this->load->view('profile/create');
+                $this->load->view('templates/footer');
+
+        }
+        else
+        {
+                $this->profile_model->set_profile();
+                $this->load->view('profile/success');
+        }
+    }
+}
