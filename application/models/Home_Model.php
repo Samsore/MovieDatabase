@@ -220,47 +220,4 @@ class Home_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array(); 
     }
-
-    public function check_watched($username, $search_term="default"){
-        $this->db->select('w.userid');
-        $this->db->from('watches w, useraccount u, movie m');
-        $this->db->Where('u.username', $username);
-        $this->db->Where('u.userid = w.userid');
-        $this->db->Where('m.name', $search_term);
-        $this->db->Where(' m.movieid = w.movieid');
-        // Execute the query.
-        $query = $this->db->get();
-        return $query->result_array();
-    }
-    public function update_rating(){
-
-    }
-    public function set_rating($userid, $movieid="default", $rating){
-        $query = array();
-        $sql   = 'SELECT count(*) FROM watches WHERE userid = ? AND movieid = ?';
-        $query = $this->db->query($sql, array($userid,$movieid));
-        $data = $query->result_array();
-        // foreach ($empty->result_array() as $emptytemp){
-        //     $empty = $emptytemp['count'];
-        if ($data[0]['count'] == 0){
-            $data = array('movieid' => $movieid,
-                          'userid'  => $userid,
-                          'time'    => date("m/d/y"),
-                          'repeats' => 1,
-                          'rating'   => $rating);
-            $this->db->insert('watches', $data);
-
-        }else {
-            $sql = 'UPDATE Watches
-                    SET rating = ?
-                    WHERE UserID = ? AND movieid = ?';
-            $this->db->query($sql, array($rating, $userid, $movieid));
-        } 
-
-        return;
-    }
-    
-
-//         INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-// SELECT m.MovieID, u.UserID, Current_date, 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Se7en' and u.username = 'kiwikid';
 }
