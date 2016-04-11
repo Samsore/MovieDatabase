@@ -415,9 +415,10 @@ INSERT INTO Sponsors (StudioID, MovieID) values (9,13);
 
 
 INSERT INTO Movie (Name, Length, released, description, links) values ('Fight Club', 139, '08/15/1999', 'An insomniac office worker, looking for a way to change his life, crosses paths with a devil-may-care soap maker, forming an underground fight club that evolves into something much, much more... ', 'LoebZZ8K5N0');
+INSERT INTO Actor (lname, fname, dateBirth) values ('Pitt', 'Brad', '12/18/1963');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Bonham Carter', 'Helena', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Loaf', 'Meat', '1/1/9999');
--- Brad Pitt and Edward Norton Already Added
+--Edward Norton Already Added
 INSERT INTO Director (lname, fname,country) values ( 'Fincher' , 'David', 'United States');
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Bonham Carter' AND Movie.name = 'Fight Club';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Pitt' AND Movie.name = 'Fight Club';
@@ -488,7 +489,6 @@ INSERT INTO Sponsors (StudioID, MovieID) values (6,17);
 
 
 INSERT INTO Movie (Name, Length, released, description, links) values ('Se7en', 127, '9/22/1995', 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his modus operandi. ', 'LoebZZ8K5N0');
-INSERT INTO Actor (lname, fname, dateBirth) values ('Pitt', 'Brad', '12/18/1963');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Freeman', 'Morgan', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Spacey', 'Kevin', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Paltrow', 'Gwyneth', '1/1/9999');
