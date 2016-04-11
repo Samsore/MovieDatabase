@@ -1091,12 +1091,15 @@ WHERE Movie.MovieID = (Select MovieID
 			FROM Movie
 			Where name = 'The Revenant');
 
---Find the EXTRA info on the movie
-SELECT t.Description, languages, subtitles, country FROM MovieTopics mt, Topics t
+-- a) Find the EXTRA info on the movie
+SELECT t.Description, languages, subtitles, mt.country, s.name  FROM MovieTopics mt, Topics t, Sponsors Sp, Studio s
 WHERE mt.MovieID = (Select MovieID
 				FROM Movie
 				Where name = 'Ride Along 2')
-	AND (mt.TopicID = t.TopicID); 
+	AND (mt.TopicID = t.TopicID) AND Sp.movieID =  (Select MovieID
+								FROM Movie
+								Where name = 'Ride Along 2')
+								AND s.StudioID = Sp.StudioID; 
 
 --Find the Director of a given Movie
 SELECT lname, fname
