@@ -95,7 +95,7 @@
 					</div>
 					<div class="searchbox">
 						<?php foreach ($rating as $rating_val): ?>
-							<h2>Rating: <?php echo $rating_val['round']?> /10</h2>
+							<h2>Rating: <?php echo $rating_val['round']?> / 10</h2>
 						<?php endforeach; ?>
 					</div>
 					<div class="searchbox">					
