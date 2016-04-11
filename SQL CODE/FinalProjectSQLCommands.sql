@@ -132,17 +132,6 @@ FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
 
-/*CREATE TABLE ratings
-(
-UserID INTEGER,
-MovieID INTEGER,
-rating INTEGER,
-PRIMARY KEY(UserID, MovieID)
-FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
-FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
-)
-*/
-
 INSERT INTO Topics (description) values ('Horror');
 INSERT INTO Topics (description) values ('Comedy');
 INSERT INTO Topics (description) values ('Thriller');
@@ -1298,7 +1287,7 @@ SELECT * FROM useraccount;
 SELECT topics.description, ROUND(AVG(rating),1) 
 	FROM Watches, useraccount u,
 	topics natural right join movietopics 
-	WHERE movietopics.movieID = Watches.MovieID AND watches.userid= u.userid AND u.username = 'bruce555'
+	WHERE movietopics.movieID = Watches.MovieID AND watches.userid= u.userid AND u.username = 'kiwikid'
 	GROUP BY topics.description
 	ORDER BY ROUND(AVG(rating),1) DESC;
 	
@@ -1306,7 +1295,7 @@ SELECT topics.description, ROUND(AVG(rating),1)
 SELECT t.description, sum(w.repeats)
 	FROM Watches w, useraccount u,
 	topics t natural right join movietopics mt
-	WHERE mt.movieID = w.MovieID AND w.userid= u.userid AND u.username = 'doublelift'
+	WHERE mt.movieID = w.MovieID AND w.userid= u.userid AND u.username = 'kiwikid'
 	GROUP BY t.description
 	ORDER BY sum(w.repeats) DESC;
 	
