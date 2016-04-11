@@ -97,10 +97,12 @@
 					<div class="searchbox">
                         <img class="img-responsive" src= <?php echo base_url().'dep/img/Movie/'. $encode_url .'/Poster.jpg' ?> alt="">
 					</div>
+
 					<div class="searchbox">
 						<?php foreach ($rating as $rating_val): ?>
 							<h2>Rating: <?php echo $rating_val['round']?> / 10</h2>
 						<?php endforeach; ?>
+					<?php  if (isset($this->session->userdata['logged_in'])): ?>
 					<?php echo form_open('pages/rating_success');
 						$data = array(
 		                  'name'        => 'rating',
@@ -125,7 +127,9 @@
 						<?php endforeach; ?>
 						<div class="hidden"><?php echo form_submit(); ?></div>
 						<?php echo form_close(); ?>
+					<?php endif;?>
 					</div>
+
 					<div class="searchbox">			
 						<?php foreach ($trailer as $trailer_val): ?>		
 	    					<object width="100%" height="40%" data=<?php echo "http://www.youtube.com/v/".$trailer_val['links']?> type="application/x-shockwave-flash">
