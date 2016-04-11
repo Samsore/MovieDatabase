@@ -1092,15 +1092,26 @@ INSERT INTO User_Movie (UserID, MovieID, comment) values (4, 20, 'Wow what a gre
 
 
 ---------------------------------------------------- Given Movie Queries -----------------------------------------
+
+
 --Find the Actors in a Movie
-SELECT lname, fname
-FROM Movie
-INNER JOIN Actor_Movie ON Movie.MovieID = Actor_Movie.MovieID INNER JOIN
-	Actor ON Actor_Movie.ActorID = Actor.ActorID
-WHERE Movie.MovieID = (Select MovieID 
+SELECT a.lname, a.fname
+FROM Movie m
+INNER JOIN Actor_Movie am ON m.MovieID m = am.MovieID INNER JOIN
+	Actor a ON am.ActorID = a.ActorID
+WHERE m.MovieID = (Select MovieID 
 			FROM Movie
 			Where name = 'The Revenant');
 
+--Find the Movies a given Actor is in
+Select Movie.name, Movie.released
+FROM Actor
+INNER JOIN Actor_Movie ON Actor.ActorID = Actor_Movie.ActorID INNER JOIN
+	Movie ON Actor_Movie.MovieID = Movie.MovieID
+WHERE Actor.ActorID = (Select ActorID
+			FROM Actor
+			WHERE lname = 'DiCaprio' AND fname = 'Leonardo');
+			
 -- Find the Actors + Their roles in a Movie
 SELECT a.lname, a.fname, r.roleName
 FROM Actor a, movie m, actor_movie am, Role r
@@ -1114,43 +1125,38 @@ WHERE mt.MovieID = (Select MovieID
 				FROM Movie
 				Where name = 'Ride Along 2')
 	AND (mt.TopicID = t.TopicID) AND Sp.movieID =  (Select MovieID
-								FROM Movie
-								Where name = 'Ride Along 2')
+								FROM Movie m
+								Where m.name = 'Ride Along 2')
 								AND s.StudioID = Sp.StudioID; 
 -- Find the Studio of a Movie
 SELECT s.name 
 FROM sponsors sp, studio s, movie m
 WHERE sp.movieID =  m.movieID AND s.studioID = sp.studioID AND m.name = 'The Revenant';
 
-
 --Find the Director of a given Movie
-SELECT lname, fname
-FROM Movie
-INNER JOIN Director_Movie ON Movie.MovieID = Director_Movie.MovieID INNER JOIN
-	Director ON Director_Movie.DirectorID = Director.DirectorID
-WHERE Movie.MovieID = (Select MovieID 
-			FROM Movie
+SELECT a.lname, a.fname
+FROM Movie m
+INNER JOIN Director_Movie dm ON m.MovieID = dm.MovieID INNER JOIN
+	d ON dm.DirectorID = d.DirectorID
+WHERE m.MovieID = (Select MovieID 
+			FROM m
 			Where name = 'The Revenant');
 
+
 ----------------------------------------------------- Given Actor Queries -----------------------------------------
---Find the Movies a given Actor is in
+
+
+
+--Find all movies where 2 actors worked together
 Select Movie.name, Movie.released
-FROM Actor
-INNER JOIN Actor_Movie ON Actor.ActorID = Actor_Movie.ActorID INNER JOIN
-	Movie ON Actor_Movie.MovieID = Movie.MovieID
-WHERE Actor.ActorID = (Select ActorID
-			FROM Actor
-			WHERE lname = 'DiCaprio' AND fname = 'Leonardo');
-
---Find the movies 2 different actors are both in
-SELECT name 
-	FROM MOVIE m
-	JOIN Actor_Movie  AM1 ON AM1.movieid = m.MovieID JOIN Actor A1 ON AM1.actorID=a1.actorID
-	JOIN Actor_Movie  AM2 ON AM2.movieid = m.MovieID JOIN Actor A2 ON AM2.actorID=a2.actorID
-WHERE A1.lname = 'Bloom' AND A2.lname ='Wood';
-
+FROM Actor a1, Actor a2
+INNER JOIN Actor_Movie ON a1.ActorID = am.ActorID AND a2.ActorID = am.ActorID INNER JOIN
+	Movie m ON am.MovieID = m.MovieID
+WHERE a1.ActorID = (Select ActorID
+			FROM Actor a
+			WHERE a.lname = 'DiCaprio');
 --actors ordered by the number of movies they are in
-SELECT lname,fname,
+SELECT a.lname,a.fname,
          COUNT(*) AS num_movies
     FROM MOVIE m
     JOIN Actor_Movie  AM ON AM.movieid = m.MovieID
@@ -1158,95 +1164,90 @@ SELECT lname,fname,
 GROUP BY lname, fname
 ORDER BY num_movies DESC, lname, fname;  
 
--- Find the Role of an Actor in a Specific Movie
-Select r.RoleName
-From  Movie m, Actor a, Role r
-WHERE r.ActorID = a.ActorID AND r.MovieID = m.MovieID AND m.name = 'The Revenant' AND a.lname = 'DiCaprio';
 
--- Find All the roles of an Actor
-Select r.RoleName, m.name
-From  Actor a, Role r, Movie m
-WHERE r.ActorID = a.ActorID AND a.lname = 'DiCaprio' AND r.MovieID = m.MovieID;
+-- find movies 2 different actors are both in
+SELECT m.name 
+	FROM MOVIE m
+	JOIN Actor_Movie  am1 ON AM1.movieid = m.MovieID JOIN Actor a1 ON AM1.actorID=a1.actorID
+	JOIN Actor_Movie  am2 ON AM2.movieid = m.MovieID JOIN Actor a2 ON AM2.actorID=a2.actorID
+WHERE a1.lname = 'DiCaprio' AND a1.fname = 'Leonardo' AND a2.lname ='Hardy' AND a2.fname = 'Tom';
 
 -- find movies with a certain actor director pair
-SELECT name 
+SELECT m.name 
 	FROM MOVIE m
-	 JOIN Actor_Movie  AM ON AM.movieid = m.MovieID
-    JOIN ACTOR        a  ON a.ActorID = AM.actorid
-    JOIN Director_Movie  DM ON DM.movieid = m.MovieID
-    JOIN Director       d  ON d.DirectorID = DM.Directorid
-WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='Scorsese' AND d.fname = 'Martin';
+	 JOIN Actor_Movie  am ON am.movieid = m.MovieID
+    JOIN ACTOR        a  ON a.ActorID = am.actorid
+    JOIN Director_Movie  dm ON dm.movieid = m.MovieID
+    JOIN Director       d  ON d.DirectorID = dm.Directorid
+WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='G. Iñárritu' AND d.fname = 'Alejandro';
+
+--Find the Actors in a Movie
+SELECT a.lname, a.fname
+FROM Movie m
+INNER JOIN Actor_Movie am ON m.MovieID = am.MovieID INNER JOIN
+	Actor a ON am.ActorID = a.ActorID
+WHERE m.MovieID = (Select m.MovieID 
+			FROM m
+			Where m.name = 'The Revenant');
+
+--Find the Movies an Actor is in
+Select m.name, m.released
+FROM Actor a
+INNER JOIN Actor_Movie am ON a.ActorID = am.ActorID INNER JOIN
+	Movie m ON am.MovieID = m.MovieID
+WHERE a.ActorID = (Select a.ActorID
+			FROM a
+			WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo');
 
 
-------------------------------------------------------- Given Topics Queries ----------------------------------------------
--- Find all movies of a specific Topics
-Select m.name, m.released, t.description
-FROM Movie m, MovieTopics mt, Topics t
-WHERE m.MovieID = mt.MovieID AND mt.TopicID = t.TopicID AND t.description = 'Comedy';
-
-
-------------------------------------------------------- Rating Queries-----------------------------------------------------
-
--- Number of ratings for a given moviwe
-SELECT m.name, Count(w.rating)
-FROM Watches w, Movie m
-WHERE w.MovieID = m.MovieID AND m.name = 'The Revenant'
-GROUP BY m.name;
-
--- Find the Average Rating of a Movie
-Select Round(AVG(w.rating), 1)
-FROM Watches w, Movie m
-WHERE m.name = 'Gravity' AND w.MovieID = m.MovieID;
-
--- Single Best Movie
-SELECT Movie.name, ROUND(AVG(rating),1) 
-	FROM Watches, Movie
-	WHERE Movie.movieID = Watches.MovieID
-	GROUP BY Movie.name
-	ORDER BY ROUND(AVG(rating),1) DESC
-	LIMIT 1;
-
--- Ranked the movies from best to worst
-SELECT Movie.name, ROUND(AVG(rating),1) 
-	FROM Watches, Movie
-	WHERE Movie.movieID = Watches.MovieID
-	GROUP BY Movie.name
-	ORDER BY ROUND(AVG(rating),1) DESC;	
-
--- Select best genre based on average ratings of its movies
-SELECT topics.description, ROUND(AVG(rating),1) 
-	FROM Watches, 
-	topics natural right join movietopics 
-	WHERE movietopics.movieID = Watches.MovieID 
-	GROUP BY topics.description
-	ORDER BY ROUND(AVG(rating),1) DESC
+--Find the EXTRA info on the movie
+SELECT t.Description, languages, subtitles, country FROM MovieTopics mt, Topics t
+WHERE mt.MovieID = (Select MovieID
+				FROM Movie m
+				Where m.name = 'Ride Along 2')
+	AND (mt.TopicID = t.TopicID); -- Favourite genre by best ratings by a given user	
+	SELECT t.description, avg(w.rating) 
+	FROM Watches w, profile p,
+	topics t natural right join movietopics  mt
+	WHERE mt.movieID = w.MovieID AND w.userid=p.userid AND p.username='user'
+	GROUP BY t.description
+	ORDER BY avg(w.rating) DESC
 	LIMIT 1;
 	
--- Select genre and ratings based on genre name	
-SELECT topics.description, ROUND(AVG(rating),1) 
-	FROM Watches, 
-	topics natural right join movietopics 
-	WHERE movietopics.movieID = Watches.MovieID
-    AND topics.description='Crime'	
-	GROUP BY topics.description;
+-- Recommended movie based on genre
+   SELECT m.name avg, (w.rating)
+   From movie m, watches w, topics t, movietopics mt
+   WHERE m.movieID=mt.movieID AND mt.topicsid=t.topicsid AND t.description='comedy'
+   GROUP BY m.movieID
+   ORDER BY avg(w.rating) DESC;
+
+   --Favourite genres by most watches for a given user	
+SELECT t.description, count(w) 
+	FROM Watches w, useraccount u,
+	topics t natural right join movietopics mt 
+	WHERE mt.movieID = w.MovieID AND w.userid=u.userid AND u.username='user'
+	GROUP BY t.description
+	ORDER BY COUNT(w) DESC
+	LIMIT 1;
+
 	
 -- Best actor based on average ratings of movies they are in 
 SELECT actor.lname, ROUND(AVG(rating),1) 
-	FROM Watches,  
-	actor natural right join actor_movie 
-	WHERE actor_movie.movieID = Watches.MovieID 
-	GROUP BY actor.lname
+	FROM Watches w,  
+	actor a natural right join actor_movie am
+	WHERE am.movieID = w.MovieID 
+	GROUP BY a.lname
 	ORDER BY ROUND(AVG(rating),1) DESC
 	LIMIT 1;
 
 
 -- Name and ratings of a given actor
-SELECT actor.lname, ROUND(AVG(rating),1) 
-	FROM Watches,  
-	actor natural right join actor_movie 
-	WHERE actor_movie.movieID = Watches.MovieID 
-	AND actor.lname='Wood'
-	GROUP BY actor.lname;
+SELECT a.lname, ROUND(AVG(rating),1) 
+	FROM ws,  
+	actor a natural right join actor_movie am
+	WHERE am.movieID = w.MovieID 
+	AND a.lname='Wood'
+	GROUP BY a.lname;
 
 -- All Movies with higer rating than "X". X is a Movie name
 SELECT m1.name, ROUND(AVG(w1.rating),1) 
