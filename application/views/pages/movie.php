@@ -101,20 +101,31 @@
 						<?php foreach ($rating as $rating_val): ?>
 							<h2>Rating: <?php echo $rating_val['round']?> / 10</h2>
 						<?php endforeach; ?>
-						<?php echo form_open(); ?>
-						    <div class="stars">
-						        <input type="radio" name="star1" class="star-1" id="star-1" />
-						        <label class="star-1" for="star-1">1</label>
-						        <input type="radio" name="star2" class="star-2" id="star-2" />
-						        <label class="star-2" for="star-2">2</label>
-						        <input type="radio" name="star3" class="star-3" id="star-3" />
-						        <label class="star-3" for="star-3">3</label>
-						        <input type="radio" name="star4" class="star-4" id="star-4" />
-						        <label class="star-4" for="star-4">4</label>
-						        <input type="radio" name="star5" class="star-5" id="star-5" />
-						        <label class="star-5" for="star-5">5</label>
-						        <span></span>
-						    </div>
+
+						<?php echo form_open('pages/rating_success');
+						$data = array(
+		                  'name'        => 'rating',
+		                  'id'          => 'rating',
+		                  'value'       => '',
+		                  'maxlength'   => '100',
+		                  'size'        => '50',
+		                  'style'       => 'width:100%; height:50px',
+		                  'placeholder' => 'Enter rating here',
+		                );
+		                ?>
+		                <p style="color:black">
+		                <?php echo form_input($data);?>
+		            	</p>
+
+						<?php foreach ($movieid as $movieid_val): ?>
+		            		<?php echo form_hidden('movieid',$movieid_val['movieid']);?>
+						<?php endforeach; ?>
+
+						<?php foreach ($userid as $userid_val): ?>
+		            		<?php echo form_hidden('userid',$userid_val['userid']);  ?>          	
+						<?php endforeach; ?>
+
+	
 						<div class="hidden"><?php echo form_submit(); ?></div>
 						<?php echo form_close(); ?>
 					</div>
