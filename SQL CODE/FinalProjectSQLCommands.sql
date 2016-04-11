@@ -23,7 +23,7 @@ gender CHAR(1) NOT NULL,
 occupation VARCHAR,
 device VARCHAR,
 CONSTRAINT chk_gender CHECK (gender = 'm' OR gender = 'f' OR gender = 'o'),
-FOREIGN KEY(UserID) REFERENCES UserAccount (UserID)
+FOREIGN KEY(UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE
 );
 
 CREATE TABLE Topics
@@ -51,7 +51,7 @@ Repeats Integer,
 rating SMALLINT NOT NULL,
 Primary key (MovieID, UserID),
 Foreign Key (MovieID) REFERENCES Movie (MovieID),
-Foreign Key (UserID) REFERENCES UserAccount (UserID)
+Foreign Key (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE
 );
 
 CREATE TABLE MovieTopics
@@ -128,7 +128,7 @@ CREATE TABLE User_Movie
 UserID INTEGER,
 MovieID INTEGER,
 comment VARCHAR(2000),
-FOREIGN KEY (UserID) REFERENCES UserAccount (UserID),
+FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
 
@@ -1059,29 +1059,26 @@ INSERT INTO Watches (MovieID, UserID, time, Repeats, rating)
 SELECT m.MovieID, u.UserID, '2016/1/1', 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Se7en' and u.username = 'kiwikid';
 
 
-INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 1, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (5, 1, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (2, 2, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 3, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 4, 'BEST MOVIE I HAVE EVER SEEN');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 5, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 6, 'BEST MOVIE I HAVE EVER SEEN');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 7, 'Wow what a great movie!!');
-INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 8, 'BEST MOVIE I HAVE EVER SEEN');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (3, 8, 'BEST MOVIE I HAVE EVER SEEN');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 9, 'Wow what a great movie!!');
-INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 10, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (3, 10, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 11, 'BEST MOVIE I HAVE EVER SEEN');
-INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 12, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (4, 12, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 13, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 14, 'Wow what a great movie!!');
-INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 15, 'Wow what a great movie!!');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (3, 15, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 16, 'BAD MOVIE');
-INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 17, 'This Movie was 2 scary 4 me');
+INSERT INTO User_Movie (UserID, MovieID, comment) values (3, 17, 'This Movie was 2 scary 4 me');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 18, 'Wow what a great movie!!');
 INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 19, 'Wow what a great movie!!');
-INSERT INTO User_Movie (UserID, MovieID, comment) values (1, 20, 'Wow what a great movie!!');
-
-
-
+INSERT INTO User_Movie (UserID, MovieID, comment) values (4, 20, 'Wow what a great movie!!');
 
 
 ---------------------------------------------------- Given Movie Queries -----------------------------------------
@@ -1156,7 +1153,7 @@ SELECT name
 WHERE a.lname = 'DiCaprio' AND a.fname = 'Leonardo' AND d.lname ='Scorsese' AND d.fname = 'Martin';
 
 
-------------------------------------------------------- Given Topics Queries -----------------------------------------------
+------------------------------------------------------- Given Topics Queries ----------------------------------------------
 -- Find all movies of a specific Topics
 Select m.name, m.released, t.description
 FROM Movie m, MovieTopics mt, Topics t
@@ -1183,7 +1180,7 @@ SELECT Movie.name, ROUND(AVG(rating),1)
 	GROUP BY Movie.name
 	ORDER BY ROUND(AVG(rating),1) DESC
 	LIMIT 1;
-	
+
 -- Ranked the movies from best to worst
 SELECT Movie.name, ROUND(AVG(rating),1) 
 	FROM Watches, Movie
@@ -1192,7 +1189,4 @@ SELECT Movie.name, ROUND(AVG(rating),1)
 	ORDER BY ROUND(AVG(rating),1) DESC;	
 
 
-Select * From User_Movie;
-
-DELETE FROM userAccount
-WHERE username = 'bruce555';
+--DELETE FROM userAccount WHERE username = 'kiwikid'; 
