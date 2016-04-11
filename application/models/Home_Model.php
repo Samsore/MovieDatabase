@@ -151,4 +151,11 @@ class Home_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function set_comments($movieid, $userid, $comment){
+        $data = array('movieid' => $movieid,
+                      'userid'  => $userid,
+                      'comment' => $comment);
+        $this->db->insert('user_movie',$data);
+        return;
+        }
 }

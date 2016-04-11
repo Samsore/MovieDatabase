@@ -85,12 +85,13 @@
 				<?php if (isset($this->session->userdata['logged_in'])): ?>
 				<div class="searchbox">
 					<h3>Comments</h3>
-					<div class ="commentbox">
-						<?php foreach ($comments as $comment_val): ?>
+					<?php foreach ($comments as $comment_val): ?>
+						<div class ="commentbox">
 							<p><?php echo $comment_val['comment'] ?></p>
 							<h5>-<?php echo $comment_val['username'] ?></h5>
-						<?php endforeach; ?>
-					</div>
+						</div>
+					<?php endforeach; ?>
+						
 					<div>
 						<?php echo form_open('pages/comment_success'); 
 
@@ -109,11 +110,11 @@
 		            	</p>
 
 						<?php foreach ($movieid as $movieid_val): ?>
-		            		<?php form_hidden('userid',$movieid_val['movieid']);?>
+		            		<?php echo form_hidden('movieid',$movieid_val['movieid']);?>
 						<?php endforeach; ?>
 
 						<?php foreach ($userid as $userid_val): ?>
-		            		<?php form_hidden('movieid',$userid_val['userid']);  ?>          	
+		            		<?php echo form_hidden('userid',$userid_val['userid']);  ?>          	
 						<?php endforeach; ?>
 
 		                <?php echo form_submit('search_submit', 'Submit'); ?>
@@ -123,6 +124,12 @@
 				<?php else:?>
 				<div class="searchbox">
 					<h3>You must Log In to Write a Comment</h3>
+						<div class ="commentbox">
+							<?php foreach ($comments as $comment_val): ?>
+								<p><?php echo $comment_val['comment'] ?></p>
+								<h5>-<?php echo $comment_val['username'] ?></h5>
+							<?php endforeach; ?>
+						</div>
 				</div>
 				<?php endif; ?>
 			</div>
