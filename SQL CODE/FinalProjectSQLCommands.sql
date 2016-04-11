@@ -1261,6 +1261,11 @@ WHERE u.username = 'doublelift' AND p.UserID = u.UserID;
 
 UPDATE Watches
 SET repeats = repeats + 1
-WHERE UserID = (SELECT ;
+WHERE UserID = (SELECT Useraccount.UserID 
+		FROM Movie, Useraccount
+		WHERE Movie.name = 'The Revenant' AND Useraccount.username = 'doublelift') AND
+		MovieID = (SELECT Movie.MovieID
+			   FROM Movie
+			   WHERE Movie.name = 'The Revenant');
 
 SELECT * FROM Watches;
