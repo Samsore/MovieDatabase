@@ -59,7 +59,7 @@
                         <a href=<?php echo base_url().'user_authentication/logout'?> ><i class="fa fa-sign-out fa-2x"></i>    Sign Out</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about"><i class="fa fa-user fa-2x"></i>    <?php echo $username?></a>
+                        <a href=<?php echo base_url().'pages/profile' ?> ><i class="fa fa-user fa-2x"></i>    <?php echo $username ?></a>
                     </li>
 <!--                     <li class="page-scroll">
                         <a href="#contact"><i class="fa fa-envelope fa-2x"></i>    Contact Us</a>

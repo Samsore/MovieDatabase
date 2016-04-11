@@ -158,4 +158,18 @@ class Home_model extends CI_Model {
         $this->db->insert('user_movie',$data);
         return;
         }
+
+
+
+
+
+    public function get_profile($username){
+        $this->db->select('*');
+        $this->db->from('useraccount u');
+        $this->db->Where('u.username',$username);
+
+        // Execute the query.
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }

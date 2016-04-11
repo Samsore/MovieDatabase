@@ -57,6 +57,8 @@ class Pages extends CI_Controller {
 		$data['movieid']  = $this->home_model->get_movie_id($search_term);
 		$data['comments'] = $this->home_model->get_comments($search_term);
 
+
+
        	$this->load->view('templates/header', $data);
         $this->load->view('pages/movie',$data);
 	    $this->load->view('templates/footer', $data);
@@ -83,4 +85,15 @@ class Pages extends CI_Controller {
         $this->load->view('pages/success');
 	    $this->load->view('templates/footer');
 	}
+
+	public function profile(){
+		if (isset($this->session->userdata['logged_in'])){
+			$username = ($this->session->userdata['logged_in']['username']);
+			$data['userdata'] = $this->home_model->get_profile($username);
+			$this->load->view('templates/header', $data);
+        	$this->load->view('pages/profile', $data);
+	    	$this->load->view('templates/footer', $data);
+		}	
+	}
+
 }
