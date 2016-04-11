@@ -132,6 +132,16 @@ FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
 
+CREATE TABLE ratings
+(
+UserID INTEGER,
+MovieID INTEGER,
+rating INTEGER,
+PRIMARY KEY(UserID, MovieID)
+FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
+FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
+)
+
 INSERT INTO Topics (description) values ('Horror');
 INSERT INTO Topics (description) values ('Comedy');
 INSERT INTO Topics (description) values ('Thriller');
@@ -1268,6 +1278,17 @@ WHERE UserID = (SELECT Useraccount.UserID
 			   FROM Movie
 			   WHERE Movie.name = 'The Revenant');
 
+UPDATE Watches
+SET rating = 8
+WHERE UserID = (SELECT Useraccount.UserID 
+		FROM Movie, Useraccount
+		WHERE Movie.name = 'The Revenant' AND Useraccount.username = 'doublelift') AND
+		MovieID = (SELECT Movie.MovieID
+			   FROM Movie
+			   WHERE Movie.name = 'The Revenant');
+SELECT * FROM Watches
+WHERE UserID = 4;
+
 -- Delete an Account
 -- DELETE FROM useraccount where username = 'doublelift';
 
@@ -1278,5 +1299,23 @@ SELECT topics.description, ROUND(AVG(rating),1)
 	WHERE movietopics.movieID = Watches.MovieID AND watches.userid= u.userid AND u.username = 'doublelift'
 	GROUP BY topics.description
 	ORDER BY ROUND(AVG(rating),1) DESC;
+	
+/*SELECT CASE WHEN (SELECT w.UserID FROM watches w, useraccount u, movie m  WHERE u.username = 'doublelift' AND u.UserID = w.UserID AND m.name = 'Inception' 
+									 AND m.MovieID = w.MovieID) is NULL THEN
+INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
+SELECT m.MovieID, u.UserID, CURRENT_DATE, 1, 5 FROM Movie m, UserAccount u WHERE m.name = 'Inception' and u.username = 'doublelift'
+ELSE (UPDATE Watches
+SET rating = 8
+WHERE UserID = (SELECT Useraccount.UserID 
+		FROM Movie, Useraccount
+		WHERE Movie.name = 'The Revenant' AND Useraccount.username = 'doublelift') AND
+		MovieID = (SELECT Movie.MovieID
+			   FROM Movie
+			   WHERE Movie.name = 'The Revenant')) END*/;
 
-SELECT * FROM useraccount;
+SELECT w.UserID FROM watches w, useraccount u, movie m  WHERE u.username = 'doublelift' AND u.UserID = w.UserID AND m.name = 'Instellar' 
+									 AND m.MovieID = w.MovieID;
+
+SELECT links
+FROM Movie
+WHERE name = 'Interstellar';
