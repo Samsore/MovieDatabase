@@ -1091,6 +1091,13 @@ WHERE Movie.MovieID = (Select MovieID
 			FROM Movie
 			Where name = 'The Revenant');
 
+-- Find the Actors + Their roles in a Movie
+SELECT a.lname, a.fname, r.roleName
+FROM Actor a, movie m, actor_movie am, Role r
+WHERE m.name = 'The Godfather' AND a.ActorID = am.ActorID AND am.MovieID = m.MovieID AND r.ActorID = a.ActorID AND r.MovieID = m.MovieID; 
+
+SELECT * From Actor_Movie WHERE MovieID = 1;
+
 -- a) Find the EXTRA info on the movie
 SELECT t.Description, languages, subtitles, mt.country, s.name  FROM MovieTopics mt, Topics t, Sponsors Sp, Studio s
 WHERE mt.MovieID = (Select MovieID
@@ -1100,6 +1107,11 @@ WHERE mt.MovieID = (Select MovieID
 								FROM Movie
 								Where name = 'Ride Along 2')
 								AND s.StudioID = Sp.StudioID; 
+-- Find the Studio of a Movie
+SELECT s.name 
+FROM sponsors sp, studio s, movie m
+WHERE sp.movieID =  m.movieID AND s.studioID = sp.studioID AND m.name = 'The Revenant';
+
 
 --Find the Director of a given Movie
 SELECT lname, fname
@@ -1246,3 +1258,9 @@ SELECT m1.name, ROUND(AVG(w1.rating),1)
 SELECT u.username, u.fname, u.lname, u.email, u.city, u.province, u.country, p.ageRange, p.yearBorn, p.gender, p.occupation, p.device
 FROM UserAccount u, Profile p
 WHERE u.username = 'doublelift' AND p.UserID = u.UserID;
+
+UPDATE Watches
+SET repeats = repeats + 1
+WHERE UserID = (SELECT ;
+
+SELECT * FROM Watches;
