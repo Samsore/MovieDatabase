@@ -44,7 +44,13 @@
 
 				<div class="col-lg-8">
 					<div class="searchbox">
+						<h3>Studio</h3>
+						<hr/>
+
+					</div>
+					<div class="searchbox">
 						<h3>Description</h3>
+						<hr/>
 					<p><?php echo $val['description']?></p>
 					</div>
 					<div class="searchbox">
@@ -124,12 +130,13 @@
 				<?php else:?>
 				<div class="searchbox">
 					<h3>You must Log In to Write a Comment</h3>
+						
+					<?php foreach ($comments as $comment_val): ?>
 						<div class ="commentbox">
-							<?php foreach ($comments as $comment_val): ?>
-								<p><?php echo $comment_val['comment'] ?></p>
-								<h5>-<?php echo $comment_val['username'] ?></h5>
-							<?php endforeach; ?>
+							<p><?php echo $comment_val['comment'] ?></p>
+							<h5>-<?php echo $comment_val['username'] ?></h5>
 						</div>
+					<?php endforeach; ?>						
 				</div>
 				<?php endif; ?>
 			</div>
