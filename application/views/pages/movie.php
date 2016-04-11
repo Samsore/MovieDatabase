@@ -47,6 +47,11 @@
 						<h3>Studio</h3>
 						<hr/>
 
+						<?php foreach ($info as $info_val): ?>
+							<h4><?php echo $info_val['name']?></h4>
+							<br>
+						<?php endforeach; ?>
+
 					</div>
 					<div class="searchbox">
 						<h3>Description</h3>
@@ -71,6 +76,18 @@
 							<br>
 						<?php endforeach; ?>
 					</div>
+					<div class="searchbox">
+						<h3>Info</h3>
+						<hr/>
+						<?php foreach ($info as $info_val): ?>
+							<h4>Languages: <?php echo $info_val['languages']?></h4>
+							<h4>Subtitles: <?php echo $info_val['subtitles']?></h4>	
+							<h4>Country: <?php echo $info_val['country']?></h4>						
+							<br>
+						<?php endforeach; ?>
+					</div>
+
+
 				</div>
 				<div class="col-lg-4">
 					<div class="searchbox">

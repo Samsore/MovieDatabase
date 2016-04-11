@@ -86,6 +86,35 @@ class Home_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function get_extra_info($id='default'){
+        $sql = 'SELECT t.Description, languages, subtitles, mt.country, s.name  FROM MovieTopics mt, Topics t, Sponsors Sp, Studio s
+                WHERE mt.MovieID = (Select MovieID
+                                FROM Movie
+                                Where name = ?)
+                    AND (mt.TopicID = t.TopicID) AND Sp.movieID =  (Select MovieID
+                                                FROM Movie
+                                                Where name = ?)
+                                                AND s.StudioID = Sp.StudioID';
+
+                                                
+        $query=$this->db->query($sql, array($id, $id));
+        return $query->result_array();
+
+        // $this->db->select('t.description, languages, subtitles, mt.country, s.name');
+        // $this->db->from('movietopics mt, topics t, sponsors sp, studio s');
+        // $this->db->Where('mt.MovieID = (Select MovieID
+        //         FROM Movie
+        //         Where name = '$search_term')');
+        // $this->db->Where('mt.TopicID = t.TopicID');        
+        // $this->db->Where(' Sp.movieID =  (Select MovieID
+        //                         FROM Movie
+        //                         Where name = '$search_term')');
+        // $this->db->Where('s.StudioID = Sp.StudioID');
+
+        // Execute the query.
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     // MOVIE DETAIL PAGE SPECIFIC :::::A:::::
 
     public function get_actor_name($firstname='default',$lastname='default'){
