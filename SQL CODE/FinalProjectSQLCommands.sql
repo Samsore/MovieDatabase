@@ -306,7 +306,7 @@ INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Shadia', ActorID, 7 FROM A
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Meridth', ActorID, 7 FROM Actor WHERE lname = 'Deutch'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Dick', ActorID, 7 FROM Actor WHERE lname = 'De Niro';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Mazer' AND Movie.name = 'Dirty Grandpa';
-INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (2, 7, 'English', true, 'United States'); 
+INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (18, 7, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (2,7);
 
 
@@ -325,7 +325,7 @@ INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Ben Barber', ActorID, 8 FR
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Angela', ActorID, 8 FROM Actor WHERE lname = 'Sumpter'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Antonio', ActorID, 8 FROM Actor WHERE lname = 'Bratt';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Story' AND Movie.name = 'Ride Along 2';
-INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (2, 8, 'English', true, 'United States'); 
+INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (19, 8, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (1,8);
 
 
@@ -382,7 +382,7 @@ INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Four', ActorID, 11 FROM Ac
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Natalie', ActorID, 11 FROM Actor WHERE lname = 'Judd'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Eric', ActorID, 11 FROM Actor WHERE lname = 'Courtney';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Burger' AND Movie.name = 'Divergent';
-INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (6, 11, 'English', true, 'United States'); 
+INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (11, 11, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (4,11);
 
 
@@ -458,7 +458,7 @@ INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Jules', ActorID, 15 FROM A
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Vincent', ActorID, 15 FROM Actor WHERE lname = 'Travolta'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Boxer', ActorID, 15 FROM Actor WHERE lname = 'Willis';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Tarantino' AND Movie.name = 'Pulp Fiction';
-INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (7, 15, 'English', true, 'United States'); 
+INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (20, 15, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (1,15);
 
 
@@ -512,7 +512,7 @@ INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Cop 2', ActorID, 18 FROM A
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Killer', ActorID, 18 FROM Actor WHERE lname = 'Spacey'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Girlfriend of Cop 1', ActorID, 18 FROM Actor WHERE lname = 'Paltrow';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Fincher' AND Movie.name = 'Se7en';
-INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (7, 18, 'English', true, 'United States');
+INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (16, 18, 'English', true, 'United States');
 INSERT INTO Sponsors (StudioID, MovieID) values (4,18);
 
 
@@ -719,7 +719,7 @@ INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Gangmember', ActorID, 29 F
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Goldguy', ActorID, 29 FROM Actor WHERE lname = 'Brando'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Driver', ActorID, 29 FROM Actor WHERE lname = 'De Niro';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Ford Coppola' AND Movie.name = 'The Godfather';
-INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (7, 29, 'English', true, 'United States'); 
+INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (17, 29, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (3,29);
 
 
@@ -812,7 +812,7 @@ INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Borameear', ActorID, 34 FR
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Legolas', ActorID, 34 FROM Actor WHERE lname = 'Bloom'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Galdalf', ActorID, 34 FROM Actor WHERE lname = 'McKellen';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Jackson' AND Movie.name = 'The Lord of the Rings: The Two Towers';
-INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (9, 34, 'English', true, 'United States'); 
+INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (15, 34, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (4,34);
 
 
@@ -882,7 +882,7 @@ INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Rich Female', ActorID, 38 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Tyler', ActorID, 38 FROM Actor WHERE lname = 'DiCaprio'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Banker Friend', ActorID, 38 FROM Actor WHERE lname = 'McConaughey';
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Scorsese' AND Movie.name = 'The Wolf of Wall Street';
-INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (2, 38, 'English', true, 'United States'); 
+INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (12, 38, 'English', true, 'United States'); 
 INSERT INTO Sponsors (StudioID, MovieID) values (9,38);
 
 
@@ -938,7 +938,7 @@ INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Colin Sullivan', ActorID, 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Frank Costello', ActorID, 41 FROM Actor WHERE lname = 'Nicholson'; 
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Dignam', ActorID, 41 FROM Actor WHERE lname = 'Wahlberg'; 
 INSERT INTO Director_Movie (DirectorID, MovieID) SELECT Director.DirectorID, Movie.MovieID FROM Director INNER JOIN Movie ON Director.lname = 'Scorsese' AND Movie.name = 'The Departed';
-INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (7, 41, 'English', true, 'United States');
+INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values (14, 41, 'English', true, 'United States');
 INSERT INTO Sponsors (StudioID, MovieID) values (1,41);
 
 INSERT INTO UserAccount (username, Pass, lname, fname, email, city, province, country) 
@@ -1319,3 +1319,5 @@ SELECT w.UserID FROM watches w, useraccount u, movie m  WHERE u.username = 'doub
 SELECT links
 FROM Movie
 WHERE name = 'Interstellar';
+
+SELECT TopicID FROM MovieTopics;
