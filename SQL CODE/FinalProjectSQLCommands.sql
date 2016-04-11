@@ -132,15 +132,15 @@ FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
 
-CREATE TABLE ratings
+/*CREATE TABLE ratings
 (
 UserID INTEGER,
 MovieID INTEGER,
 rating INTEGER,
-PRIMARY KEY(UserID, MovieID)
+PRIMARY KEY(UserID, MovieID),
 FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
-)
+);*/
 
 INSERT INTO Topics (description) values ('Horror');
 INSERT INTO Topics (description) values ('Comedy');
@@ -1311,7 +1311,7 @@ WHERE UserID = (SELECT Useraccount.UserID
 		WHERE Movie.name = 'The Revenant' AND Useraccount.username = 'doublelift') AND
 		MovieID = (SELECT Movie.MovieID
 			   FROM Movie
-			   WHERE Movie.name = 'The Revenant')) END*/;
+			   WHERE Movie.name = 'The Revenant')) END;*/
 
 SELECT w.UserID FROM watches w, useraccount u, movie m  WHERE u.username = 'doublelift' AND u.UserID = w.UserID AND m.name = 'Instellar' 
 									 AND m.MovieID = w.MovieID;
