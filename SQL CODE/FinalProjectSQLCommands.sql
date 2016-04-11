@@ -4,11 +4,11 @@ set datestyle = mdy;
 CREATE TABLE UserAccount
 (
 UserID SERIAL PRIMARY KEY,
-username VARCHAR(20) NOT NULL,
+username VARCHAR(20) UNIQUE NOT NULL,
 Pass VARCHAR(16) NOT NULL,
 lname VARCHAR(20), 
 fname VARCHAR(20), 
-email VARCHAR(30) NOT NULL,
+email VARCHAR(30) UNIQUE NOT NULL,
 city VARCHAR(20),
 province VARCHAR(20),
 country VARCHAR(20)
@@ -1226,10 +1226,23 @@ SELECT actor.lname, ROUND(AVG(rating),1)
 	AND actor.lname='Wood'
 	GROUP BY actor.lname;
 
--- All Movies with higer rating than "X"
+-- All Movies with higer rating than "X". X is a Movie name
 SELECT m1.name, ROUND(AVG(w1.rating),1) 
 	FROM Watches w1, Watches w2, Movie m1, Movie m2
 	WHERE m1.MovieID = w1.MovieID AND m2.MovieID = w2.MovieID AND w1.rating > w2.rating AND m2.name = 'Argo'
 	GROUP BY m1.name
 	ORDER BY ROUND(AVG(w1.rating),1) DESC;
-	
+
+-- All Movies with higher rating than "Y". Y is a number
+SELECT m1.name, ROUND(AVG(w1.rating),1) 
+	FROM Watches w1, Watches w2, Movie m1
+	WHERE m1.MovieID = w1.MovieID AND w1.rating > 5 
+	GROUP BY m1.name
+	ORDER BY ROUND(AVG(w1.rating),1) DESC;
+
+-------------------------------------------------- Queries about Users ----------------------------------------------
+
+-- All the data about a user.
+SELECT u.username, u.fname, u.lname, u.email, u.city, u.province, u.country, p.ageRange, p.yearBorn, p.gender, p.occupation, p.device
+FROM UserAccount u, Profile p
+WHERE u.username = 'doublelift' AND p.UserID = u.UserID;
