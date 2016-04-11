@@ -1268,4 +1268,8 @@ WHERE UserID = (SELECT Useraccount.UserID
 			   FROM Movie
 			   WHERE Movie.name = 'The Revenant');
 
-SELECT * FROM Watches;
+-- Delete an Account
+DELETE FROM useraccount
+where username = 'doublelift';
+
+SELECT * FROM useraccount
