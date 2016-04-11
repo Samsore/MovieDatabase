@@ -265,4 +265,37 @@ class Home_model extends CI_Model {
         $this->db->query($sql, array($username));
         return;
     }
+    public function highest_rated_genre($username){
+        $sql = 'SELECT topics.description, ROUND(AVG(rating),1) 
+                FROM Watches, useraccount u,
+                topics natural right join movietopics 
+                WHERE movietopics.movieid = Watches.movieid AND watches.userid= u.userid AND u.username = ?
+                GROUP BY topics.description
+                ORDER BY ROUND(AVG(rating),1) DESC LIMIT 1';
+    $query = $this->db->query($sql, array($username));
+    // Execute the query.
+    return $query->result_array();
+    }
+    public function most_watched_genre($username){
+        $sql = 'SELECT t.description, sum(w.repeats)
+                FROM Watches w, useraccount u,
+                topics t natural right join movietopics mt
+                WHERE mt.movieid = w.movieid AND w.userid= u.userid AND u.username = ?
+                GROUP BY t.description
+                ORDER BY sum(w.repeats) DESC LIMIT 1';
+    $query = $this->db->query($sql, array($username));
+     // Execute the query.
+    return $query->result_array();   
+    }
+
+    public function best_movie_genre($description){
+        $sql = 'SELECT m.name, ROUND(AVG(rating),1)
+                FROM Movie m, Watches w, Topics t, MovieTopics mt
+                WHERE m.movieid = mt.movieid AND m.movieid = w.movieid AND mt.topicid = t.topicid AND t.description = ?
+                GROUP BY m.name
+                ORDER BY ROUND(AVG(rating),1) DESC LIMIT 4';
+    $query = $this->db->query($sql, array($description));
+     // Execute the query.
+    return $query->result_array();   
+    }
 }

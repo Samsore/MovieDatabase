@@ -12,7 +12,9 @@
 	    margin:20px;
 	    padding:20px;
 	} 
-
+	h3.wordwrap{
+		word-wrap: break-word;
+	}
 	</style>
 	<br>
 	<br>
@@ -53,9 +55,21 @@
 					<br>
 				</div>
 			</div>	
-			<div class="col-md-12">
-				<div  class="recomended">
+			<div>
+				<div class="col-md-12">
+
 					<h1> Recomended Movies:</h1>
+					<?php foreach($best_movie_genre as $best_movie_genre_val): ?>
+						<div class="col-lg-3">
+
+							<?php $encode_url = str_replace(':', '', $best_movie_genre_val['name']);?>
+							<?php $encode_url = urlencode( $encode_url) ?>
+							<?php $encode_url = str_replace('+', '_', $encode_url);?>
+
+							<img class="img-responsive" src= <?php echo base_url().'dep/img/Movie/'. $encode_url .'/Poster.jpg' ?> alt="">
+							<h3 class="wordwrap"><?php echo $best_movie_genre_val['name']?> </h3>
+						</div>
+					<?php endforeach;?>
 				</div>
 			</div>
 	</div>

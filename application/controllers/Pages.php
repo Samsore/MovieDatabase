@@ -46,6 +46,7 @@ class Pages extends CI_Controller {
 		if (isset($this->session->userdata['logged_in'])){
 			$username = ($this->session->userdata['logged_in']['username']);
 			$data['userid']  = $this->home_model->get_user_id($username);
+			$data['watched']   = $this->home_model->check_watched($username,$search_term);
 		}
 		$search_term = str_replace('-', ' ', $search_term);
 		$search_term = urldecode($search_term);
@@ -65,7 +66,18 @@ class Pages extends CI_Controller {
         $this->load->view('pages/movie',$data);
 	    $this->load->view('templates/footer', $data);
 	}
+	public function rating_success(){
+		$movieid = $this->input->post('movieid');
+        $userid  = $this->input->post('userid');
+        $rating  = $this->input->post('rating');
+        
+		$this->home_model->set_rating($userid, $movieid, $rating);
 
+		$this->load->view('templates/header');
+        $this->load->view('pages/success');
+	    $this->load->view('templates/footer');
+	}
+	
 	public function actor($firstname, $lastname){
 		$data['actors']	  = $this->home_model->get_actor_name($firstname,$lastname);
 		$data['birthday'] = $this->home_model->get_actor_birthdate($firstname,$lastname);
@@ -92,6 +104,10 @@ class Pages extends CI_Controller {
 		if (isset($this->session->userdata['logged_in'])){
 			$username = ($this->session->userdata['logged_in']['username']);
 			$data['userdata'] = $this->home_model->get_profile($username);
+			$data['highest_rated_genre'] = $this->home_model->highest_rated_genre($username);
+			$data['most_watched_genre']  = $this->home_model->most_watched_genre($username);
+			$data['best_movie_genre']    = $this->home_model->best_movie_genre($data['most_watched_genre'][0]['description']);
+
 			$this->load->view('templates/header', $data);
         	$this->load->view('pages/profile', $data);
 	    	$this->load->view('templates/footer', $data);
