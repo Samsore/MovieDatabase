@@ -68,11 +68,12 @@
 					</div>
 
 					<div class="searchbox">
-						<h3>Actors</h3>
+						<h3>Actors - Roles</h3>
 						<hr/>
-						<?php foreach ($actors as $actor_val): ?>
+						<?php foreach ($role_name as $actor_val): ?>
 
-							<h4><a href=<?php echo base_url().'pages/actor/'. $actor_val['fname'] .'/'. $actor_val['lname'] ?> ><?php echo $actor_val['fname']?> <?php echo $actor_val['lname']?></a></h4>
+							<h4><a href=<?php echo base_url().'pages/actor/'. $actor_val['fname'] .'/'. $actor_val['lname'] ?> >
+								<?php echo $actor_val['fname']?> <?php echo $actor_val['lname']?> - <?php echo $actor_val['rolename']?> </a></h4>
 							<br>
 						<?php endforeach; ?>
 					</div>

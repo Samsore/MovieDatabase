@@ -198,4 +198,17 @@ class Home_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function get_roles_and_names($search_term="default"){
+        $this->db->select('a.lname, a.fname, r.rolename');
+        $this->db->from('actor a, movie m, actor_movie am, role r');
+        $this->db->Where('m.name',$search_term);
+        $this->db->Where('a.actorid = am.actorid');
+        $this->db->Where('am.movieid = m.movieid');
+        $this->db->Where('r.actorid = a.actorid');
+        $this->db->Where('r.movieid = m.movieid');
+
+         // Execute the query.
+        $query = $this->db->get();
+        return $query->result_array(); 
+    }
 }
