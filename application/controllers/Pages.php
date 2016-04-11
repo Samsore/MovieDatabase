@@ -113,4 +113,14 @@ class Pages extends CI_Controller {
 		}	
 
 	}
+	public function delete(){
+		if (isset($this->session->userdata['logged_in'])){
+			$username = ($this->session->userdata['logged_in']['username']);
+			$this->home_model->delete_account($username);
+		}
+
+		$this->load->view('templates/header', $data);
+        $this->load->view('pages/delete', $data);
+	   	$this->load->view('templates/footer', $data);
+	}
 }

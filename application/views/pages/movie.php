@@ -95,7 +95,7 @@
 				</div>
 				<div class="col-lg-4">
 					<div class="searchbox">
-                        <img class="img-responsive" src= <?php echo base_url('dep/img/Movie/Batman_vs_Superman/Poster.jpg') ?> alt="">
+                        <img class="img-responsive" src= <?php echo base_url().'dep/img/Movie/'. $encode_url .'/Poster.jpg' ?> alt="">
 					</div>
 					<div class="searchbox">
 						<?php foreach ($rating as $rating_val): ?>

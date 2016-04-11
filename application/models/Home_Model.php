@@ -260,7 +260,9 @@ class Home_model extends CI_Model {
         return;
     }
     
-
-//         INSERT INTO Watches (MovieID, UserID, time, Repeats, rating) 
-// SELECT m.MovieID, u.UserID, Current_date, 1, 8 FROM Movie m, UserAccount u WHERE m.name = 'Se7en' and u.username = 'kiwikid';
+    public function delete_account($username){
+        $sql = 'DELETE FROM useraccount where username = kiwikid';
+        $this->db->query($sql, array($username));
+        return;
+    }
 }
