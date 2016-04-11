@@ -132,15 +132,15 @@ FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
 );
 
-/*CREATE TABLE ratings
+CREATE TABLE ratings
 (
 UserID INTEGER,
 MovieID INTEGER,
 rating INTEGER,
-PRIMARY KEY(UserID, MovieID),
+PRIMARY KEY(UserID, MovieID)
 FOREIGN KEY (UserID) REFERENCES UserAccount (UserID) ON DELETE CASCADE,
 FOREIGN KEY (MovieID) REFERENCES Movie (MovieID)
-);*/
+)
 
 INSERT INTO Topics (description) values ('Horror');
 INSERT INTO Topics (description) values ('Comedy');
@@ -211,7 +211,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (2,2);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Zootopia', 108, '3/4/2016', 'In a city of anthropomorphic animals, a rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Zootopia', 108, '3/4/2016', 'In a city of anthropomorphic animals, a rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy.', 'jWM0ct-OLsM');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Goodwin', 'Ginnifer', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Bateman', 'Jason', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Elba', 'Idris', '1/1/9999');
@@ -234,7 +234,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (8,3);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('10 Cloverfield Lane', 103, '3/11/2016', 'After getting in a car accident, a woman is held in a shelter with two men, who claim the outside world is affected by a widespread chemical attack.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('10 Cloverfield Lane', 103, '3/11/2016', 'After getting in a car accident, a woman is held in a shelter with two men, who claim the outside world is affected by a widespread chemical attack.', 'M9cTqkXTl7s');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Goodman', 'John', '5/20/1952');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Elizabeth-Winstead', 'Mary', '5/20/1952');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Gallagher', 'John', '5/20/1952');
@@ -272,7 +272,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (7,5);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Brothers Grimsby', 83, '3/11/2016', 'A new assignment forces a top spy to team up with his football hooligan brother.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Brothers Grimsby', 83, '3/11/2016', 'A new assignment forces a top spy to team up with his football hooligan brother.', 'YtclB_02wA');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Baron Cohen', 'Sasha', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Wilson', 'Rebel', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Strong', 'Mark', '1/1/9999');
@@ -291,7 +291,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (1,6);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Dirty Grandpa', 102, '1/22/2016', 'Right before his wedding, an uptight guy is tricked into driving his grandfather, a lecherous former Army Lieutenant-Colonel, to Florida for spring break.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Dirty Grandpa', 102, '1/22/2016', 'Right before his wedding, an uptight guy is tricked into driving his grandfather, a lecherous former Army Lieutenant-Colonel, to Florida for spring break.', 'jLYvpQOlSIY');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Efron', 'Zac', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Plaza', 'Aubrey', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Deutch', 'Zoey', '1/1/9999');
@@ -310,7 +310,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (2,7);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Ride Along 2', 102, '1/15/2016', 'As his wedding day approaches, Ben heads to Miami with his soon-to-be brother-in-law James to bring down a drug dealer whos supplying the dealers of Atlanta with product.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Ride Along 2', 102, '1/15/2016', 'As his wedding day approaches, Ben heads to Miami with his soon-to-be brother-in-law James to bring down a drug dealer whos supplying the dealers of Atlanta with product.', 'iWfmmwdCHTg');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Jackson', 'O''Shea', '6/15/1969');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hart', 'Kevin', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Sumpter', 'Tika', '1/1/9999');
@@ -329,7 +329,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (1,8);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Daddy''s Home', 96, '12/25/2015', 'Stepdad, Brad Whitaker, is a radio host trying to get his stepchildren to love him and call him Dad. But his plans turn upside down when the biological father, Dusty Mayron, returns.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Daddy''s Home', 96, '12/25/2015', 'Stepdad, Brad Whitaker, is a radio host trying to get his stepchildren to love him and call him Dad. But his plans turn upside down when the biological father, Dusty Mayron, returns.', 'arhMMJx7tCU');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Ferrel', 'Will', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Wahlberg', 'Mark', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Cardellini', 'Linda', '1/1/9999');
@@ -348,7 +348,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (3,9);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Hunger Games: Mockingjay Part 2', 137, '11/20/2015', 'As the war of Panem escalates to the destruction of other districts, Katniss Everdeen, the reluctant leader of the rebellion, must bring together an army against President Snow, while all she holds dear hangs in the balance.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Hunger Games: Mockingjay Part 2', 137, '11/20/2015', 'As the war of Panem escalates to the destruction of other districts, Katniss Everdeen, the reluctant leader of the rebellion, must bring together an army against President Snow, while all she holds dear hangs in the balance.', '-0wdVrC4OM4');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Lawrence', 'Jennifer', '8/15/1990');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hutcherson', 'Josh', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hemsworth', 'Liam', '1/1/9999');
@@ -386,7 +386,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (4,11);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Maze Runner: The Scorch Trials', 132, '9/18/2015', 'After having escaped the Maze, the Gladers now face a new set of challenges on the open roads of a desolate landscape filled with unimaginable obstacles.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Maze Runner: The Scorch Trials', 132, '9/18/2015', 'After having escaped the Maze, the Gladers now face a new set of challenges on the open roads of a desolate landscape filled with unimaginable obstacles.', '-44_igsZtgU');
 INSERT INTO Actor (lname, fname, dateBirth) values ('O''Brien', 'Dylan', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hong Lee', 'Ki', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Scoldelario', 'Kaya', '1/1/9999');
@@ -405,7 +405,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (1,12);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('American History X', 119, '11/20/1998', 'A former neo-nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('American History X', 119, '11/20/1998', 'A former neo-nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did.', 'JsPW6Fj3BUI');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Norton', 'Edward', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Furlong', 'Edward', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Lien', 'Jennifer', '1/1/9999');
@@ -424,7 +424,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (9,13);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Fight Club', 139, '08/15/1999', 'An insomniac office worker, looking for a way to change his life, crosses paths with a devil-may-care soap maker, forming an underground fight club that evolves into something much, much more... ', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Fight Club', 139, '08/15/1999', 'An insomniac office worker, looking for a way to change his life, crosses paths with a devil-may-care soap maker, forming an underground fight club that evolves into something much, much more... ', 'J8FRBYOFu2w');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Pitt', 'Brad', '12/18/1963');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Bonham Carter', 'Helena', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Loaf', 'Meat', '1/1/9999');
@@ -462,7 +462,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (1,15);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Django Unchained', 165, '12/25/2012', 'With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Django Unchained', 165, '12/25/2012', 'With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.', 'eUdM9vrCbow');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Foxx', 'Jamie', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Waltz', 'Christoph', '1/1/9999');
 -- Samuel L. Jackson and Leonardo DiCaprio Already added
@@ -480,7 +480,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (2,16);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Inglourious Basterds', 153, '08/21/2009', 'In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner''s vengeful plans for the same.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Inglourious Basterds', 153, '08/21/2009', 'In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner''s vengeful plans for the same.', 'prj3URvxcHU');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Fassbender', 'Michael', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Roth', 'Eli', '1/1/9999');
 -- Brad Pitt and Cristoph Waltz Already Added
@@ -498,7 +498,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (6,17);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Se7en', 127, '9/22/1995', 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his modus operandi. ', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Se7en', 127, '9/22/1995', 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his modus operandi. ', 'J4YV2_TcCoE');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Freeman', 'Morgan', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Spacey', 'Kevin', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Paltrow', 'Gwyneth', '1/1/9999');
@@ -516,7 +516,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (4,18);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Silver Linings Playbook', 122, '12/25/2012', 'After a stint in a mental institution, former teacher Pat Solitano moves back in with his parents and tries to reconcile with his ex-wife. Things get more challenging when Pat meets Tiffany, a mysterious girl with problems of her own.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Silver Linings Playbook', 122, '12/25/2012', 'After a stint in a mental institution, former teacher Pat Solitano moves back in with his parents and tries to reconcile with his ex-wife. Things get more challenging when Pat meets Tiffany, a mysterious girl with problems of her own.', 'Lj5_FhLaaQQ');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Tucker', 'Chris', '1/1/9999');
 --Robert Deniro Jennifer Lawrence, Bradley Cooper Already added
 INSERT INTO Director (lname, fname,country) values ( 'O''Russell' , 'David', 'United States');
@@ -533,7 +533,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (6,19);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Life of Pi', 127, '11/21/2012', 'A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery. While cast away, he forms an unexpected connection with another survivor: a fearsome Bengal tiger.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Life of Pi', 127, '11/21/2012', 'A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery. While cast away, he forms an unexpected connection with another survivor: a fearsome Bengal tiger.', 'j9Hjrs6WQ8M');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Sharma', 'Suraj', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Khan', 'Irrfan', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Depardieu', 'Gerard', '1/1/9999');
@@ -552,7 +552,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (9,20);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Argo', 120, '10/12/2012', 'Acting under the cover of a Hollywood producer scouting a location for a science fiction film, a CIA agent launches a dangerous operation to rescue six Americans in Tehran during the U.S. hostage crisis in Iran in 1980.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Argo', 120, '10/12/2012', 'Acting under the cover of a Hollywood producer scouting a location for a science fiction film, a CIA agent launches a dangerous operation to rescue six Americans in Tehran during the U.S. hostage crisis in Iran in 1980.', 'w918Eh3fij0');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Cranston', 'Bryan', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Arkin', 'Alan', '1/1/9999');
 -- Ben Affleck, John Goodman
@@ -570,7 +570,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (9,21);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Gravity', 91, '10/4/2013', 'A medical engineer and an astronaut work together to survive after an accident leaves them adrift in space.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Gravity', 91, '10/4/2013', 'A medical engineer and an astronaut work together to survive after an accident leaves them adrift in space.', 'OiTiKOy59o4');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Bullock', 'Sandra', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Clooney', 'George', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Harris', 'Ed', '1/1/9999');
@@ -589,7 +589,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (1,22);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Hurt Locker', 131, '7/31/2008', 'During the Iraq War, a Sergeant recently assigned to an army bomb squad is put at odds with his squad mates due to his maverick way of handling his work.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Hurt Locker', 131, '7/31/2008', 'During the Iraq War, a Sergeant recently assigned to an army bomb squad is put at odds with his squad mates due to his maverick way of handling his work.', '2GxSDZc8etg');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Renner', 'Jeremey', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Pearce', 'Guy', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Fiennes', 'Ralph', '1/1/9999');
@@ -608,7 +608,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (5,23);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('No Country for Old Men', 122, '11/22/2007', 'Violence and mayhem ensue after a hunter stumbles upon a drug deal gone wrong and more than two million dollars in cash near the Rio Grande.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('No Country for Old Men', 122, '11/22/2007', 'Violence and mayhem ensue after a hunter stumbles upon a drug deal gone wrong and more than two million dollars in cash near the Rio Grande.', 'YOohAwZOSGo');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Lee Jones', 'Tommy', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Bardem', 'Javier', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Brolin', 'Josh', '1/1/9999');
@@ -629,7 +629,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (5,24);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('There Will Be Blood', 158, '1/25/2008', 'A story of family, religion, hatred, oil and madness, focusing on a turn-of-the-century prospector in the early days of the business.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('There Will Be Blood', 158, '1/25/2008', 'A story of family, religion, hatred, oil and madness, focusing on a turn-of-the-century prospector in the early days of the business.', 'f3THVbr4hlY');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Day-Lewis', 'Daniel', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Dano', 'Paul', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hinds', 'Ciaran', '1/1/9999');
@@ -648,7 +648,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (3,25);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Taxi Driver', 113, '2/8/1976', 'A mentally unstable Vietnam War veteran works as a night-time taxi driver in New York City where the perceived decadence and sleaze feeds his urge for violent action, attempting to save a preadolescent prostitute in the process.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Taxi Driver', 113, '2/8/1976', 'A mentally unstable Vietnam War veteran works as a night-time taxi driver in New York City where the perceived decadence and sleaze feeds his urge for violent action, attempting to save a preadolescent prostitute in the process.', 'sLpMx8_TYOo');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Foster', 'Jodie', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Cybill', 'Shepard', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Brooks', 'Albert', '1/1/9999');
@@ -667,7 +667,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (2,26);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Goodfellas', 146, '9/21/1990', 'Henry Hill and his friends work their way up through the mob hierarchy.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Goodfellas', 146, '9/21/1990', 'Henry Hill and his friends work their way up through the mob hierarchy.', 'qo5jJpHtI1Y');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Liotta', 'Ray', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Pesci', 'Joe', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Bracco', 'Lorraine', '1/1/9999');
@@ -686,7 +686,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (4,27);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Godfather: Part II', 202, '12/20/1974', 'The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Godfather: Part II', 202, '12/20/1974', 'The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.', 'qJr92K_hKl0');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Pacino', 'Al', '4/25/1940');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Duvall', 'Robert', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Keaton', 'Diane', '1/1/9999');
@@ -705,7 +705,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (5,28);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Godfather', 175, '3/24/1972', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Godfather', 175, '3/24/1972', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', 'sY1S34973zA');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Brando', 'Marlon', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Caan', 'James', '1/1/9999');
 -- Robert De Niro and Alpacino already added
@@ -723,7 +723,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (3,29);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Shawshank Redemption', 142, '10/14/1994', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Shawshank Redemption', 142, '10/14/1994', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', '6hB3S9bIaco');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Robbins', 'Tim', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Gunton', 'Rob', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Sadler', 'William', '1/1/9999');
@@ -742,7 +742,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (2,30);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Forrest Gump', 144, '7/6/1994', 'Forrest Gump, while not intelligent, has accidentally been present at many historic moments, but his true love, Jenny Curran, eludes him.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Forrest Gump', 144, '7/6/1994', 'Forrest Gump, while not intelligent, has accidentally been present at many historic moments, but his true love, Jenny Curran, eludes him.', 'uPIEn0M8su0');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hanks', 'Tom', '7/9/1956');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Wright', 'Robin', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Sinse', 'Gary', '1/1/9999');
@@ -761,7 +761,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (4,31);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Matrix', 134, '3/31/1999', 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Matrix', 134, '3/31/1999', 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.', 'm8e-FF8MsqU');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Reeves', 'Keanu', '9/2/1964');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Fishburne', 'Lawrence', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Weaving', 'Hugo', '1/1/9999');
@@ -782,7 +782,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (5,32);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Lord of the Rings: The Fellowship of the Ring', 178, '12/19/2001', 'A meek Hobbit and eight companions set out on a journey to destroy the One Ring and the Dark Lord Sauron.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Lord of the Rings: The Fellowship of the Ring', 178, '12/19/2001', 'A meek Hobbit and eight companions set out on a journey to destroy the One Ring and the Dark Lord Sauron.', 'Pki6jbSbXIY');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Wood', 'Elijah', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Bean', 'Sean', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Bloom', 'Orlando', '1/1/9999');
@@ -801,7 +801,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (1,33);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Lord of the Rings: The Two Towers', 179, '12/18/2002', 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron''s new ally, Saruman, and his hordes of Isengard.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Lord of the Rings: The Two Towers', 179, '12/18/2002', 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron''s new ally, Saruman, and his hordes of Isengard.', '2dlRvAjU_RI');
 --Same as other LOTR ^^
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Wood' AND Movie.name = 'The Lord of the Rings: The Two Towers';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Bean' AND Movie.name = 'The Lord of the Rings: The Two Towers';
@@ -816,7 +816,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (4,34);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Lord of the Rings: The Return of the King', 201, '12/17/2003', 'Gandalf and Aragorn lead the World of Men against Sauron''s army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Lord of the Rings: The Return of the King', 201, '12/17/2003', 'Gandalf and Aragorn lead the World of Men against Sauron''s army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.', 'r5X-hFf6Bwo');
 --Same as other LOTR ^^
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Wood' AND Movie.name = 'The Lord of the Rings: The Return of the King';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Bean' AND Movie.name = 'The Lord of the Rings: The Return of the King';
@@ -831,7 +831,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (6,35);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Inception', 148, '7/16/2010', 'A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Inception', 148, '7/16/2010', 'A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.', '66TuSJo4dZM');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Gordon-Levitt', 'Joseph', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Page', 'Ellen', '1/1/9999');
 INSERT INTO Director (lname, fname,country) values ( 'Nolan' , 'Christoper', 'United States');
@@ -849,7 +849,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (7,36);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Interstellar', 169, '11/7/2014', 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity''s survival.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Interstellar', 169, '11/7/2014', 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity''s survival.', 'ePbKGoIGAXY');
 INSERT INTO Actor (lname, fname, dateBirth) values ('McConaughey', 'Matthew ', '11/4/1969');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hathaway', 'Anne', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Castain', 'Jessica', '1/1/9999');
@@ -868,7 +868,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (7,37);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Wolf of Wall Street', 180, '12/25/2013', 'Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Wolf of Wall Street', 180, '12/25/2013', 'Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.', 'iszwuX1AK6A');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Hill', 'Jonah', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Robbie', 'Margot', '1/1/9999');
 --Leo and Matthew McConaughey
@@ -886,7 +886,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (9,38);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('Shutter Island', 138, '2/19/2010', 'A U.S Marshal investigates the disappearance of a murderess who escaped from a hospital for the criminally insane.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('Shutter Island', 138, '2/19/2010', 'A U.S Marshal investigates the disappearance of a murderess who escaped from a hospital for the criminally insane.', '5iaYLCiq5RM');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Ruffalo', 'Mark', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Kingsley', 'Ben', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Mortimer', 'Emily', '1/1/9999');
@@ -905,7 +905,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (3,39);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Prestige', 130, '10/20/2006', 'Two stage magicians engage in competitive one-upmanship in an attempt to create the ultimate stage illusion.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Prestige', 130, '10/20/2006', 'Two stage magicians engage in competitive one-upmanship in an attempt to create the ultimate stage illusion.', '4gHCmTQDVI');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Bale', 'Christian', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Jackman', 'Hugh', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Johansson', 'Scarlett', '1/1/9999');
@@ -924,7 +924,7 @@ INSERT INTO MovieTopics (TopicID, MovieID, languages, subtitles, country) values
 INSERT INTO Sponsors (StudioID, MovieID) values (3,40);
 
 
-INSERT INTO Movie (Name, Length, released, description, links) values ('The Departed', 151, '10/6/2006', 'An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.', 'LoebZZ8K5N0');
+INSERT INTO Movie (Name, Length, released, description, links) values ('The Departed', 151, '10/6/2006', 'An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.', 'SGWvwjZ0eDc');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Damon', 'Matt', '1/1/9999');
 INSERT INTO Actor (lname, fname, dateBirth) values ('Nicholson', 'Jack', '1/1/9999');
 --Mark Wahlberg and Leo
@@ -1311,7 +1311,7 @@ WHERE UserID = (SELECT Useraccount.UserID
 		WHERE Movie.name = 'The Revenant' AND Useraccount.username = 'doublelift') AND
 		MovieID = (SELECT Movie.MovieID
 			   FROM Movie
-			   WHERE Movie.name = 'The Revenant')) END;*/
+			   WHERE Movie.name = 'The Revenant')) END*/;
 
 SELECT w.UserID FROM watches w, useraccount u, movie m  WHERE u.username = 'doublelift' AND u.UserID = w.UserID AND m.name = 'Instellar' 
 									 AND m.MovieID = w.MovieID;
