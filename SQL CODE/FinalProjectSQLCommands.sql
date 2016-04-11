@@ -384,7 +384,7 @@ INSERT INTO Actor (lname, fname, dateBirth) values ('Darden', 'Dexter', '1/1/999
 INSERT INTO Director (lname, fname,country) values ( 'Ball' , 'Wes', 'United States');
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'O''Brien' AND Movie.name = 'Maze Runner: The Scorch Trials';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Hong Lee' AND Movie.name = 'Maze Runner: The Scorch Trials';
-INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Scolderlario' AND Movie.name = 'Maze Runner: The Scorch Trials';
+INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Scoldelario' AND Movie.name = 'Maze Runner: The Scorch Trials';
 INSERT INTO Actor_Movie (ActorID, MovieID) SELECT Actor.ActorID, Movie.MovieID FROM Actor INNER JOIN Movie ON Actor.lname = 'Darden' AND Movie.name = 'Maze Runner: The Scorch Trials';
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Thomas', ActorID, 12 FROM Actor WHERE lname = 'O''Brien';
 INSERT INTO Role (roleName, ActorID, MovieID) SELECT 'Minho', ActorID, 12 FROM Actor WHERE lname = 'Hong Lee'; 
