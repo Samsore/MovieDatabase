@@ -159,14 +159,11 @@ class Home_model extends CI_Model {
         return;
         }
 
-
-
-
-
     public function get_profile($username){
-        $this->db->select('*');
-        $this->db->from('useraccount u');
+        $this->db->select('u.username, u.fname, u.lname, u.email, u.city, u.province, u.country, p.agerange, p.yearborn, p.gender, p.occupation, p.device');
+        $this->db->from('useraccount u, profile p');
         $this->db->Where('u.username',$username);
+        $this->db->Where('p.userid = u.userid');
 
         // Execute the query.
         $query = $this->db->get();
