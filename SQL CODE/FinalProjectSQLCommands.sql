@@ -1191,5 +1191,45 @@ SELECT Movie.name, ROUND(AVG(rating),1)
 	GROUP BY Movie.name
 	ORDER BY ROUND(AVG(rating),1) DESC;	
 
+-- Select best genre based on average ratings of its movies
+SELECT topics.description, ROUND(AVG(rating),1) 
+	FROM Watches, 
+	topics natural right join movietopics 
+	WHERE movietopics.movieID = Watches.MovieID 
+	GROUP BY topics.description
+	ORDER BY ROUND(AVG(rating),1) DESC
+	LIMIT 1;
+	
+-- Select genre and ratings based on genre name	
+SELECT topics.description, ROUND(AVG(rating),1) 
+	FROM Watches, 
+	topics natural right join movietopics 
+	WHERE movietopics.movieID = Watches.MovieID
+    AND topics.description='Crime'	
+	GROUP BY topics.description;
+	
+-- Best actor based on average ratings of movies they are in 
+SELECT actor.lname, ROUND(AVG(rating),1) 
+	FROM Watches,  
+	actor natural right join actor_movie 
+	WHERE actor_movie.movieID = Watches.MovieID 
+	GROUP BY actor.lname
+	ORDER BY ROUND(AVG(rating),1) DESC
+	LIMIT 1;
 
---DELETE FROM userAccount WHERE username = 'kiwikid'; 
+
+-- Name and ratings of a given actor
+SELECT actor.lname, ROUND(AVG(rating),1) 
+	FROM Watches,  
+	actor natural right join actor_movie 
+	WHERE actor_movie.movieID = Watches.MovieID 
+	AND actor.lname='Wood'
+	GROUP BY actor.lname;
+
+-- All Movies with higer rating than "X"
+SELECT m1.name, ROUND(AVG(w1.rating),1) 
+	FROM Watches w1, Watches w2, Movie m1, Movie m2
+	WHERE m1.MovieID = w1.MovieID AND m2.MovieID = w2.MovieID AND w1.rating > w2.rating AND m2.name = 'Argo'
+	GROUP BY m1.name
+	ORDER BY ROUND(AVG(w1.rating),1) DESC;
+	
